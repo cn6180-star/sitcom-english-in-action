@@ -12,7 +12,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E01",
+      "usage": "日常的"
     },
     {
       "id": "p2",
@@ -25,7 +26,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E01",
+      "usage": "日常的"
     },
     {
       "id": "p3",
@@ -38,7 +40,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E01",
+      "usage": "日常的"
     },
     {
       "id": "p4",
@@ -51,7 +54,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E01",
+      "usage": "日常的"
     },
     {
       "id": "p5",
@@ -64,7 +68,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E01",
+      "usage": "日常的"
     },
     {
       "id": "p6",
@@ -77,7 +82,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p7",
@@ -90,7 +96,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p8",
@@ -103,7 +110,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p9",
@@ -116,7 +124,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p10",
@@ -129,7 +138,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p11",
@@ -142,7 +152,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p12",
@@ -155,7 +166,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E01-02"
+      "episode": "S01E02",
+      "usage": "日常的"
     },
     {
       "id": "p13",
@@ -168,7 +180,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p14",
@@ -181,7 +194,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p15",
@@ -194,7 +208,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p16",
@@ -207,7 +222,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p17",
@@ -220,7 +236,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p18",
@@ -233,7 +250,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E03"
+      "episode": "S01E03",
+      "usage": "日常的"
     },
     {
       "id": "p19",
@@ -246,7 +264,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E04",
+      "usage": "知っておきたい"
     },
     {
       "id": "p20",
@@ -259,7 +278,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E04",
+      "usage": "知っておきたい"
     },
     {
       "id": "p21",
@@ -272,7 +292,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E04",
+      "usage": "知っておきたい"
     },
     {
       "id": "p22",
@@ -285,7 +306,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E04",
+      "usage": "日常的"
     },
     {
       "id": "p23",
@@ -298,7 +320,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E05",
+      "usage": "日常的"
     },
     {
       "id": "p24",
@@ -311,20 +334,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
-    },
-    {
-      "id": "p25",
-      "phrase": "scrunchy",
-      "meaning": "くしゃっとした／しかめた感じの",
-      "scene": "表情や質感をカジュアルに言うとき",
-      "example1": "Why so scrunchy today?",
-      "example2": "Don’t scrunch your face like that.",
-      "type": "word",
-      "priorityText": "★☆☆",
-      "priority": 1,
-      "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E05",
+      "usage": "日常的"
     },
     {
       "id": "p26",
@@ -337,7 +348,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E05",
+      "usage": "やや古め"
     },
     {
       "id": "p27",
@@ -350,7 +362,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E05",
+      "usage": "日常的"
     },
     {
       "id": "p28",
@@ -363,7 +376,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E05",
+      "usage": "日常的"
     },
     {
       "id": "p29",
@@ -376,7 +390,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E04-05"
+      "episode": "S01E06",
+      "usage": "日常的"
     },
     {
       "id": "p30",
@@ -389,20 +404,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E04-05"
-    },
-    {
-      "id": "p31",
-      "phrase": "That’s who you saw me with?",
-      "meaning": "それが俺に合うと思ったん？",
-      "scene": "紹介や好みがズレてるときのツッコミ",
-      "example1": "That’s the movie you recommended?",
-      "example2": "That’s what you picked for me?",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E06",
+      "usage": "日常的"
     },
     {
       "id": "p32",
@@ -415,7 +418,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E08",
+      "usage": "やや古め"
     },
     {
       "id": "p33",
@@ -428,7 +432,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E08",
+      "usage": "日常的"
     },
     {
       "id": "p34",
@@ -441,7 +446,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E08",
+      "usage": "日常的"
     },
     {
       "id": "p35",
@@ -454,7 +460,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E08",
+      "usage": "日常的"
     },
     {
       "id": "p36",
@@ -467,20 +474,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E06-07"
-    },
-    {
-      "id": "p37",
-      "phrase": "un-me",
-      "meaning": "自分らしくない",
-      "scene": "自分のキャラとズレたとき",
-      "example1": "That was so un-me.",
-      "example2": "This outfit is kind of un-me.",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E07",
+      "usage": "日常的"
     },
     {
       "id": "p38",
@@ -493,20 +488,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E06-07"
-    },
-    {
-      "id": "p39",
-      "phrase": "the definitive one",
-      "meaning": "決定版／これが本命",
-      "scene": "自分の案が一番だと言いたいとき",
-      "example1": "This is the definitive guide.",
-      "example2": "That’s the definitive version.",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E08",
+      "usage": "日常的"
     },
     {
       "id": "p40",
@@ -519,7 +502,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E07",
+      "usage": "知っておきたい"
     },
     {
       "id": "p41",
@@ -532,7 +516,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E07",
+      "usage": "知っておきたい"
     },
     {
       "id": "p42",
@@ -545,7 +530,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E06-07"
+      "episode": "S01E07",
+      "usage": "知っておきたい"
     },
     {
       "id": "p43",
@@ -558,7 +544,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E09",
+      "usage": "日常的"
     },
     {
       "id": "p44",
@@ -571,7 +558,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E09",
+      "usage": "日常的"
     },
     {
       "id": "p45",
@@ -584,7 +572,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E09",
+      "usage": "日常的"
     },
     {
       "id": "p46",
@@ -597,7 +586,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p47",
@@ -610,7 +600,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p48",
@@ -623,7 +614,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p49",
@@ -636,7 +628,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p50",
@@ -649,7 +642,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p51",
@@ -662,7 +656,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p52",
@@ -675,7 +670,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p53",
@@ -688,7 +684,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E08-09"
+      "episode": "S01E10",
+      "usage": "日常的"
     },
     {
       "id": "p54",
@@ -701,7 +698,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p55",
@@ -714,7 +712,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p56",
@@ -727,46 +726,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E10-11"
-    },
-    {
-      "id": "p57",
-      "phrase": "In Bizarro world",
-      "meaning": "現実とは逆の世界ならね（＝ありえん）",
-      "scene": "皮肉っぽく否定するとき",
-      "example1": "Yeah, in Bizarro world.",
-      "example2": "In Bizarro world, he’s smart.",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E10-11"
-    },
-    {
-      "id": "p58",
-      "phrase": "You broke the code.",
-      "meaning": "暗黙のルールを破った",
-      "scene": "友情や恋愛のルール違反を責めるとき",
-      "example1": "You broke the code.",
-      "example2": "You don’t date a friend’s ex. That’s the code.",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E10-11"
-    },
-    {
-      "id": "p59",
-      "phrase": "What code?",
-      "meaning": "そんなルールあった？",
-      "scene": "とぼけるときや知らないとき",
-      "example1": "You broke the code!",
-      "example2": "What code?",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p60",
@@ -779,7 +740,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "知っておきたい"
     },
     {
       "id": "p61",
@@ -792,20 +754,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E10-11"
-    },
-    {
-      "id": "p62",
-      "phrase": "knowledge is a tricky thing",
-      "meaning": "そのへんは難しい話で…（ごまかし）",
-      "scene": "責められて逃げるとき",
-      "example1": "Well… knowledge is a tricky thing.",
-      "example2": "You know, knowledge is a tricky thing.",
-      "type": "idiom",
-      "priorityText": "★★☆",
-      "priority": 2,
-      "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p63",
@@ -818,7 +768,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p64",
@@ -831,7 +782,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E10-11"
+      "episode": "S01E11",
+      "usage": "日常的"
     },
     {
       "id": "p65",
@@ -844,7 +796,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p66",
@@ -857,7 +810,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p67",
@@ -870,7 +824,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p68",
@@ -883,7 +838,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p69",
@@ -896,7 +852,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p70",
@@ -909,7 +866,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p71",
@@ -922,7 +880,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "知っておきたい"
     },
     {
       "id": "p72",
@@ -935,7 +894,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "知っておきたい"
     },
     {
       "id": "p73",
@@ -948,7 +908,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p74",
@@ -961,7 +922,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E12",
+      "usage": "日常的"
     },
     {
       "id": "p75",
@@ -974,7 +936,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "日常的"
     },
     {
       "id": "p76",
@@ -987,7 +950,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "日常的"
     },
     {
       "id": "p77",
@@ -1000,7 +964,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "知っておきたい"
     },
     {
       "id": "p78",
@@ -1013,7 +978,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "知っておきたい"
     },
     {
       "id": "p79",
@@ -1026,7 +992,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "日常的"
     },
     {
       "id": "p80",
@@ -1039,7 +1006,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E12-13"
+      "episode": "S01E13",
+      "usage": "日常的"
     },
     {
       "id": "p81",
@@ -1052,7 +1020,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p82",
@@ -1065,7 +1034,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p83",
@@ -1078,7 +1048,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p84",
@@ -1091,7 +1062,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p85",
@@ -1104,7 +1076,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p86",
@@ -1117,7 +1090,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p87",
@@ -1130,7 +1104,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p88",
@@ -1143,7 +1118,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p89",
@@ -1156,7 +1132,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E14"
+      "episode": "S01E14",
+      "usage": "日常的"
     },
     {
       "id": "p90",
@@ -1169,7 +1146,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E15",
+      "usage": "日常的"
     },
     {
       "id": "p91",
@@ -1182,20 +1160,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E15-17"
-    },
-    {
-      "id": "p92",
-      "phrase": "dip your pen in the company ink",
-      "meaning": "職場恋愛するな",
-      "scene": "同僚との恋愛を止めるとき",
-      "example1": "Don’t dip your pen in the company ink.",
-      "example2": "It’s risky to dip your pen in the company ink.",
-      "type": "idiom",
-      "priorityText": "★☆☆",
-      "priority": 1,
-      "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E15",
+      "usage": "日常的"
     },
     {
       "id": "p93",
@@ -1208,7 +1174,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E16",
+      "usage": "日常的"
     },
     {
       "id": "p94",
@@ -1221,7 +1188,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E16",
+      "usage": "日常的"
     },
     {
       "id": "p95",
@@ -1234,7 +1202,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E16",
+      "usage": "日常的"
     },
     {
       "id": "p96",
@@ -1247,7 +1216,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E16",
+      "usage": "日常的"
     },
     {
       "id": "p97",
@@ -1260,7 +1230,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E17",
+      "usage": "日常的"
     },
     {
       "id": "p98",
@@ -1273,7 +1244,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E15-17"
+      "episode": "S01E17",
+      "usage": "日常的"
     },
     {
       "id": "p99",
@@ -1286,20 +1258,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
-    },
-    {
-      "id": "p100",
-      "phrase": "step on someone’s point",
-      "meaning": "人の言おうとしてたことを潰す",
-      "scene": "話を遮られたとき",
-      "example1": "Hey, you stepped on my point.",
-      "example2": "Sorry, I didn’t mean to step on your point.",
-      "type": "idiom",
-      "priorityText": "★☆☆",
-      "priority": 1,
-      "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E18",
+      "usage": "日常的"
     },
     {
       "id": "p101",
@@ -1312,7 +1272,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E18",
+      "usage": "日常的"
     },
     {
       "id": "p102",
@@ -1325,7 +1286,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E18",
+      "usage": "日常的"
     },
     {
       "id": "p103",
@@ -1338,7 +1300,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E19",
+      "usage": "日常的"
     },
     {
       "id": "p104",
@@ -1351,20 +1314,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E18-20"
-    },
-    {
-      "id": "p105",
-      "phrase": "per se",
-      "meaning": "それ自体としては",
-      "scene": "本質的に問題ないとき",
-      "example1": "It’s not a problem per se.",
-      "example2": "I don’t dislike it per se.",
-      "type": "idiom",
-      "priorityText": "★★★",
-      "priority": 3,
-      "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E19",
+      "usage": "やや古め"
     },
     {
       "id": "p106",
@@ -1377,7 +1328,8 @@
       "priorityText": "★☆☆",
       "priority": 1,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E19",
+      "usage": "知っておきたい"
     },
     {
       "id": "p107",
@@ -1390,7 +1342,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E20",
+      "usage": "知っておきたい"
     },
     {
       "id": "p108",
@@ -1403,7 +1356,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E20",
+      "usage": "日常的"
     },
     {
       "id": "p109",
@@ -1416,7 +1370,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E20",
+      "usage": "日常的"
     },
     {
       "id": "p110",
@@ -1429,7 +1384,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E20",
+      "usage": "日常的"
     },
     {
       "id": "p111",
@@ -1442,7 +1398,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E20",
+      "usage": "日常的"
     },
     {
       "id": "p112",
@@ -1455,7 +1412,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E18-20"
+      "episode": "S01E18",
+      "usage": "日常的"
     },
     {
       "id": "p113",
@@ -1468,7 +1426,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E21",
+      "usage": "日常的"
     },
     {
       "id": "p114",
@@ -1481,7 +1440,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E21",
+      "usage": "日常的"
     },
     {
       "id": "p115",
@@ -1494,7 +1454,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E21",
+      "usage": "知っておきたい"
     },
     {
       "id": "p116",
@@ -1507,7 +1468,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E21",
+      "usage": "日常的"
     },
     {
       "id": "p117",
@@ -1520,7 +1482,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E19",
+      "usage": "日常的"
     },
     {
       "id": "p118",
@@ -1533,7 +1496,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E21-22"
+      "episode": "S01E21",
+      "usage": "日常的"
     },
     {
       "id": "p119",
@@ -1546,7 +1510,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E23",
+      "usage": "日常的"
     },
     {
       "id": "p120",
@@ -1559,7 +1524,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "知っておきたい"
     },
     {
       "id": "p121",
@@ -1572,7 +1538,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p122",
@@ -1585,7 +1552,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p123",
@@ -1598,7 +1566,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p124",
@@ -1611,7 +1580,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p125",
@@ -1624,7 +1594,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p126",
@@ -1637,7 +1608,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p127",
@@ -1650,7 +1622,8 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "日常的"
     },
     {
       "id": "p128",
@@ -1663,778 +1636,1004 @@
       "priorityText": "★★☆",
       "priority": 2,
       "source": "Friends",
-      "episode": "S01E23-24"
+      "episode": "S01E24",
+      "usage": "知っておきたい"
     }
   ],
   "dialogues": [
     {
       "id": "d1",
       "season": "Season 1",
-      "title": "恋愛①（軽い駆け引き＋相談）",
+      "title": "日常①（予定変更・立て直し）",
       "lines": [
         [
           "A",
-          "I’m thinking about making a move on her.",
-          "彼女にアプローチしようと思ってる"
+          "How’s it going?",
+          "調子どう？"
         ],
         [
           "B",
-          "Finally. What’s stopping you?",
-          "ついに。何が引っかかってるの？"
+          "Honestly? It sucks. Everything I planned for today fell apart.",
+          "正直？最悪。今日予定してたことが全部崩れた。"
         ],
         [
           "A",
-          "I don’t know… maybe I should play hard to get a little.",
-          "わからん…少し駆け引きした方がいいかなって"
+          "That bad?",
+          "そんなに？"
         ],
         [
           "B",
-          "I beg to differ. That never works for you.",
-          "いや、それは違うと思う。それ君には絶対うまくいかないよ"
+          "Yeah, but I’m trying to roll with the punches.",
+          "うん。でも状況に合わせて何とかやろうとしてる。"
         ],
         [
           "A",
-          "That’s easy for you to say. You’re good at this stuff.",
-          "そりゃ君はそう言えるよ。こういうの得意やん"
+          "Well, lunch is still on the table.",
+          "まあ、ランチに行くって選択肢はまだあるよ。"
         ],
         [
           "B",
-          "Look, why don’t you run it by me first before you do anything stupid?",
-          "変なことする前に、まず僕に相談してみたら？"
+          "True. We could make a day of it.",
+          "そうやな。そのまま一日楽しんでもいいかも。"
         ],
         [
           "A",
-          "Wow, thanks for the confidence.",
-          "わあ、信用してくれてありがとう"
+          "Exactly.",
+          "そうそう。"
         ],
         [
           "B",
-          "I’m serious. At the end of the day, you just can’t screw this up.",
-          "本気で言ってる。結局、これは失敗できないんだよ"
+          "On second thought, I should probably finish this report first.",
+          "やっぱり、このレポートを先に終わらせた方がいいかな。"
         ],
         [
           "A",
-          "Yeah… no pressure, right?",
-          "うん…全然プレッシャーないよね？"
+          "Probably. Chances are you’ll enjoy the afternoon more if you do.",
+          "たぶんね。先にやっとけば午後をもっと楽しめると思う。"
         ],
         [
           "B",
-          "Exactly. Just don’t overthink it.",
-          "その通り。考えすぎなければいいだけ"
+          "Good point. Work first, fun later.",
+          "確かに。先に仕事、遊ぶのはそのあとやな。"
         ],
         [
           "A",
-          "Easier said than done.",
-          "言うのは簡単だけど、実際にやるのは難しい"
+          "There you go.",
+          "それでいこう。"
         ]
       ],
       "phraseLinks": [
-        "p67",
-        "p426",
-        "p99",
-        "p369",
-        "p93",
-        "p110",
-        "p85"
+        "p121",
+        "p4",
+        "p9",
+        "p10",
+        "p38",
+        "p36",
+        "p12"
       ]
     },
     {
       "id": "d2",
       "season": "Season 1",
-      "title": "ケンカ①（言い合い系）",
+      "title": "仕事①（提案・意思決定）",
       "lines": [
         [
           "A",
-          "I’ve had it with you lately.",
-          "最近の君にはもううんざり"
+          "Can I run something by you?",
+          "ちょっと相談していい？"
         ],
         [
           "B",
-          "What? What did I even do?",
-          "何？僕が何したっていうの？"
+          "Sure. What’s up?",
+          "もちろん。どうした？"
         ],
         [
           "A",
-          "Don’t get me wrong, but you’ve been acting weird.",
-          "誤解しないでほしいけど、最近ちょっと変だよ"
+          "Management wants to change the schedule again.",
+          "上がまたスケジュールを変えたいらしい。"
         ],
         [
           "B",
-          "That’s not fair. You’re the one who screwed things up.",
-          "それは不公平だよ。やらかしたのは君の方でしょ"
+          "Do we get a say in it this time?",
+          "今回はこっちにも発言権あるの？"
         ],
         [
           "A",
-          "That’s beside the point.",
-          "それは今の論点じゃないでしょ"
+          "Not that I know of.",
+          "私の知る限りでは、ない。"
         ],
         [
           "B",
-          "No, it’s exactly the point. You don’t know the first thing about what I’m dealing with.",
-          "いや、まさにそこが問題なんだよ。僕が何を抱えてるか全然わかってない"
+          "The bottom line is, it affects everyone on the team.",
+          "要するに、チーム全員に影響するってことやろ。"
         ],
         [
           "A",
-          "Oh please, it’s not that big a deal.",
-          "何それ。そんなに大したことじゃないでしょ"
+          "Exactly. I think we ought to say something.",
+          "そう。何か言った方がいいと思う。"
         ],
         [
           "B",
-          "Not a big deal? Seriously?",
-          "大したことじゃない？本気で言ってる？"
+          "By all means. Just keep it professional.",
+          "ぜひ。ただし冷静にね。"
         ],
         [
           "A",
-          "Look, at the end of the day, we both messed up.",
-          "結局のところ、僕たち両方やらかしたんだよ"
+          "Yeah. I don’t want to screw this up.",
+          "うん。ここでやらかしたくないし。"
         ],
         [
           "B",
-          "Yeah… I guess that’s true.",
-          "うん…それは確かにそうかも"
+          "For future reference, put concerns like this in writing too.",
+          "今後のためにも、こういう懸念は文書にも残しといた方がいいよ。"
         ],
         [
           "A",
-          "So what now?",
-          "で、これからどうする？"
-        ],
-        [
-          "B",
-          "We figure it out. Together.",
-          "一緒に考えて何とかしよう"
+          "Good idea. I’ll draft something.",
+          "いい考え。下書き作るわ。"
         ]
       ],
       "phraseLinks": [
-        "p16",
-        "p307",
-        "p236",
-        "p337",
-        "p110",
+        "p93",
+        "p103",
+        "p97",
+        "p17",
+        "p28",
+        "p45",
         "p85",
-        "p23"
+        "p108"
       ]
     },
     {
       "id": "d3",
       "season": "Season 1",
-      "title": "日常・雑談①（軽めで回しやすいやつ）",
+      "title": "日常②（体調・近況）",
       "lines": [
         [
           "A",
-          "Hey, how’s it going?",
-          "やあ、調子はどう？"
+          "You look tired. What’s with the huge coffee?",
+          "疲れてるな。そのでかいコーヒーどうしたん？"
         ],
         [
           "B",
-          "Eh, I’ve been a little out of sorts lately.",
-          "うーん、最近ちょっと調子悪いんだよね"
+          "I’ve been a little out of sorts lately.",
+          "最近なんか本調子じゃなくて。"
         ],
         [
           "A",
-          "Really? What happened?",
-          "ほんと？何があったの？"
+          "Are you sleeping okay?",
+          "ちゃんと寝れてる？"
         ],
         [
           "B",
-          "Not sure, honestly. Just to clarify, I’m not sick or anything.",
-          "正直よくわからない。念のため言うと、病気とかではないよ"
+          "More or less. I keep waking up at night.",
+          "まあだいたいは。でも夜中に何回も起きる。"
         ],
         [
           "A",
-          "Got it. Did something happen at work?",
-          "なるほど。仕事で何かあった？"
+          "You ought to take it easy for a couple of days.",
+          "2、3日は無理せん方がいいよ。"
         ],
         [
           "B",
-          "Not that I know of. Everything’s more or less the same.",
-          "自分の知る限りでは何も。だいたいいつも通り"
+          "Yeah. Coffee isn’t agreeing with me either.",
+          "うん。コーヒーも最近体に合ってないみたい。"
         ],
         [
           "A",
-          "Maybe you should run it by someone, just to get a second opinion.",
-          "誰かに相談してみたら？別の意見を聞くために"
+          "Then you might wanna cut back a little.",
+          "じゃあ少し減らした方がいいかも。"
         ],
         [
           "B",
-          "Yeah, maybe. I’ll think about it.",
-          "うん、そうかも。考えてみる"
+          "You’re probably right.",
+          "たぶんそうやな。"
         ],
         [
           "A",
-          "Hang in there. It’ll pass before you know it.",
-          "踏ん張って。気づいたら過ぎてるよ"
+          "Before you know it, you’ll be back to normal.",
+          "気づいたらまた元通りになってるよ。"
         ],
         [
           "B",
-          "I hope so. Thanks.",
-          "そうだといいな。ありがとう"
+          "I hope so.",
+          "そうやといいけど。"
+        ],
+        [
+          "A",
+          "Get some rest tonight.",
+          "今日はちゃんと休みな。"
         ]
       ],
       "phraseLinks": [
-        "p121",
+        "p5",
+        "p125",
         "p66",
-        "p111",
-        "p93",
         "p30",
-        "p97",
+        "p28",
+        "p27",
+        "p94",
         "p114"
       ]
     },
     {
       "id": "d4",
       "season": "Season 1",
-      "title": "ケンカ②＋皮肉強め（Friends感MAX）",
+      "title": "仕事②（ミスの報告）",
       "lines": [
         [
           "A",
-          "Wow, someone’s in a bad mood. What’s with you today?",
-          "わあ、誰か機嫌悪いね。今日どうしたの？"
+          "I need to tell you something about the report.",
+          "レポートのことで言わなあかんことがある。"
         ],
         [
           "B",
-          "What’s with me? What’s with you?",
-          "僕がどうしたって？君こそどうしたの？"
+          "Okay. What happened?",
+          "うん。どうした？"
         ],
         [
           "A",
-          "Oh please, you’re just full of it.",
-          "でたらめ言ってるだけでしょ"
+          "I used the wrong numbers in one section.",
+          "一か所、間違った数字を使ってた。"
         ],
         [
           "B",
-          "I beg to differ. You started this.",
-          "いや、それは違うと思う。始めたのは君でしょ"
+          "How bad is it?",
+          "どのくらいまずい？"
         ],
         [
           "A",
-          "Yeah, you wish.",
-          "そうだったらいいね（皮肉）"
+          "Not that big a deal, but we need to fix it before the meeting.",
+          "そこまで大事じゃないけど、会議前には直さないと。"
         ],
         [
           "B",
-          "Seriously, you might wanna check your attitude.",
-          "本気で、自分の態度を見直した方がいいよ"
+          "All things considered, catching it now is good news.",
+          "総合的に考えたら、今気づけたのはよかったよ。"
         ],
         [
           "A",
-          "Excuse me? Not that it’s any of your business, but I’m fine.",
-          "何ですって？あなたには関係ないけど、私は大丈夫"
+          "I was trying to figure out how to cushion the blow.",
+          "どう伝えたらショックを和らげられるか考えてた。"
         ],
         [
           "B",
-          "Sure you are. Totally convincing.",
-          "そうだね。すごく説得力あるよ"
+          "If it makes you feel any better, I’ve made the same mistake.",
+          "気休めになるかわからんけど、私も同じミスしたことあるよ。"
         ],
         [
           "A",
-          "You know what? Let’s just stick a pin in it.",
-          "もういい。この話は一旦保留にしよう"
+          "Seriously?",
+          "ほんまに？"
         ],
         [
           "B",
-          "Fine. Probably for the best.",
-          "いいよ。たぶんその方がいい"
+          "Yeah. Just to clarify, the client hasn’t seen this version yet, right?",
+          "うん。確認なんやけど、この版はまだクライアントには見せてないよね？"
         ],
         [
           "A",
-          "Yeah… before this gets worse.",
-          "うん、これ以上悪くなる前にね"
-        ],
-        [
-          "B",
-          "Agreed.",
-          "それには同感"
+          "Right. I’ll fix it now.",
+          "うん。今すぐ直す。"
         ]
       ],
       "phraseLinks": [
-        "p47",
-        "p101",
-        "p99",
-        "p5",
-        "p96",
-        "p94",
-        "p88"
+        "p23",
+        "p22",
+        "p14",
+        "p109",
+        "p111"
       ]
     },
     {
       "id": "d5",
       "season": "Season 1",
-      "title": "励まし・優しめ（バランス取る回）",
+      "title": "メンタル①（落ち込みから立て直す）",
       "lines": [
         [
           "A",
-          "Hey… how’re you holding up?",
-          "ねえ…大丈夫？なんとか持ちこたえてる？"
+          "How’re you holding up?",
+          "大丈夫？"
         ],
         [
           "B",
-          "Honestly? Not great. It’s been a rough week.",
-          "正直、あまりよくない。きつい一週間だった"
+          "Not great. I keep fixating on what happened.",
+          "あんまり。起きたことをずっと気にしてしまって。"
         ],
         [
           "A",
-          "Yeah, I figured. If it makes you feel any better, I’ve been there too.",
-          "気休めかもしれないけど"
+          "I get it, but try to put it in perspective.",
+          "わかるけど、少し見方を変えて考えてみて。"
         ],
         [
           "B",
-          "Thanks… I just feel kind of stuck, you know?",
-          "なんか行き詰まってる感じ"
+          "Easy for you to say.",
+          "そっちの立場なら簡単に言えるよ。"
         ],
         [
           "A",
-          "You’ll get through this. You always do.",
-          "これは乗り越えられるよ。いつもそうしてきたでしょ"
+          "Fair. But you will get it together enough to deal with this.",
+          "それはそう。でもちゃんと向き合えるくらいには立て直せるよ。"
         ],
         [
           "B",
-          "I hope so. Right now it doesn’t feel like it.",
-          "そうだといいな。今はそう思えないけど"
+          "I just want to get on with my life.",
+          "もう気持ち切り替えて前に進みたい。"
         ],
         [
           "A",
-          "It’s really not that big a deal in the long run.",
-          "長い目で見れば、本当にそんなに大したことじゃないよ"
+          "You will. We’ll get you through this.",
+          "進めるよ。私たちが一緒に乗り越えるから。"
         ],
         [
           "B",
-          "Maybe… I just need some time.",
-          "そうかも…ただ少し時間が必要なんだと思う"
+          "Thanks.",
+          "ありがとう。"
         ],
         [
           "A",
-          "And hey, thanks for opening up. That actually means a lot.",
-          "心を開いてくれてありがとう"
+          "And you don’t have to pretend you’re fine.",
+          "無理に平気なふりせんでいいからね。"
         ],
         [
           "B",
-          "Really?",
-          "本当に？"
+          "You don’t know what that means to me.",
+          "そう言ってもらえるのがどれだけ嬉しいかわからんと思う。"
         ],
         [
           "A",
-          "Yeah, you coming out of your shell like this? You don’t know what that means to me.",
-          "君がこうやって心を開いてくれるのが、僕にとってどれだけ大きいかわからないと思う"
-        ],
-        [
-          "B",
-          "…Thanks. Seriously.",
-          "…ありがとう。本当に"
-        ],
-        [
-          "A",
-          "Anytime. We’re even.",
-          "いつでも。これでおあいこだね"
+          "Anytime.",
+          "いつでも。"
         ]
       ],
       "phraseLinks": [
         "p122",
+        "p1",
+        "p7",
+        "p89",
+        "p2",
+        "p86",
         "p123",
-        "p109",
-        "p23",
-        "p44",
-        "p55",
-        "p15"
+        "p44"
       ]
     },
     {
       "id": "d6",
       "season": "Season 1",
-      "title": "仕事・相談系（実用度かなり高い）",
+      "title": "日常③（頼み事・貸し借り）",
       "lines": [
         [
           "A",
-          "Hey, can I run something by you real quick?",
-          "ちょっと相談してもいい？"
+          "Can you do me a favor and pick up my package?",
+          "お願いしていい？荷物取ってきてくれへん？"
         ],
         [
           "B",
-          "Sure, what’s up?",
-          "もちろん。どうしたの？"
+          "You bailed on me last week, remember?",
+          "先週ドタキャンしたの覚えてる？"
         ],
         [
           "A",
-          "They want to change the whole plan, and I don’t even get a say in it.",
-          "全体の計画を変えようとしてるのに、僕には発言権すらないんだ"
+          "I know. Dinner’s on me tonight.",
+          "わかってる。今夜の晩ごはんは私が出す。"
         ],
         [
           "B",
-          "Seriously? That doesn’t sound right.",
-          "本当に？それはおかしいね"
+          "And dessert?",
+          "デザートも？"
         ],
         [
           "A",
-          "Yeah, and I’m not sure how I feel about it.",
-          "どう感じればいいかわからない"
+          "Fine. Then we’re even.",
+          "わかった。それでおあいやな。"
         ],
         [
           "B",
-          "Well, the bottom line is, does it make your job easier or harder?",
-          "要するに、それで君の仕事は楽になるの？それとも大変になるの？"
+          "I’m a little shy of convinced.",
+          "まだちょっと納得しきれてないな。"
         ],
         [
           "A",
-          "Honestly, probably harder.",
-          "正直、たぶん大変になる"
+          "Okay, let me throw this out there: dessert and coffee.",
+          "じゃあ提案。デザートとコーヒーもつける。"
         ],
         [
           "B",
-          "Then you should speak up.",
-          "じゃあ、ちゃんと意見を言うべきだよ"
+          "Now I’m behind it.",
+          "それなら賛成。"
         ],
         [
           "A",
-          "I don’t know… I don’t want to make a big deal out of it.",
-          "わからない…これを大ごとにはしたくないんだ"
+          "You drive a hard bargain.",
+          "交渉うまいな。"
         ],
         [
           "B",
-          "All things considered, it’s not that big a deal to say something.",
-          "総合的に考えたら、何か言うくらいそんなに大したことじゃないよ"
+          "We could flip you for the coffee.",
+          "コーヒー代はコイントスで決めてもいいよ。"
         ],
         [
           "A",
-          "Maybe. I just don’t know if I fit into this new direction.",
-          "そうかも。ただ、この新しい方向性に自分が合うのかわからないんだ"
-        ],
-        [
-          "B",
-          "If you want to go the distance there, you kinda have to adapt.",
-          "そこで長くやっていきたいなら、ある程度は適応しないと"
-        ],
-        [
-          "A",
-          "Yeah… I guess you’re right.",
-          "うん…君の言う通りかも"
-        ],
-        [
-          "B",
-          "Just don’t overthink it.",
-          "とにかく考えすぎないで"
+          "Deal.",
+          "決まり。"
         ]
       ],
       "phraseLinks": [
-        "p93",
-        "p103",
-        "p17",
-        "p22",
-        "p23",
-        "p6",
-        "p79"
+        "p81",
+        "p15",
+        "p102",
+        "p51",
+        "p43",
+        "p95"
       ]
     },
     {
       "id": "d7",
       "season": "Season 1",
-      "title": "軽い雑談＋ノリ系（Friendsっぽさ強め）",
+      "title": "ケンカ①（感情的になったとき）",
       "lines": [
         [
           "A",
-          "Hey, how’s it going?",
-          "やあ、調子はどう？"
+          "What’s with you today?",
+          "今日どうしたん？"
         ],
         [
           "B",
-          "Pretty good. Actually, I’ve been on a roll lately.",
-          "けっこういいよ。実は最近ずっと調子いいんだ"
+          "I’ve had it with people changing things without telling me.",
+          "何も言わずに勝手に変える人たちにはもううんざり。"
         ],
         [
           "A",
-          "Oh really? Look at you.",
-          "へえ、本当に？やるじゃん"
+          "Okay, but don’t put it like that.",
+          "わかったけど、そんな言い方せんでも。"
         ],
         [
           "B",
-          "Yeah, I don’t mean to brag, but things are going great.",
-          "自慢するつもりじゃないけど、いろいろうまくいってるんだ"
+          "I know. I snapped.",
+          "わかってる。キレてもうた。"
         ],
         [
           "A",
-          "Wow. What’s with the sudden confidence?",
-          "わあ、その急な自信は何なの？"
+          "And that comment was a cheap shot.",
+          "それに、さっきの一言は卑怯やったよ。"
         ],
         [
           "B",
-          "Hey, I’ve earned it.",
-          "だって、それだけのことはしたからね"
+          "You’re right. I’m sorry.",
+          "そうやな。ごめん。"
         ],
         [
           "A",
-          "Sure you have. You wish.",
-          "はいはい、そうだったらいいね"
+          "Let’s stick a pin in it until we both cool down.",
+          "二人とも落ち着くまで、この話はいったん保留にしよう。"
         ],
         [
           "B",
-          "Oh come on, I’m serious. More or less everything’s working out.",
-          "ちょっと、本気だよ。だいたい全部うまくいってるんだ"
+          "Probably a good idea.",
+          "その方がよさそう。"
         ],
         [
           "A",
-          "Alright, alright. I’ll give you that.",
-          "わかったわかった。それは認めるよ"
+          "Some things are better left unsaid when you’re angry.",
+          "怒ってるときは言わん方がいいこともあるから。"
         ],
         [
           "B",
-          "I’m just throwing it out there—I might be unstoppable right now.",
-          "ちょっと言ってみるけど"
+          "Yeah. Let’s not go down that road again.",
+          "うん。またあの話に踏み込むのはやめよう。"
         ],
         [
           "A",
-          "Okay, now you’re pushing it.",
-          "はい、今のはちょっと言いすぎ"
-        ],
-        [
-          "B",
-          "Maybe a little.",
-          "まあ、ちょっとだけね"
+          "Agreed.",
+          "そうしよう。"
         ]
       ],
       "phraseLinks": [
-        "p121",
         "p5",
-        "p90",
-        "p30",
-        "p47",
-        "p130",
-        "p51"
+        "p16",
+        "p18",
+        "p50",
+        "p11",
+        "p88",
+        "p34",
+        "p64"
       ]
     },
     {
       "id": "d8",
       "season": "Season 1",
-      "title": "ちょい深めの会話・人生系（落ち着いたトーン）",
+      "title": "仕事③（意見の食い違い）",
       "lines": [
         [
           "A",
-          "Do you ever think about how things could’ve turned out differently?",
-          "違う結果になってたらって考えることある？"
+          "I think we should postpone the launch.",
+          "公開を延期した方がいいと思う。"
         ],
         [
           "B",
-          "Yeah… sometimes. But I try not to go down that road too much.",
-          "うん…時々ね。でもあまりその方向には考えないようにしてる"
+          "I beg to differ. We’re ready.",
+          "いや、それは違うと思う。準備はできてる。"
         ],
         [
           "A",
-          "Same here. Some things are better left unsaid… or even unthought.",
-          "言わない方がいいこともある"
+          "Technically, yes, but the timing is terrible.",
+          "厳密に言えばそう。でもタイミングが悪すぎる。"
         ],
         [
           "B",
-          "True. All things considered, I think we did okay.",
-          "確かに。総合的に見れば、僕たちはよくやったと思う"
+          "Be that as it may, we’ve already spent weeks preparing.",
+          "それはそれとして、もう何週間も準備してきたやろ。"
         ],
         [
           "A",
-          "Yeah, more or less.",
-          "うん、だいたいそんな感じ"
+          "The worst-case scenario is that we rush it and lose customers.",
+          "最悪なのは、急いで出して顧客を失うことや。"
         ],
         [
           "B",
-          "Still, some of it just doesn’t make sense to me.",
-          "どうしても納得できない"
+          "Delaying it could cost us a fortune too.",
+          "延期しても莫大な費用がかかるかもしれん。"
         ],
         [
           "A",
-          "Honestly, it’s beyond me too.",
-          "正直、僕にもよくわからない"
+          "I’m not saying we should throw caution to the wind.",
+          "慎重さを全部捨てろって言ってるわけじゃない。"
         ],
         [
           "B",
-          "Do you think we missed something back then?",
-          "何か見落としてたと思う？"
+          "Good, because I’m prepared to play hardball on this.",
+          "よかった。この件では強気でいくつもりやから。"
         ],
         [
           "A",
-          "Not that I know of. We just did what we could.",
-          "自分の知る限りではないよ。できることをやっただけ"
+          "Then let’s run the numbers one more time.",
+          "じゃあ数字をもう一回確認しよう。"
         ],
         [
           "B",
-          "I guess that’s all anyone can do.",
-          "誰だってそれしかできないよね"
+          "That I can get behind.",
+          "それなら賛成できる。"
         ],
         [
           "A",
-          "Exactly. At the end of the day, that’s enough.",
-          "その通り。結局のところ、それで十分なんだよ"
-        ],
-        [
-          "B",
-          "Yeah… I think so too.",
-          "うん…僕もそう思う"
+          "Good. We’ll decide after that.",
+          "よし。そのあと決めよう。"
         ]
       ],
       "phraseLinks": [
-        "p22",
-        "p34",
-        "p110",
-        "p24",
-        "p97",
-        "p30",
-        "p64"
+        "p99",
+        "p117",
+        "p104",
+        "p98",
+        "p124",
+        "p113",
+        "p91",
+        "p43"
       ]
     },
     {
       "id": "d9",
       "season": "Season 1",
-      "title": "恋愛②＋ちょい気まずい会話（リアル感強め）",
+      "title": "日常④（店選び・外出）",
       "lines": [
         [
           "A",
-          "So… what exactly is going on between you two?",
-          "君たち二人はどういう関係なの？"
+          "Where do you want to eat?",
+          "どこで食べたい？"
         ],
         [
           "B",
-          "I don’t know. We haven’t really put a label on it.",
-          "関係に名前をつける（付き合うかどうか）"
+          "Budget-wise, somewhere cheap.",
+          "予算的には安いところ。"
         ],
         [
           "A",
-          "Seriously? It’s been months.",
-          "もう何ヶ月も経ってるよ"
+          "There’s a little place near the station.",
+          "駅の近くに小さい店あるよ。"
         ],
         [
           "B",
-          "Yeah, I know. It’s just… complicated.",
-          "うん、わかってる。ただ…複雑なんだ"
+          "The one that looks like a total dive?",
+          "めっちゃ安っぽく見えるあの店？"
         ],
         [
           "A",
-          "Did he ever make a move on you?",
-          "彼からアプローチしてきたことはあるの？"
+          "That’s the one.",
+          "それそれ。"
         ],
         [
           "B",
-          "Not really. I mean, more or less, but nothing clear.",
-          "あまりないかな。なんとなくはあるけど、はっきりしたものはない"
+          "I might wanna steer clear of that place.",
+          "あそこは避けた方がいいかも。"
         ],
         [
           "A",
-          "That’s weird. No wonder you seem out of sorts.",
-          "それは変だね。だから調子悪そうに見えるんだ"
+          "Why?",
+          "なんで？"
         ],
         [
           "B",
-          "Hey, not that it’s any of your business, but I’m figuring it out.",
-          "ねえ、あなたには関係ないけど、今ちゃんと考えてるところなの"
+          "Last time the food was a tad cold and the table was a smidge sticky.",
+          "前行ったとき料理はちょっと冷たかったし、テーブルもちょっとベタベタしてた。"
         ],
         [
           "A",
-          "I’m just saying, you might wanna decide what you want.",
-          "ただ、自分がどうしたいのか決めた方がいいって言ってるだけ"
+          "So where should we go?",
+          "じゃあどこ行く？"
         ],
         [
           "B",
-          "I know… I just don’t wanna go down that road unless I’m sure.",
-          "わかってる…でも確信がないまま、その方向には進みたくないんだ"
+          "Got me. Want to just walk around and see what looks good?",
+          "さあね。歩きながら良さそうな店探す？"
         ],
         [
           "A",
-          "Fair enough. Just don’t drag it out forever.",
-          "それはわかる。ただ、いつまでも引き延ばさないでね"
-        ],
-        [
-          "B",
-          "Yeah… I won’t.",
-          "うん…そうする"
+          "Works for me.",
+          "それでいいよ。"
         ]
       ],
       "phraseLinks": [
-        "p83",
-        "p67",
-        "p66",
-        "p96",
-        "p90",
-        "p64",
-        "p30"
+        "p33",
+        "p56",
+        "p94",
+        "p8",
+        "p49",
+        "p48",
+        "p35"
       ]
     },
     {
       "id": "d10",
       "season": "Season 1",
-      "title": "総合（いろんな場面ミックス＋自然な流れ重視）",
+      "title": "仕事④（スキル・仕事ぶり）",
       "lines": [
         [
           "A",
-          "Hey, how’s it going?",
-          "やあ、調子はどう？"
+          "How’s the new project going?",
+          "新しいプロジェクトどう？"
         ],
         [
           "B",
-          "Could be better. I think I kinda screwed up.",
-          "あまり良くない。ちょっとやらかしたかも"
+          "Pretty well. I’m on a roll today.",
+          "かなり順調。今日は調子いい。"
         ],
         [
           "A",
-          "What happened?",
-          "何があったの？"
+          "Good. You’ve really honed your presentation skills.",
+          "いいね。プレゼンの腕かなり磨いたよな。"
         ],
         [
           "B",
-          "I made a decision without running it by anyone.",
-          "誰にも相談せずに決めちゃったんだ"
+          "I don’t mean to brag, but I am kind of a whiz with the new software.",
+          "自慢するつもりはないけど、新しいソフトは結構得意なんよ。"
         ],
         [
           "A",
-          "Yeah… I beg to differ, that was a mistake.",
-          "うん…悪いけど、それは間違いだったと思う"
+          "You wish.",
+          "そうやったらいいけどな。"
         ],
         [
           "B",
-          "Wow, thanks for the support.",
-          "わあ、応援してくれてありがとう"
+          "Hey! I’ve been doing all the difficult parts.",
+          "ちょっと！難しいところ全部やってるんやで。"
         ],
         [
           "A",
-          "I’m serious. At the end of the day, you should’ve talked it through.",
-          "本気で言ってる。結局、ちゃんと話し合うべきだったんだよ"
+          "I know. I’m just giving you a hard time.",
+          "わかってる。ちょっとからかっただけ。"
         ],
         [
           "B",
-          "I know. I just acted too fast.",
-          "わかってる。ただ、急ぎすぎたんだ"
+          "At least I’m not phoning it in.",
+          "少なくとも手抜きはしてないよ。"
         ],
         [
           "A",
-          "Well, it’s not the end of the world. You’ll fix it.",
-          "まあ、世界の終わりじゃないよ。君なら直せる"
+          "True. You look like you’re ready to go the distance on this one.",
+          "確かに。今回は最後までやり切る気満々に見える。"
         ],
         [
           "B",
-          "You think so?",
-          "そう思う？"
+          "Absolutely.",
+          "もちろん。"
         ],
         [
           "A",
-          "Yeah. Just give it some time. Before you know it, this will all blow over.",
-          "うん。少し時間を置けばいいよ。気づいたら全部収まってるから"
-        ],
-        [
-          "B",
-          "I hope you’re right.",
-          "君の言う通りだといいな"
-        ],
-        [
-          "A",
-          "Trust me, the bottom line is, it’s all gonna work out.",
-          "信じて。要するに、最後は全部うまくいくよ"
-        ],
-        [
-          "B",
-          "…Alright. I needed that.",
-          "…わかった。そう言ってほしかった"
+          "Then keep going while you’re on a roll.",
+          "じゃあ調子いい間にそのまま進めよう。"
         ]
       ],
       "phraseLinks": [
-        "p121",
-        "p93",
-        "p99",
-        "p110",
-        "p85",
-        "p114",
-        "p17"
+        "p3",
+        "p107",
+        "p90",
+        "p53",
+        "p47",
+        "p52",
+        "p79"
+      ]
+    },
+    {
+      "id": "d53",
+      "season": "Season 1",
+      "title": "日常⑤（引っ越し・家具の配置）",
+      "lines": [
+        [
+          "A",
+          "Where do you want this chair?",
+          "この椅子どこに置く？"
+        ],
+        [
+          "B",
+          "Just plunk it down in the vestibule for now.",
+          "とりあえず玄関スペースにポンと置いといて。"
+        ],
+        [
+          "A",
+          "The vestibule? I thought this was the atrium.",
+          "ここ玄関スペースなん？吹き抜けかと思ってた。"
+        ],
+        [
+          "B",
+          "The atrium is through there.",
+          "吹き抜けはあっち。"
+        ],
+        [
+          "A",
+          "Right. Architecture is beyond me.",
+          "なるほど。建築のことはさっぱりわからん。"
+        ],
+        [
+          "B",
+          "Can you move that shelf too?",
+          "あの棚も動かしてくれる？"
+        ],
+        [
+          "A",
+          "The one that’s about yea high?",
+          "このくらいの高さのやつ？"
+        ],
+        [
+          "B",
+          "Yeah, but be careful. It barely fits into that corner.",
+          "そう。でも気をつけて。あの角にギリギリ収まるから。"
+        ],
+        [
+          "A",
+          "No promises. I’m incredibly uncoordinated.",
+          "保証はできんな。私めっちゃ不器用やし。"
+        ],
+        [
+          "B",
+          "Then maybe I should take the shelf.",
+          "じゃあ棚は私が持った方がよさそうやな。"
+        ],
+        [
+          "A",
+          "By all means.",
+          "ぜひそうして。"
+        ]
+      ],
+      "phraseLinks": [
+        "p65",
+        "p40",
+        "p41",
+        "p24",
+        "p106",
+        "p6",
+        "p116",
+        "p45"
+      ]
+    },
+    {
+      "id": "d54",
+      "season": "Season 1",
+      "title": "メンタル②（新しい環境に慣れる）",
+      "lines": [
+        [
+          "A",
+          "How was the meetup?",
+          "交流会どうやった？"
+        ],
+        [
+          "B",
+          "Better than I expected. I actually came out of my shell a little.",
+          "思ったよりよかった。ちょっと人見知りを脱せた気がする。"
+        ],
+        [
+          "A",
+          "See? I knew you’d be fine.",
+          "ほら。大丈夫やと思ってた。"
+        ],
+        [
+          "B",
+          "Most people had pegged me as the quiet one.",
+          "みんな私のこと無口な人やと思ってたみたい。"
+        ],
+        [
+          "A",
+          "Well, you are more of a listener at first.",
+          "まあ最初はどっちかというと聞き役やもんな。"
+        ],
+        [
+          "B",
+          "Then I met this wacky woman with this impish smile.",
+          "そのあと、いたずらっぽい笑顔のちょっと変わった女性に会って。"
+        ],
+        [
+          "A",
+          "And?",
+          "それで？"
+        ],
+        [
+          "B",
+          "She introduced me to everyone. It was huge for me.",
+          "みんなに紹介してくれた。私にはすごく大きなことやった。"
+        ],
+        [
+          "A",
+          "Sounds like you found your people.",
+          "合う人たち見つけたみたいやな。"
+        ],
+        [
+          "B",
+          "Maybe. Chances are I’ll go again next week.",
+          "かもね。たぶん来週も行くと思う。"
+        ],
+        [
+          "A",
+          "Good for you.",
+          "よかったやん。"
+        ]
+      ],
+      "phraseLinks": [
+        "p55",
+        "p126",
+        "p118",
+        "p87",
+        "p42",
+        "p125",
+        "p12"
+      ]
+    },
+    {
+      "id": "d55",
+      "season": "Season 1",
+      "title": "恋愛①（友達との境界線）",
+      "lines": [
+        [
+          "A",
+          "So… are you going to make a move on him?",
+          "で……彼にアプローチするつもり？"
+        ],
+        [
+          "B",
+          "Not that it’s any of your business, but I don’t know.",
+          "あなたには関係ないけど、わからん。"
+        ],
+        [
+          "A",
+          "I’m just asking. He was definitely hitting on you.",
+          "聞いただけやん。あの人、明らかに君に言い寄ってたで。"
+        ],
+        [
+          "B",
+          "He was being friendly.",
+          "ただ親切やっただけ。"
+        ],
+        [
+          "A",
+          "Friendly? He practically made a pass at you.",
+          "親切？ほぼ口説いてたやん。"
+        ],
+        [
+          "B",
+          "Okay, maybe a little.",
+          "まあ、ちょっとはそうかも。"
+        ],
+        [
+          "A",
+          "So what’s stopping you?",
+          "じゃあ何が引っかかってるん？"
+        ],
+        [
+          "B",
+          "I don’t want to put a label on it before anything even happens.",
+          "まだ何も始まってないのに関係を決めつけたくない。"
+        ],
+        [
+          "A",
+          "Fair. It doesn’t have to get all relationship-y.",
+          "確かに。いきなり恋人っぽくする必要はないし。"
+        ],
+        [
+          "B",
+          "Exactly. I just want to see where it goes.",
+          "そう。どうなるか見てみたいだけ。"
+        ],
+        [
+          "A",
+          "Then do that.",
+          "じゃあそれでいいやん。"
+        ]
+      ],
+      "phraseLinks": [
+        "p67",
+        "p96",
+        "p69",
+        "p68",
+        "p83",
+        "p127"
+      ]
+    },
+    {
+      "id": "d56",
+      "season": "Season 1",
+      "title": "仕事⑤（噂・責任の押し付け）",
+      "lines": [
+        [
+          "A",
+          "Did you hear what they’re saying about the delay?",
+          "遅れのことで何て言われてるか聞いた？"
+        ],
+        [
+          "B",
+          "Yeah. Someone cooked up a story that our team caused it.",
+          "うん。うちのチームが原因やって話を誰かがでっち上げた。"
+        ],
+        [
+          "A",
+          "That’s a slap in the face after all the extra work we did.",
+          "あれだけ余分に働いたあとでそれは侮辱やな。"
+        ],
+        [
+          "B",
+          "Exactly. And now we’re taking the brunt of the complaints.",
+          "そう。しかも今、苦情の一番きついところを全部こっちが受けてる。"
+        ],
+        [
+          "A",
+          "Who started the story?",
+          "誰が言い出したん？"
+        ],
+        [
+          "B",
+          "No idea, but whoever it was is full of it.",
+          "知らん。でも言ったやつはでたらめ言ってる。"
+        ],
+        [
+          "A",
+          "Careful. That’s starting to sound like the pot calling the kettle black.",
+          "気をつけて。それやと「お前も同じやろ」って話になりかねんで。"
+        ],
+        [
+          "B",
+          "How?",
+          "どういうこと？"
+        ],
+        [
+          "A",
+          "We blamed the other team before we had all the facts too.",
+          "こっちも事実が全部揃う前に別チームのせいにしたやろ。"
+        ],
+        [
+          "B",
+          "Fair point. At the end of the day, we need facts, not another rumor.",
+          "確かに。結局必要なのは、別の噂じゃなくて事実やな。"
+        ],
+        [
+          "A",
+          "Exactly. Let’s find out what actually happened.",
+          "そう。実際に何が起きたか確認しよう。"
+        ]
+      ],
+      "phraseLinks": [
+        "p119",
+        "p46",
+        "p115",
+        "p101",
+        "p112",
+        "p110"
       ]
     }
   ]

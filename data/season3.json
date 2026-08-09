@@ -12,7 +12,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E01",
+      "usage": "知っておきたい"
     },
     {
       "id": "p257",
@@ -25,20 +26,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
-    },
-    {
-      "id": "p258",
-      "phrase": "be adult about it",
-      "meaning": "大人な対応をする",
-      "scene": "感情的な人を落ち着かせるとき",
-      "example1": "Let’s just be adult about it.",
-      "example2": "Can you be adult about this?",
-      "type": "idiom",
-      "priorityText": "★★★",
-      "priority": 3,
-      "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E01",
+      "usage": "日常的"
     },
     {
       "id": "p259",
@@ -51,7 +40,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E01",
+      "usage": "知っておきたい"
     },
     {
       "id": "p260",
@@ -64,7 +54,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E01",
+      "usage": "日常的"
     },
     {
       "id": "p261",
@@ -77,7 +68,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E02",
+      "usage": "日常的"
     },
     {
       "id": "p262",
@@ -90,7 +82,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E01-02"
+      "episode": "S03E02",
+      "usage": "日常的"
     },
     {
       "id": "p263",
@@ -103,7 +96,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p264",
@@ -116,7 +110,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p265",
@@ -129,7 +124,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p266",
@@ -142,7 +138,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p267",
@@ -155,7 +152,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p268",
@@ -168,7 +166,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E03",
+      "usage": "日常的"
     },
     {
       "id": "p269",
@@ -181,7 +180,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E03-04"
+      "episode": "S03E04",
+      "usage": "日常的"
     },
     {
       "id": "p270",
@@ -194,7 +194,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "やや古め"
     },
     {
       "id": "p271",
@@ -207,7 +208,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p272",
@@ -220,7 +222,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p273",
@@ -233,7 +236,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p274",
@@ -246,7 +250,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p275",
@@ -259,20 +264,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
-    },
-    {
-      "id": "p276",
-      "phrase": "take it to the next step",
-      "meaning": "次の段階に進める／一歩踏み込む",
-      "scene": "関係や計画を進展させるとき",
-      "example1": "We should take this to the next step.",
-      "example2": "They decided to take their relationship to the next step.",
-      "type": "phrase",
-      "priorityText": "★★★",
-      "priority": 3,
-      "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p277",
@@ -285,20 +278,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
-    },
-    {
-      "id": "p278",
-      "phrase": "while we’re on that",
-      "meaning": "その話ついでに",
-      "scene": "話題を広げるとき",
-      "example1": "While we’re on that, can I ask you something?",
-      "example2": "While we’re on that topic, what happened yesterday?",
-      "type": "idiom",
-      "priorityText": "★★★",
-      "priority": 3,
-      "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E05",
+      "usage": "日常的"
     },
     {
       "id": "p279",
@@ -311,7 +292,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E05-06"
+      "episode": "S03E06",
+      "usage": "日常的"
     },
     {
       "id": "p280",
@@ -324,7 +306,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E07",
+      "usage": "日常的"
     },
     {
       "id": "p281",
@@ -337,7 +320,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E07",
+      "usage": "日常的"
     },
     {
       "id": "p282",
@@ -350,7 +334,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E07",
+      "usage": "日常的"
     },
     {
       "id": "p283",
@@ -363,7 +348,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E07",
+      "usage": "日常的"
     },
     {
       "id": "p284",
@@ -376,7 +362,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E08",
+      "usage": "日常的"
     },
     {
       "id": "p285",
@@ -389,20 +376,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
-    },
-    {
-      "id": "p286",
-      "phrase": "let me get through it",
-      "meaning": "最後までやらせて",
-      "scene": "話や作業を途中で止められそうなとき",
-      "example1": "Let me get through this.",
-      "example2": "Please let me get through it.",
-      "type": "idiom",
-      "priorityText": "★★★",
-      "priority": 3,
-      "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E08",
+      "usage": "日常的"
     },
     {
       "id": "p287",
@@ -415,7 +390,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E07-08"
+      "episode": "S03E07",
+      "usage": "日常的"
     },
     {
       "id": "p288",
@@ -428,7 +404,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E09-10"
+      "episode": "S03E09",
+      "usage": "日常的"
     },
     {
       "id": "p289",
@@ -441,7 +418,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E09-10"
+      "episode": "S03E09",
+      "usage": "日常的"
     },
     {
       "id": "p290",
@@ -454,7 +432,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E09-10"
+      "episode": "S03E10",
+      "usage": "日常的"
     },
     {
       "id": "p291",
@@ -467,7 +446,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E09-10"
+      "episode": "S03E10",
+      "usage": "日常的"
     },
     {
       "id": "p292",
@@ -480,7 +460,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E09-10"
+      "episode": "S03E10",
+      "usage": "知っておきたい"
     },
     {
       "id": "p293",
@@ -493,7 +474,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E11-12"
+      "episode": "S03E11",
+      "usage": "日常的"
     },
     {
       "id": "p294",
@@ -506,7 +488,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E11-12"
+      "episode": "S03E11",
+      "usage": "日常的"
     },
     {
       "id": "p295",
@@ -519,7 +502,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E11-12"
+      "episode": "S03E11",
+      "usage": "日常的"
     },
     {
       "id": "p296",
@@ -532,7 +516,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E11-12"
+      "episode": "S03E11",
+      "usage": "日常的"
     },
     {
       "id": "p297",
@@ -545,7 +530,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E11-12"
+      "episode": "S03E12",
+      "usage": "日常的"
     },
     {
       "id": "p298",
@@ -558,7 +544,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E13",
+      "usage": "日常的"
     },
     {
       "id": "p299",
@@ -571,7 +558,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E13",
+      "usage": "日常的"
     },
     {
       "id": "p300",
@@ -584,7 +572,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E14",
+      "usage": "日常的"
     },
     {
       "id": "p301",
@@ -597,7 +586,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E14",
+      "usage": "日常的"
     },
     {
       "id": "p302",
@@ -610,7 +600,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E14",
+      "usage": "日常的"
     },
     {
       "id": "p303",
@@ -623,7 +614,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E13-14"
+      "episode": "S03E14",
+      "usage": "日常的"
     },
     {
       "id": "p304",
@@ -636,7 +628,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "日常的"
     },
     {
       "id": "p305",
@@ -649,7 +642,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "日常的"
     },
     {
       "id": "p306",
@@ -662,7 +656,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "知っておきたい"
     },
     {
       "id": "p307",
@@ -675,7 +670,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "日常的"
     },
     {
       "id": "p308",
@@ -688,7 +684,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "日常的"
     },
     {
       "id": "p309",
@@ -701,7 +698,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E15-16"
+      "episode": "S03E16",
+      "usage": "日常的"
     },
     {
       "id": "p310",
@@ -714,7 +712,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p311",
@@ -727,7 +726,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p312",
@@ -740,7 +740,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p313",
@@ -753,7 +754,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p314",
@@ -766,7 +768,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p315",
@@ -779,7 +782,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p316",
@@ -792,7 +796,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "知っておきたい"
     },
     {
       "id": "p317",
@@ -805,7 +810,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E18",
+      "usage": "日常的"
     },
     {
       "id": "p318",
@@ -818,7 +824,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E17-18"
+      "episode": "S03E17",
+      "usage": "日常的"
     },
     {
       "id": "p319",
@@ -831,7 +838,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E19",
+      "usage": "日常的"
     },
     {
       "id": "p320",
@@ -844,7 +852,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E19",
+      "usage": "日常的"
     },
     {
       "id": "p321",
@@ -857,7 +866,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E19",
+      "usage": "日常的"
     },
     {
       "id": "p322",
@@ -870,7 +880,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E20",
+      "usage": "日常的"
     },
     {
       "id": "p323",
@@ -883,7 +894,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E18",
+      "usage": "やや古め"
     },
     {
       "id": "p324",
@@ -896,7 +908,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E20",
+      "usage": "日常的"
     },
     {
       "id": "p325",
@@ -909,7 +922,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E20",
+      "usage": "日常的"
     },
     {
       "id": "p326",
@@ -922,7 +936,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E20",
+      "usage": "日常的"
     },
     {
       "id": "p327",
@@ -935,7 +950,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E19-20"
+      "episode": "S03E20",
+      "usage": "日常的"
     },
     {
       "id": "p328",
@@ -948,7 +964,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E21-22"
+      "episode": "S03E21",
+      "usage": "日常的"
     },
     {
       "id": "p329",
@@ -961,7 +978,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E21-22"
+      "episode": "S03E21",
+      "usage": "日常的"
     },
     {
       "id": "p330",
@@ -974,7 +992,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E21-22"
+      "episode": "S03E22",
+      "usage": "日常的"
     },
     {
       "id": "p331",
@@ -987,7 +1006,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E23",
+      "usage": "知っておきたい"
     },
     {
       "id": "p332",
@@ -1000,7 +1020,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E23",
+      "usage": "日常的"
     },
     {
       "id": "p333",
@@ -1013,7 +1034,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E23",
+      "usage": "日常的"
     },
     {
       "id": "p334",
@@ -1026,7 +1048,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p335",
@@ -1039,7 +1062,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p336",
@@ -1052,7 +1076,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p337",
@@ -1065,7 +1090,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p338",
@@ -1078,7 +1104,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "知っておきたい"
     },
     {
       "id": "p339",
@@ -1091,7 +1118,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p340",
@@ -1104,7 +1132,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "日常的"
     },
     {
       "id": "p341",
@@ -1117,7 +1146,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "知っておきたい"
     },
     {
       "id": "p342",
@@ -1130,7 +1160,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E23-24"
+      "episode": "S03E24",
+      "usage": "知っておきたい"
     },
     {
       "id": "p343",
@@ -1143,7 +1174,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E25"
+      "episode": "S03E25",
+      "usage": "知っておきたい"
     },
     {
       "id": "p344",
@@ -1156,7 +1188,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E25"
+      "episode": "S03E25",
+      "usage": "日常的"
     },
     {
       "id": "p345",
@@ -1169,7 +1202,8 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E25"
+      "episode": "S03E25",
+      "usage": "日常的"
     },
     {
       "id": "p346",
@@ -1182,1078 +1216,1049 @@
       "priorityText": "★★★",
       "priority": 3,
       "source": "Friends",
-      "episode": "S03E25"
+      "episode": "S03E25",
+      "usage": "日常的"
     }
   ],
   "dialogues": [
     {
       "id": "d25",
       "season": "Season 3",
-      "title": "恋愛①（アプローチ＋自己評価）",
+      "title": "仕事①（新しい担当を引き継ぐ）",
       "lines": [
         [
           "A",
-          "So… I was thinking of hitting on her.",
-          "それで…彼女を口説いてみようかなと思ってたんだ"
+          "Can you walk me through the new client account?",
+          "新しいクライアント案件、順番に説明してくれる？"
         ],
         [
           "B",
-          "Her? Isn’t she kinda out of your league?",
-          "彼女？ちょっと君には高嶺の花じゃない？"
+          "Sure. I prepped some notes for you this morning.",
+          "もちろん。今朝、説明用のメモを準備しといた。"
         ],
         [
           "A",
-          "Hey, don’t get me wrong, I know she’s amazing.",
-          "誤解しないで。彼女がすごい人なのはわかってる"
+          "Great. I’m right behind you.",
+          "いいね。ちゃんとついていくよ。"
         ],
         [
           "B",
-          "That’s one way to put it.",
-          "そういう言い方もあるね"
+          "First, don’t jump the gun and contact them before we review the contract.",
+          "まず、契約書を確認する前に先走って連絡しないで。"
         ],
         [
           "A",
-          "What? You don’t think I have a shot?",
-          "何？僕にチャンスがないと思ってるの？"
+          "Got it.",
+          "了解。"
         ],
         [
           "B",
-          "I’m just saying, it might be tough.",
-          "ただ、難しいかもしれないって言ってるだけ"
+          "And if anything feels unclear, ask before you make a call.",
+          "それと、わからないことがあったら判断する前に聞いて。"
         ],
         [
           "A",
-          "Yeah, but if I don’t try, I’ll never know.",
-          "やってみないとわからない"
+          "Your call on the final email?",
+          "最終メールはそっちの判断でいい？"
         ],
         [
           "B",
-          "Fair enough. It’s your call.",
-          "それはわかる。君の判断だよ"
+          "Yeah. Once we’re both on board, I’ll send it.",
+          "うん。二人とも納得できたら私が送る。"
         ],
         [
           "A",
-          "Exactly. I’m going for it.",
-          "その通り。やってみるつもり"
+          "Sounds good.",
+          "了解。"
         ],
         [
           "B",
-          "Alright, I respect that.",
-          "わかった。それは尊重するよ"
+          "Let’s get started.",
+          "始めよう。"
         ],
         [
           "A",
-          "Worst case, I get rejected.",
-          "最悪の場合、振られるだけだよ"
-        ],
-        [
-          "B",
-          "Best case… it actually works.",
-          "一番うまくいけば、本当に成功する"
+          "Lead the way.",
+          "どうぞ先に。"
         ]
       ],
       "phraseLinks": [
-        "p69",
-        "p277",
-        "p337",
-        "p194"
+        "p263",
+        "p295",
+        "p264",
+        "p296",
+        "p314",
+        "p304"
       ]
     },
     {
       "id": "d26",
       "season": "Season 3",
-      "title": "恋愛②（関係の進展＋判断）",
+      "title": "日常①（スマホをやめたい）",
       "lines": [
         [
           "A",
-          "So… are you guys gonna take it to the next step?",
-          "それで…君たちは関係を次の段階に進めるの？"
+          "I deleted all my social media apps last night.",
+          "昨夜SNSアプリ全部消した。"
         ],
         [
           "B",
-          "I don’t know. We get along, we click and everything, but…",
-          "わからない。仲はいいし、気も合うんだけど…"
+          "Cold turkey?",
+          "いきなり完全に？"
         ],
         [
           "A",
-          "But what?",
-          "でも、何？"
+          "Yep. I can’t take it anymore.",
+          "うん。もう耐えられへん。"
         ],
         [
           "B",
-          "I’m not sure I’m ready for something serious.",
-          "真剣な関係に進む準備ができてるか自信がない"
+          "You’ll be back by tomorrow.",
+          "明日には戻ってるって。"
         ],
         [
           "A",
-          "That’s fair. Did you tell her that?",
-          "それはわかる。それ彼女に言ったの？"
+          "We’ll see.",
+          "どうやろな。"
         ],
         [
           "B",
-          "Not really. I feel like she’s expecting more.",
-          "彼女はもっと期待してる気がする"
+          "What pushed you over the edge?",
+          "何が決定打やったん？"
         ],
         [
           "A",
-          "Then you should say something.",
-          "じゃあ何か言うべきだよ"
+          "I got carried away and spent three hours scrolling.",
+          "夢中になりすぎて3時間もスクロールしてた。"
         ],
         [
           "B",
-          "Yeah, but I’m not cool with hurting her feelings.",
-          "うん、でも彼女を傷つけるのは嫌なんだ"
+          "Ouch.",
+          "それはきつい。"
         ],
         [
           "A",
-          "It’s either that or you keep leading her on.",
-          "それか、このまま彼女に期待させ続けることになるよ"
+          "I just need to get it out of my system.",
+          "一回完全に距離置いて気を済ませたいねん。"
         ],
         [
           "B",
-          "…Yeah, that’s true.",
-          "…うん、それはそうだね"
+          "Well, stick around in the real world for a while.",
+          "じゃあしばらく現実世界に居続けてみたら。"
         ],
         [
           "A",
-          "Better to be honest now than later.",
-          "後で言うより、今正直に言う方がいいよ"
-        ],
-        [
-          "B",
-          "I know. I’ll talk to her.",
-          "わかってる。彼女に話すよ"
+          "That’s the plan.",
+          "そのつもり。"
         ]
       ],
       "phraseLinks": [
-        "p276",
-        "p324",
-        "p335",
-        "p344"
+        "p268",
+        "p287",
+        "p280",
+        "p265",
+        "p279",
+        "p288"
       ]
     },
     {
       "id": "d27",
       "season": "Season 3",
-      "title": "ケンカ①（軽い衝突＋誤解）",
+      "title": "仕事②（ミスとリカバリー）",
       "lines": [
         [
           "A",
-          "Hey, are you mad at me?",
-          "ねえ、僕に怒ってる？"
+          "I think I blew it with the client.",
+          "クライアント相手にやらかしたと思う。"
         ],
         [
           "B",
-          "What? No… why?",
-          "え？怒ってないよ…なんで？"
+          "What happened?",
+          "何があったん？"
         ],
         [
           "A",
-          "I don’t know, you’ve been acting weird. Did I tick you off or something?",
-          "わからないけど、なんか様子が変だったから。僕、怒らせた？"
+          "I cut her off twice and then sent the wrong file.",
+          "2回話を遮ったうえに、間違ったファイル送った。"
         ],
         [
           "B",
-          "Not really, but what you said earlier kinda bothered me.",
-          "別に怒ってはないけど、さっき君が言ったことがちょっと引っかかった"
+          "That probably ticked her off.",
+          "それはたぶんイラッとさせたな。"
         ],
         [
           "A",
-          "Wait, what? I didn’t mean it like that. It just came out wrong.",
-          "待って、何？そういう意味じゃなかったんだ。ただ変な伝わり方になっただけ"
+          "To top it off, I forgot to apologize.",
+          "そのうえ、謝るのまで忘れた。"
         ],
         [
           "B",
-          "Yeah, well, it didn’t sound great.",
-          "あまり良くは聞こえなかった"
+          "Okay, but don’t blow it out of proportion.",
+          "まあでも、必要以上に大ごとに考えんで。"
         ],
         [
           "A",
-          "Are you seriously gonna make a big deal out of it?",
-          "それを本気で大ごとにするつもり？"
+          "I’m screwed if she complains.",
+          "苦情入れられたら終わりや。"
         ],
         [
           "B",
-          "I’m not, I just didn’t like it.",
-          "怒ってはない。ただ嫌だっただけ"
+          "Not necessarily. Call her, own it, and fix the file.",
+          "そうとは限らん。電話して認めて、ファイル直そう。"
         ],
         [
           "A",
-          "Ugh… now I feel like I’m screwed no matter what I say.",
-          "うわ…何を言っても詰んでる気がする"
+          "You think that’ll work?",
+          "それでいけると思う？"
         ],
         [
           "B",
-          "Relax, it’s not that bad.",
-          "落ち着いて。そこまでひどくないよ"
+          "It’s worth trying.",
+          "やってみる価値はある。"
         ],
         [
           "A",
-          "Then say that earlier!",
-          "だったらそれを先に言ってよ！"
-        ],
-        [
-          "B",
-          "Okay, okay, we’re good.",
-          "わかったわかった。もう大丈夫"
+          "Okay. I’ll call now.",
+          "わかった。今電話する。"
         ]
       ],
       "phraseLinks": [
+        "p272",
+        "p291",
         "p275",
-        "p326",
-        "p320",
+        "p298",
+        "p271",
         "p283"
       ]
     },
     {
       "id": "d28",
       "season": "Season 3",
-      "title": "ケンカ②（裏切り＋怒り）",
+      "title": "日常②（料理をちょっと変える）",
       "lines": [
         [
           "A",
-          "So you went behind my back and told him?",
-          "つまり、僕に内緒で彼に話したってこと？"
+          "Dinner looks good, but it’s the same thing we had last week.",
+          "晩ごはん美味しそうやけど、先週と同じやな。"
         ],
         [
           "B",
-          "I didn’t “tell him,” I just mentioned it.",
-          "『話した』わけじゃないよ。ちょっと言っただけ"
+          "I know. I thought I’d spice it up a little.",
+          "わかってる。ちょっと変化つけようと思って。"
         ],
         [
           "A",
-          "Yeah, and you completely screwed me over.",
-          "うん、そのせいで僕は完全にひどい目に遭ったんだけど"
+          "With what?",
+          "何で？"
         ],
         [
           "B",
-          "That’s not fair. I was trying to help.",
-          "それは不公平だよ。僕は助けようとしてただけなんだ"
+          "Guess what? I bought fresh herbs.",
+          "何やと思う？生のハーブ買ってきた。"
         ],
         [
           "A",
-          "Help? Are you out of your mind?",
-          "助ける？正気なの？"
+          "That’s the spirit.",
+          "その調子。"
         ],
         [
           "B",
-          "Hey, calm down. You’re overreacting.",
-          "落ち着いて。反応が大げさだよ"
+          "And I didn’t skimp on the good cheese this time.",
+          "今回はちゃんといいチーズもケチらず買った。"
         ],
         [
           "A",
-          "No, I’m not. I trusted you.",
-          "大げさじゃない。君を信じてたのに"
+          "Nice. This might actually blow me away.",
+          "いいやん。これはほんまに感動するかも。"
         ],
         [
           "B",
-          "I get that, but you’re acting like I did it on purpose.",
-          "それはわかるけど、君は僕がわざとやったみたいに言ってる"
+          "Let’s not get carried away.",
+          "そこまで期待せんといて。"
         ],
         [
           "A",
-          "Well, it sure feels like it.",
-          "でも、そう感じるんだよ"
+          "Fair enough.",
+          "ごもっとも。"
         ],
         [
           "B",
-          "Look, I’ve been kind of shaken up about this too.",
-          "ねえ、僕だってこの件でかなり動揺してるんだよ"
+          "Just eat it while it’s hot.",
+          "温かいうちに食べて。"
         ],
         [
           "A",
-          "Oh please, now you’re the victim?",
-          "今度は自分が被害者ってわけ？"
-        ],
-        [
-          "B",
-          "I’m not saying that.",
-          "そう言ってるわけじゃない"
-        ],
-        [
-          "A",
-          "Just… don’t expect me not to get back at you.",
-          "ただ…僕が仕返ししないとは思わないで"
-        ],
-        [
-          "B",
-          "Seriously? That’s where you’re going with this?",
-          "本気？そういう方向に持っていくの？"
+          "Gladly.",
+          "喜んで。"
         ]
       ],
       "phraseLinks": [
-        "p319",
-        "p282",
-        "p322",
-        "p321"
+        "p266",
+        "p281",
+        "p257",
+        "p316",
+        "p274",
+        "p265"
       ]
     },
     {
       "id": "d29",
       "season": "Season 3",
-      "title": "状況①（迷い＋判断）",
+      "title": "仕事③（同僚への不満を伝える）",
       "lines": [
         [
           "A",
-          "So… are you gonna take the new job?",
-          "それで…新しい仕事を受けるの？"
+          "Can we cut to the chase?",
+          "単刀直入にいっていい？"
         ],
         [
           "B",
-          "I don’t know. I’m really torn.",
-          "わからない。本当に迷ってる"
+          "Sure.",
+          "どうぞ。"
         ],
         [
           "A",
-          "What’s holding you back?",
-          "何が引っかかってるの？"
+          "You’ve been stepping on my toes in meetings.",
+          "会議で最近、私の領域に踏み込みすぎ。"
         ],
         [
           "B",
-          "The pay is better, but I like my current team.",
-          "給料はいいんだけど、今のチームが好きなんだ"
+          "That wasn’t my intention.",
+          "そんなつもりじゃなかった。"
         ],
         [
           "A",
-          "Yeah, that’s a tough one.",
-          "うん、それは難しい問題だね"
+          "I know, but it keeps happening.",
+          "わかってるけど、何度も起きてる。"
         ],
         [
           "B",
-          "I feel like I’m in a tough spot either way.",
-          "どっちにしても厳しい状況な気がする"
+          "If I came off as pushy, I’m sorry.",
+          "押しが強く見えたなら、ごめん。"
         ],
         [
           "A",
-          "If you ask me, you should go for it.",
-          "私としては、やってみるべきだと思う"
+          "Don’t get me wrong, I appreciate the help.",
+          "誤解せんといて、手伝ってくれるのはありがたい。"
         ],
         [
           "B",
-          "Really? Why?",
-          "本当に？どうして？"
+          "So you want me to back off a little?",
+          "じゃあ、少し引いてほしいってこと？"
         ],
         [
           "A",
-          "Opportunities like that don’t come around often.",
-          "そういうチャンスはなかなか来ないよ"
+          "Exactly. I just want us to be civil and clear about who owns what.",
+          "そう。お互い穏やかに、誰の担当かはっきりさせたい。"
         ],
         [
           "B",
-          "Yeah, that’s true…",
-          "うん、それはそうだね…"
+          "That’s fair.",
+          "それはもっともやな。"
         ],
         [
           "A",
-          "So what are you gonna do?",
-          "それで、どうするつもり？"
-        ],
-        [
-          "B",
-          "Honestly? We’ll see. I need more time.",
-          "正直？まだわからない。もう少し時間が必要"
+          "Thanks.",
+          "ありがとう。"
         ]
       ],
       "phraseLinks": [
-        "p280",
-        "p396",
-        "p308",
-        "p290"
+        "p289",
+        "p318",
+        "p294",
+        "p337",
+        "p315"
       ]
     },
     {
       "id": "d30",
       "season": "Season 3",
-      "title": "状況②（整理＋本題）",
+      "title": "トラブル①（秘密をばらされた）",
       "lines": [
         [
           "A",
-          "So… there’s something I need to tell you.",
-          "ちょっと話さなきゃいけないことがある"
+          "Did you tell Mia about my interview?",
+          "私の面接のことミアに言った？"
         ],
         [
           "B",
-          "Okay, but can we cut to the chase? I’m kind of in a hurry.",
-          "わかったけど、本題に入ってくれる？ちょっと急いでるんだ"
+          "No.",
+          "言ってない。"
         ],
         [
           "A",
-          "Yeah, yeah. Just so you know, this might sound a little weird.",
-          "うん、わかった。念のため言うと、ちょっと変に聞こえるかもしれない"
+          "Then how did she know?",
+          "じゃあなんで知ってたん？"
         ],
         [
           "B",
-          "Great, now I’m nervous.",
-          "よかった、今ので不安になってきた"
+          "Okay, I might’ve mentioned it to Sam.",
+          "わかった、サムにはちょっと言ったかも。"
         ],
         [
           "A",
-          "Alright, let me get this straight—you already knew about the plan, right?",
-          "じゃあ整理させて。君はその計画をもう知ってたんだよね？"
+          "You ratted me out.",
+          "ばらしたんやん。"
         ],
         [
           "B",
-          "Wait, what plan?",
-          "待って、何の計画？"
+          "I didn’t think it was a secret.",
+          "秘密やと思ってなかった。"
         ],
         [
           "A",
-          "The one everyone’s been talking about.",
-          "みんなが話してるあの計画だよ"
+          "I told you to keep it to yourself.",
+          "誰にも言わんといてって言ったやろ。"
         ],
         [
           "B",
-          "I have no idea what you’re talking about.",
-          "何の話をしてるのか全然わからない"
+          "I know. I’m busted.",
+          "わかった。バレたな。"
         ],
         [
           "A",
-          "Seriously? I thought you were in on it.",
-          "本当に？君も関わってると思ってた"
+          "That really screwed me over.",
+          "ほんまに困ることになったわ。"
         ],
         [
           "B",
-          "No, give me the gist.",
-          "いや、要点だけ教えて"
+          "I’m sorry. I’ll fix it if I can.",
+          "ごめん。できることがあれば直す。"
         ],
         [
           "A",
-          "Basically, they’re changing everything starting next week.",
-          "要するに、来週から全部変わるらしい"
-        ],
-        [
-          "B",
-          "…Okay, yeah, that is a big deal.",
-          "…うん、それは確かに大ごとだね"
+          "Let this be a lesson: ask first.",
+          "これを教訓にして。先に聞いて。"
         ]
       ],
       "phraseLinks": [
-        "p233",
-        "p289",
-        "p348",
-        "p224"
+        "p285",
+        "p284",
+        "p269",
+        "p282",
+        "p300"
       ]
     },
     {
       "id": "d31",
       "season": "Season 3",
-      "title": "雑談①（会話スタート＋軽い探り）",
+      "title": "日常③（予定を断る）",
       "lines": [
         [
           "A",
-          "Guess what—I ran into Sarah yesterday.",
-          "ちょっと聞いて。昨日サラにばったり会ったんだ"
+          "By any chance, are you free Saturday?",
+          "もしかして土曜空いてる？"
         ],
         [
           "B",
-          "No way. How is she?",
-          "まさか。彼女どうしてる？"
+          "Maybe. What’s up?",
+          "たぶん。どうした？"
         ],
         [
           "A",
-          "She’s doing great. Just so you know, she might move back here.",
-          "念のため言っておくけど"
+          "I need help moving a couch.",
+          "ソファ運ぶの手伝ってほしくて。"
         ],
         [
           "B",
-          "Really? That’s surprising.",
-          "本当に？それは意外だね"
+          "That sounds like a long shot, but how heavy is it?",
+          "無理そうなお願いやけど、どのくらい重い？"
         ],
         [
           "A",
-          "Yeah, she said she misses this place.",
-          "うん、ここが恋しいって言ってた"
+          "Very.",
+          "かなり。"
         ],
         [
           "B",
-          "Huh. That’d be interesting.",
-          "へえ、それは面白いことになりそう"
+          "Then I’m out.",
+          "じゃあ無理。"
         ],
         [
           "A",
-          "Oh, and while we’re on that, she asked about you.",
-          "あ、それにその話ついでに、彼女が君のこと聞いてたよ"
+          "Come on. I would kill for some help.",
+          "頼むって。手伝ってくれたらほんまありがたい。"
         ],
         [
           "B",
-          "Me? What did she say?",
-          "僕？彼女なんて言ってた？"
+          "Don’t guilt me. I already have plans.",
+          "罪悪感持たせんといて。もう予定あるから。"
         ],
         [
           "A",
-          "Just wondering how you’ve been.",
-          "君が元気にしてるか気にしてただけだよ"
+          "Can I talk you out of them?",
+          "その予定やめるよう説得できへん？"
         ],
         [
           "B",
-          "That’s… random.",
-          "それは…急な話だね"
+          "Nope. But I can come by Sunday.",
+          "無理。でも日曜なら行ける。"
         ],
         [
           "A",
-          "Hey, by any chance, are you still into her?",
-          "ねえ、もしかしてまだ彼女のこと好きなの？"
-        ],
-        [
-          "B",
-          "What? No. Why would you say that?",
-          "え？違うよ。なんでそんなこと言うの？"
-        ],
-        [
-          "A",
-          "Just checking.",
-          "ちょっと確認しただけ"
+          "I’ll take it.",
+          "それでお願いします。"
         ]
       ],
       "phraseLinks": [
-        "p281",
-        "p224",
-        "p278",
-        "p302"
+        "p302",
+        "p301",
+        "p328",
+        "p317"
       ]
     },
     {
       "id": "d32",
       "season": "Season 3",
-      "title": "雑談②（流れ＋再開）",
+      "title": "相談①（転職を迷う）",
       "lines": [
         [
           "A",
-          "Hey, sorry I disappeared earlier.",
-          "さっき急にいなくなってごめん"
+          "I got an offer from that startup.",
+          "あのスタートアップからオファー来た。"
         ],
         [
           "B",
-          "No worries. Everything okay?",
-          "大丈夫だよ。何かあった？"
+          "Seriously? Are you going to take it?",
+          "ほんまに？受けるん？"
         ],
         [
           "A",
-          "Yeah, just got pulled into something.",
-          "ちょっと巻き込まれてた"
+          "I’m in a tough spot. The job sounds great, but the company’s tiny.",
+          "難しい状況やねん。仕事は良さそうやけど会社が小さくて。"
         ],
         [
           "B",
-          "Got it. So where were we?",
-          "なるほど。それで、どこまで話してたっけ？"
+          "Don’t rush into anything.",
+          "焦って決めん方がいいよ。"
         ],
         [
           "A",
-          "Let’s just pick it up where we left off.",
-          "さっきの続きから話そう"
+          "If you ask me, staying here is safer.",
+          "自分でも、ここに残る方が安全やとは思う。"
         ],
         [
           "B",
-          "Right, you were telling me about your trip.",
-          "そうだ、君が旅行の話をしてたんだ"
+          "Safety is neither here nor there if you hate your job.",
+          "仕事が嫌いなら、安全かどうかは本質じゃないやろ。"
         ],
         [
           "A",
-          "Yeah, it started off pretty normal, but then things got weird.",
-          "うん、最初は普通だったんだけど、そのあと変なことになった"
+          "True.",
+          "確かに。"
         ],
         [
           "B",
-          "Weird how?",
-          "どんなふうに変だったの？"
+          "Set aside the salary for a second. Which job do you actually want?",
+          "給料はいったん置いといて、本当はどっちがやりたい？"
         ],
         [
           "A",
-          "Well, one minute we’re chilling, next thing you know, we’re completely lost.",
-          "普通にくつろいでたと思ったら、気づいたら完全に迷子になってたんだ"
+          "The new one.",
+          "新しい方。"
         ],
         [
           "B",
-          "Seriously?",
-          "本当に？"
+          "Then at least sound them out about stability before you decide.",
+          "じゃあ決める前に、会社の安定性について探りを入れてみたら。"
         ],
         [
           "A",
-          "Yeah, and before you know it, it was already midnight.",
-          "うん、それで気づいたらもう真夜中だった"
-        ],
-        [
-          "B",
-          "That escalated quickly.",
-          "急にすごい展開になったね"
-        ],
-        [
-          "A",
-          "Tell me about it.",
-          "ほんまそれ"
-        ],
-        [
-          "B",
-          "You should’ve called me.",
-          "僕に電話すればよかったのに"
-        ],
-        [
-          "A",
-          "I know… I should’ve stuck around the main area.",
-          "メインエリアにいればよかった"
+          "Good idea.",
+          "それいいな。"
         ]
       ],
       "phraseLinks": [
-        "p325",
-        "p288",
-        "p114",
-        "p388"
+        "p308",
+        "p333",
+        "p290",
+        "p306",
+        "p310",
+        "p342"
       ]
     },
     {
       "id": "d33",
       "season": "Season 3",
-      "title": "メンタル①（限界＋発散）",
+      "title": "人間関係①（言い方を謝る）",
       "lines": [
         [
           "A",
-          "I swear, I can’t take it anymore.",
-          "本当に、もう耐えられない"
+          "About what I said yesterday… it came out wrong.",
+          "昨日言ったことなんやけど……言い方が悪かった。"
         ],
         [
           "B",
-          "What happened this time?",
-          "今度は何があったの？"
+          "A little.",
+          "ちょっとな。"
         ],
         [
           "A",
-          "It’s everything—work, people, just… all of it.",
-          "全部だよ。仕事も人間関係も…全部"
+          "I wasn’t trying to make a big deal of it.",
+          "大ごとにしたかったわけじゃない。"
         ],
         [
           "B",
-          "You’ve been keeping it to yourself, haven’t you?",
-          "ずっと一人で抱え込んでたんでしょ？"
+          "Then why did you say I was out of my mind?",
+          "じゃあなんで「正気じゃない」なんて言ったん？"
         ],
         [
           "A",
-          "Yeah… I didn’t want to bother anyone.",
-          "誰にも迷惑かけたくなかった"
+          "Because I was shaken up about what happened.",
+          "起きたことに動揺してたから。"
         ],
         [
           "B",
-          "That’s probably why it’s building up.",
-          "だから溜まってきてるんだよ"
+          "That’s beside the point.",
+          "それは今の話とは関係ない。"
         ],
         [
           "A",
-          "I know. I just needed to get it out of my system.",
-          "わかってる。ただ、吐き出したかったんだ"
+          "You’re right. I take it back.",
+          "そうやな。取り消す。"
         ],
         [
           "B",
-          "That’s what I’m here for.",
-          "そのために僕がいるんだよ"
+          "Thank you.",
+          "ありがとう。"
         ],
         [
           "A",
-          "Thanks. Honestly, I’m kind of stumped about what to do next.",
-          "ありがとう。正直、次に何をすればいいのかお手上げなんだ"
+          "Can we pick it up where we left off before the argument?",
+          "ケンカする前のところからまた話せる？"
         ],
         [
           "B",
-          "You don’t have to figure it out all at once.",
-          "一度に全部わかろうとしなくていいよ"
+          "Yeah. I’d like that.",
+          "うん。そうしたい。"
         ],
         [
           "A",
-          "Yeah… I guess I don’t.",
-          "うん…そうだよね"
-        ],
-        [
-          "B",
-          "Just take it one step at a time.",
-          "一歩ずつやればいいよ"
-        ],
-        [
-          "A",
-          "I’ll try.",
-          "やってみる"
+          "Me too.",
+          "私も。"
         ]
       ],
       "phraseLinks": [
-        "p287",
-        "p279",
-        "p130",
-        "p332"
+        "p320",
+        "p326",
+        "p321",
+        "p322",
+        "p307",
+        "p309",
+        "p325"
       ]
     },
     {
       "id": "d34",
       "season": "Season 3",
-      "title": "メンタル②（励まし＋立て直し）",
+      "title": "仕事④（アイデアを提案する）",
       "lines": [
         [
           "A",
-          "I don’t think I can do this anymore.",
-          "もうこれ以上できない気がする"
+          "I have an idea for the campaign, but it may be a little weird.",
+          "キャンペーンの案があるんやけど、ちょっと変かも。"
         ],
         [
           "B",
-          "Hey, don’t say that. What happened?",
-          "そんなこと言わないで。何があったの？"
+          "Be my guest.",
+          "どうぞ聞かせて。"
         ],
         [
           "A",
-          "I messed up again. I just keep failing.",
-          "また失敗したんだ。失敗ばかりしてる"
+          "What if we bring out the product’s playful side instead of making it look so serious?",
+          "堅く見せるんじゃなくて、商品の遊び心を引き出すのはどう？"
         ],
         [
           "B",
-          "Everyone messes up. You can always give it another chance.",
-          "誰だって失敗するよ。いつでももう一度やり直せる"
+          "Interesting.",
+          "おもしろい。"
         ],
         [
           "A",
-          "I don’t know… it’s getting exhausting.",
-          "わからない…だんだん疲れてきた"
+          "I know it’s not exactly run-of-the-mill.",
+          "ありきたりな案じゃないのはわかってる。"
         ],
         [
           "B",
-          "I get it, but you’ve come this far. Just keep at it.",
-          "わかるよ。でもここまで来たんだから、続けてみて"
+          "That’s a good thing.",
+          "それはむしろいいことやろ。"
         ],
         [
           "A",
-          "It doesn’t feel like I’m getting anywhere.",
-          "前に進んでる気がしない"
+          "I was worried you’d trash it immediately.",
+          "すぐ酷評されるかと思ってた。"
         ],
         [
           "B",
-          "If it makes you feel any better, you’re doing better than you think.",
-          "気休めになるかわからないけど、君は自分で思うよりずっとうまくやってるよ"
+          "No. I actually dig it.",
+          "いや。むしろ結構好き。"
         ],
         [
           "A",
-          "You really believe that?",
-          "本当にそう思ってる？"
+          "Really?",
+          "ほんま？"
         ],
         [
           "B",
-          "Yeah. And hey, let’s do something fun later—might lift your spirits.",
-          "うん。それに後で何か楽しいことしよう。気分が上がるかも"
+          "Yeah. Keep at it and show me a full version tomorrow.",
+          "うん。そのまま続けて、明日完全版見せて。"
         ],
         [
           "A",
-          "That actually sounds nice.",
-          "それ、ちょっといいかも"
-        ],
-        [
-          "B",
-          "Good. You deserve a break.",
-          "よかった。君には休みが必要だよ"
-        ],
-        [
-          "A",
-          "Thanks… I needed that.",
-          "ありがとう…そう言ってほしかった"
+          "Will do.",
+          "了解。"
         ]
       ],
       "phraseLinks": [
-        "p392",
-        "p336",
-        "p292",
-        "p109"
+        "p305",
+        "p329",
+        "p331",
+        "p330",
+        "p323",
+        "p336"
       ]
     },
     {
       "id": "d35",
       "season": "Season 3",
-      "title": "行動①（ミス＋後悔）",
+      "title": "日常④（初対面の人と打ち解ける）",
       "lines": [
         [
           "A",
-          "So… I might’ve messed things up.",
-          "それで…ちょっとやらかしたかもしれない"
+          "How was dinner with your new neighbors?",
+          "新しい隣人との晩ごはんどうやった？"
         ],
         [
           "B",
-          "Uh-oh. What did you do?",
-          "まずいね。何をしたの？"
+          "Surprisingly good. We really clicked.",
+          "意外とよかった。すごく気が合った。"
         ],
         [
           "A",
-          "I kind of rushed into making a decision.",
-          "ちょっと急いで決断しちゃったんだ"
+          "Nice.",
+          "いいやん。"
         ],
         [
           "B",
-          "About what?",
-          "何について？"
+          "At first I thought they were way out of my league.",
+          "最初は自分にはレベル高すぎる人たちやと思ってた。"
         ],
         [
           "A",
-          "I accepted the offer without thinking it through.",
-          "よく考えずにオファーを受けちゃった"
+          "Socially?",
+          "人付き合い的に？"
         ],
         [
           "B",
-          "That sounds like you jumped the gun.",
-          "それは先走った感じだね"
+          "Yeah. But I got caught up in the moment and ended up talking for hours.",
+          "うん。でもその場の勢いに乗って、結局何時間も話してた。"
         ],
         [
           "A",
-          "Yeah, I totally did.",
-          "うん、完全にそうだった"
+          "Look at you.",
+          "やるやん。"
         ],
         [
           "B",
-          "Why the rush?",
-          "なんでそんなに急いだの？"
+          "I even stayed after everyone else left.",
+          "みんな帰ったあとも残ってた。"
         ],
         [
           "A",
-          "I don’t know… I just got caught up in the moment.",
-          "わからない…その場の勢いに流されちゃったんだ"
+          "Way to put yourself out there.",
+          "ちゃんと自分から踏み出したやん。"
         ],
         [
           "B",
-          "Happens to the best of us.",
-          "誰にでもあることだよ"
+          "I know. Who am I?",
+          "ほんまにな。自分でもびっくり。"
         ],
         [
           "A",
-          "I really wish I could take it back.",
-          "本当に取り消せたらいいのに"
-        ],
-        [
-          "B",
-          "Maybe it’s not too late.",
-          "まだ遅くないかもしれない"
-        ],
-        [
-          "A",
-          "I hope so… I need to fix this.",
-          "そうだといいな…これを直さないと"
+          "Someone with new friends, apparently.",
+          "どうやら新しい友達ができた人。"
         ]
       ],
       "phraseLinks": [
-        "p296",
-        "p333",
-        "p309",
-        "p327"
+        "p324",
+        "p277",
+        "p327",
+        "p262"
       ]
     },
     {
       "id": "d36",
       "season": "Season 3",
-      "title": "行動②（現実的対応＋調整）",
+      "title": "トラブル②（ルール違反）",
       "lines": [
         [
           "A",
-          "So I ran into Jake earlier.",
-          "さっきジェイクにばったり会ったんだ"
+          "You knew outside food wasn’t allowed in here.",
+          "ここ外から食べ物持ち込み禁止って知ってたやろ。"
         ],
         [
           "B",
-          "Oh yeah? How’s he doing?",
-          "へえ、彼はどうしてるの？"
+          "The rule is ridiculous.",
+          "そのルールがおかしいねん。"
         ],
         [
           "A",
-          "Not great. He’s thinking of quitting his job on the spot.",
-          "辞めようと思ってるの？"
+          "That’s neither here nor there. You agreed to play by the rules.",
+          "それは関係ない。ルールに従うって同意したやろ。"
         ],
         [
           "B",
-          "That sounds risky. Did you try to talk him out of it?",
-          "それは危なそうだね。説得してやめさせようとした？"
+          "I just brought one sandwich.",
+          "サンドイッチ一個だけやん。"
         ],
         [
           "A",
-          "Yeah, I told him to think it through first.",
-          "よく考えるように言った"
+          "And now they’re threatening to kick us out.",
+          "そのせいで今、追い出されそうになってる。"
         ],
         [
           "B",
-          "Good. Sometimes people just act on impulse.",
-          "よかった。人は時々、衝動で動いちゃうからね"
+          "Fine. I’ll throw it away.",
+          "わかった。捨てる。"
         ],
         [
           "A",
-          "Exactly. I told him he should at least play by the rules and give notice.",
-          "その通り。少なくともルール通りに、事前に知らせるべきだって言ったよ"
+          "It’s only fair.",
+          "それが公平やろ。"
         ],
         [
           "B",
-          "Makes sense.",
-          "それは理にかなってるね"
+          "I still think the rule is lame.",
+          "それでもそのルールはダサいと思うけど。"
         ],
         [
           "A",
-          "Plus, his team depends on him.",
-          "チームが彼を頼りにしてる"
+          "You can complain after we leave.",
+          "文句は出てから言って。"
         ],
         [
           "B",
-          "Right. It’s only fair to everyone involved.",
-          "そうだね。それが関係者みんなにとって公平だよ"
+          "Deal.",
+          "了解。"
         ],
         [
           "A",
-          "That’s what I said.",
-          "僕もそう言ったよ"
-        ],
-        [
-          "B",
-          "Do you think he’ll listen?",
-          "彼は聞いてくれると思う？"
-        ],
-        [
-          "A",
-          "Honestly? I hope so.",
-          "正直に言うと、そうだといいな"
+          "Good.",
+          "よし。"
         ]
       ],
       "phraseLinks": [
+        "p306",
         "p313",
         "p311",
-        "p299",
-        "p317"
+        "p303"
       ]
     },
     {
       "id": "d37",
       "season": "Season 3",
-      "title": "補完①（軽い雑談＋経験）",
+      "title": "恋愛①（誘う前に様子を見る）",
       "lines": [
         [
           "A",
-          "So, have you ever tried something completely random?",
-          "完全に思いつきで何かやったことある？"
+          "So, are you going to ask Alex out?",
+          "で、アレックス誘うん？"
         ],
         [
           "B",
-          "Oh yeah, I’ve had my share of weird experiences.",
-          "うん、変な経験ならそれなりにしてきたよ"
+          "I don’t know. I’m trying to feel her out first.",
+          "わからん。まず相手の反応を探ってる。"
         ],
         [
           "A",
-          "Like what?",
-          "例えばどんなこと？"
+          "Just out of curiosity, how exactly are you doing that?",
+          "純粋に気になるんやけど、具体的にどうやって？"
         ],
         [
           "B",
-          "I mean, I could bore you with all the details…",
-          "細かい話を全部して君を退屈させることもできるけど…"
+          "Mostly talking to her after work.",
+          "仕事終わりに話したり。"
         ],
         [
           "A",
-          "No, seriously, I’m curious.",
-          "いや、本当に気になるんだ"
+          "Has she been hitting on you?",
+          "向こうから言い寄ってきたりは？"
         ],
         [
           "B",
-          "Alright, I once joined this last-minute trip with strangers.",
-          "わかった。前に、知らない人たちとの直前決定の旅行に参加したことがある"
+          "Maybe. Or maybe she’s just friendly.",
+          "たぶん。でもただ親切なだけかも。"
         ],
         [
           "A",
-          "That sounds kinda fun.",
-          "それ、ちょっと楽しそう"
+          "Don’t jump the gun, then.",
+          "じゃあ先走らん方がいいな。"
         ],
         [
           "B",
-          "It was… but also a little surreal.",
-          "楽しかったよ…でもちょっと現実感がなかった"
+          "Exactly. I don’t want to freak her out.",
+          "そう。引かせたくないし。"
         ],
         [
           "A",
-          "I can imagine.",
-          "想像できるよ"
+          "Makes sense.",
+          "そらそうやな。"
         ],
         [
           "B",
-          "Still, I actually dug the experience.",
-          "それでも、その経験はけっこう気に入ったんだ"
+          "If it feels right, I’ll ask her.",
+          "いけそうなら誘う。"
         ],
         [
           "A",
-          "Yeah? Maybe I should try something like that.",
-          "そう？僕もそういうの試してみようかな"
-        ],
-        [
-          "B",
-          "You should. It’s worth it.",
-          "やってみなよ。価値あるよ"
+          "Good luck.",
+          "頑張って。"
         ]
       ],
       "phraseLinks": [
-        "p136",
-        "p137",
-        "p323"
+        "p341",
+        "p261",
+        "p297",
+        "p296",
+        "p260"
       ]
     },
     {
       "id": "d38",
       "season": "Season 3",
-      "title": "補完②（状況＋違和感）",
+      "title": "日常⑤（道具の名前が出てこない）",
       "lines": [
         [
           "A",
-          "Do you think this outfit works?",
-          "この服、合ってると思う？"
+          "Can you hand me that little metal thingy?",
+          "その小さい金属のやつ取ってくれる？"
         ],
         [
           "B",
-          "Hmm… I don’t know, the colors don’t really go together.",
-          "うーん、どうだろう。色があまり合ってないかも"
+          "That narrows it down.",
+          "それじゃ全然絞れへんな。"
         ],
         [
           "A",
-          "Yeah, I was kinda worried about that.",
-          "それがちょっと心配だった"
+          "The thing next to the screwdriver.",
+          "ドライバーの横のやつ。"
         ],
         [
           "B",
-          "Don’t get me wrong, it’s not terrible.",
-          "誤解しないで。ひどいわけじゃないよ"
+          "The wrench?",
+          "レンチ？"
         ],
         [
           "A",
-          "That sounds like it came out wrong.",
-          "なんか変な言い方に聞こえたよ"
+          "Either that or the pliers. I’m stumped.",
+          "それかペンチ。もうわからん。"
         ],
         [
           "B",
-          "No, I mean it! It’s just a bit off.",
-          "いや、本気で言ってるよ。ただ少し違和感があるだけ"
+          "You’re fixing the sink and you don’t know what the tools are called?",
+          "シンク直してるのに道具の名前知らんの？"
         ],
         [
           "A",
-          "Okay, I get it.",
-          "うん、わかった"
+          "Don’t judge me.",
+          "責めんといて。"
         ],
         [
           "B",
-          "Are you gonna wear it anyway?",
-          "それでも着ていくつもり？"
+          "I’m not judging you. I’m questioning the plan.",
+          "責めてない。計画そのものを疑ってる。"
         ],
         [
           "A",
-          "I don’t know… I’m not really cool with how it looks.",
-          "わからない…見た目にあまり納得してないんだ"
+          "Say no more. I’ll call a plumber.",
+          "もうわかった。業者呼ぶ。"
         ],
         [
           "B",
-          "Fair enough. Better to change now.",
-          "それはわかる。今のうちに着替えた方がいいね"
+          "That might be wise.",
+          "その方が賢明かも。"
         ],
         [
           "A",
-          "Yeah, I’d hate to walk in and feel like I got the shaft.",
-          "ひどい扱いを受けたみたいに感じる"
-        ],
-        [
-          "B",
-          "Exactly. First impressions matter.",
-          "その通り。第一印象は大事だからね"
+          "Probably.",
+          "たぶん。"
         ]
       ],
       "phraseLinks": [
-        "p130",
-        "p320",
-        "p335"
+        "p334",
+        "p344",
+        "p332",
+        "p346",
+        "p339"
+      ]
+    },
+    {
+      "id": "d59",
+      "season": "Season 3",
+      "title": "相談②（人前で挑戦する）",
+      "lines": [
+        [
+          "A",
+          "I signed up to speak at the community meeting.",
+          "地域の集まりで話すことに申し込んだ。"
+        ],
+        [
+          "B",
+          "Wow. It takes guts to do that.",
+          "すごい。それするの勇気いるで。"
+        ],
+        [
+          "A",
+          "I’m already thinking of backing out.",
+          "もうやめようかと思ってる。"
+        ],
+        [
+          "B",
+          "Don’t. You wanted to push yourself.",
+          "やめんとき。自分に挑戦したかったんやろ。"
+        ],
+        [
+          "A",
+          "I know, but public speaking freaks me out.",
+          "わかってるけど、人前で話すのほんま怖い。"
+        ],
+        [
+          "B",
+          "Then let me prep you for it.",
+          "じゃあ練習付き合うよ。"
+        ],
+        [
+          "A",
+          "You’d do that?",
+          "してくれるん？"
+        ],
+        [
+          "B",
+          "Of course. I appreciate the sentiment when people say 'just relax,' but practice actually helps.",
+          "もちろん。「落ち着けばいい」って言ってくれる気持ちはありがたいけど、実際は練習の方が役に立つし。"
+        ],
+        [
+          "A",
+          "True.",
+          "確かに。"
+        ],
+        [
+          "B",
+          "Keep at it for a few days and you’ll be fine.",
+          "数日続ければ大丈夫。"
+        ],
+        [
+          "A",
+          "Okay. I’m in.",
+          "わかった。やる。"
+        ]
+      ],
+      "phraseLinks": [
+        "p340",
+        "p260",
+        "p295",
+        "p338",
+        "p336"
       ]
     }
   ]

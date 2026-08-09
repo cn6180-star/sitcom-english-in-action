@@ -6,6 +6,10 @@ const DATA_FILES = [
   "data/season2.json",
   "data/season3.json",
   "data/season4.json",
+  "data/season5.json",
+  "data/season6.json",
+  "data/season7.json",
+  "data/season8.json",
 ];
 
 let PHRASES = [];
