@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Friends English Trainer</title>
+<title>Sitcom English in Action</title>
 <link rel="stylesheet" href="css/style.css"></head>
 <body><div class="wrap">
-<h1>Friends English Trainer</h1><div id="appSubtitle" class="sub">Loading data…</div>
+<h1>Sitcom English in Action</h1><div id="appSubtitle" class="sub">Loading data…</div>
 <section id="home" class="card"><div class="title">学習メニュー</div><div class="meta">フレーズで意味を学び、ダイアログで使える形にする統合版。</div><button class="btn blue" onclick="showPhraseHome('all')">📘 フレーズ</button><button class="btn green" onclick="showRoleHome('all')">🎭 ロールプレイ</button><button class="btn soft" onclick="showSearch()">🔎 検索</button><button class="btn white" onclick="currentBookmarkTab='phrase';showBookmarks()">⭐ ブックマーク</button><button class="btn white" onclick="showQuizHome()">🧠 フレーズクイズ</button><div class="stats"><div class="stat"><small>フレーズ</small><b id="phraseCount">—</b></div><div class="stat"><small>ダイアログ</small><b id="dialogueCount">—</b></div><div class="stat"><small>Season</small><b id="seasonRange">—</b></div></div></section>
 
 <section id="phraseSeason" class="card hidden"><div class="top"><button class="small" onclick="goHome()">← 戻る</button><div class="topActions"><button class="small" onclick="showSearch()">🔍 検索</button><button class="small" onclick="goHome()">🏠 ホーム</button></div></div><div class="title">フレーズ：シーズン選択</div><div id="phraseSeasonButtons"></div></section>
