@@ -1,627 +1,155 @@
 "use strict";
 
-// Add a new data/seasonN.json path here when a season is ready.
-const DATA_FILES = [
-  "data/season1.json",
-  "data/season2.json",
-  "data/season3.json",
-  "data/season4.json",
-  "data/season5.json",
-  "data/season6.json",
-  "data/season7.json",
-  "data/season8.json",
-];
+const DATA_FILES = Array.from({length:8},(_,i)=>`data/season${i+1}.json`);
+const SERIES = [{id:"friends",name:"Friends",available:true},{id:"tbbt",name:"The Big Bang Theory",available:false}];
+const LEGACY = {phraseBookmarks:"friendsBookmarks_phrase",dialogueBookmarks:"friendsBookmarks_dialogue",weak:"friendsWeakStats"};
+const STORE = {state:"sitcomEnglish_v2_state",continue:"sitcomEnglish_v2_continue",activity:"sitcomEnglish_v2_activity",quiz:"sitcomEnglish_v2_quizInProgress",history:"sitcomEnglish_v2_quizHistory"};
+const TODAY_TARGET = 10;
 
-let PHRASES = [];
-let DIALOGUES = [];
-let AVAILABLE_SEASONS = [];
+let PHRASES=[],DIALOGUES=[],SEASONS=[];
+let route={name:"home",params:{}},historyStack=[],lastListContext=null;
+let filters={phrase:{season:"ALL",episode:"ALL",priority:"all",type:"all",usage:"all",bookmarked:false},dialogue:{season:"ALL",episode:"ALL",category:"all",bookmarked:false},bookmarksTab:"phrase",quizSeason:"ALL",quizScope:"random"};
+const app=document.getElementById("app"),backButton=document.getElementById("backButton"),searchButton=document.getElementById("searchButton");
 
-async function loadData() {
-  const responses = await Promise.all(DATA_FILES.map(async file => {
-    const response = await fetch(file);
-    if (!response.ok) throw new Error(`Failed to load ${file}: ${response.status}`);
-    return response.json();
-  }));
-  PHRASES = responses.flatMap(data => data.phrases || []);
-  DIALOGUES = responses.flatMap(data => data.dialogues || []);
-  AVAILABLE_SEASONS = responses
-    .map(data => Number(data.season))
-    .filter(Number.isFinite)
-    .sort((a, b) => a - b)
-    .map(number => `Season ${number}`);
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const readJSON=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
+const writeJSON=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+const seasonNum=value=>Number(String(value||"").match(/\d+/)?.[0])||0;
+const seasonCode=n=>`S${String(Number(n)).padStart(2,"0")}`;
+const episodeNumber=value=>Number(String(value||"").match(/E(\d+)/)?.[1])||0;
+const localDate=(date=new Date())=>`${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
+const normalize=value=>String(value||"").toLowerCase().replace(/[’]/g,"'").normalize("NFKC").replace(/\s+/g," ").trim();
+
+async function loadData(){
+  const datasets=await Promise.all(DATA_FILES.map(async path=>{const response=await fetch(path);if(!response.ok)throw new Error(`${path}: ${response.status}`);return response.json()}));
+  PHRASES=datasets.flatMap(x=>x.phrases||[]);DIALOGUES=datasets.flatMap(x=>x.dialogues||[]);SEASONS=datasets.map(x=>Number(x.season)).filter(Number.isFinite).sort((a,b)=>a-b);
+  const saved=readJSON(STORE.state,{});if(saved.currentSeries==="friends") filters={...filters,...saved.filters,phrase:{...filters.phrase,...saved.filters?.phrase},dialogue:{...filters.dialogue,...saved.filters?.dialogue}};
 }
 
-function updateDataSummary() {
-  const numbers = AVAILABLE_SEASONS.map(season => Number(season.match(/\d+/)?.[0])).filter(Number.isFinite);
-  const range = numbers.length ? (numbers.length === 1 ? String(numbers[0]) : `${numbers[0]}–${numbers.at(-1)}`) : "—";
-  document.getElementById("appSubtitle").textContent = `Season ${range} / ${PHRASES.length} Phrases / ${DIALOGUES.length} Dialogues`;
-  document.getElementById("phraseCount").textContent = PHRASES.length;
-  document.getElementById("dialogueCount").textContent = DIALOGUES.length;
-  document.getElementById("seasonRange").textContent = range;
-  renderSeasonSelectors();
+function saveAppState(){writeJSON(STORE.state,{version:2,currentSeries:"friends",filters});}
+function navigate(name,params={},options={}){if(!options.replace)historyStack.push({name:route.name,params:{...route.params}});route={name,params};render();}
+function goBack(){const previous=historyStack.pop();if(previous){route=previous;render()}else navigate("home",{}, {replace:true});}
+function goHome(){historyStack=[];route={name:"home",params:{}};render();}
+function navTo(mode){if(mode==="home")return goHome();const map={phrases:"phrases",dialogues:"dialogues",quiz:"quiz",bookmarks:"bookmarks"};historyStack=[];route={name:map[mode],params:{}};render();}
+
+function activeNav(){if(["phraseDetail","episodes"].includes(route.name))return"phrases";if(route.name==="dialogueDetail")return"dialogues";if(route.name==="quizPlay"||route.name==="quizResult")return"quiz";return route.name;}
+function renderNav(){
+  const items=[['home','⌂','Home'],['phrases','P','Phrases'],['dialogues','D','Dialogues'],['quiz','Q','Quiz'],['bookmarks','♧','Bookmarks']];
+  const html=items.map(([id,icon,label])=>`<button class="nav-button ${activeNav()===id?'active':''}" onclick="navTo('${id}')" aria-current="${activeNav()===id?'page':'false'}"><span class="nav-icon">${icon}</span><span>${label}</span></button>`).join("");
+  document.getElementById("bottomNav").innerHTML=html;
+  document.getElementById("sidebar").innerHTML=`<div class="sidebar-brand">Sitcom<span>English in Action</span></div>${html}`;
+  backButton.disabled=route.name==="home"&&!historyStack.length;
 }
 
-function renderSeasonSelectors() {
-  const phraseSeason = document.getElementById("phraseSeasonButtons");
-  const roleSeason = document.getElementById("roleSeasonButtons");
-  if (phraseSeason) phraseSeason.innerHTML = ["all", ...AVAILABLE_SEASONS].map(season =>
-    `<button class="btn blue" onclick="showPhraseHome('${season}')">${season === "all" ? "All Seasons" : season}</button>`
-  ).join("");
-  if (roleSeason) roleSeason.innerHTML = ["all", ...AVAILABLE_SEASONS].map(season =>
-    `<button class="btn green" onclick="showRoleHome('${season}')">${season === "all" ? "All Seasons" : season}</button>`
-  ).join("");
+function render(){
+  closeSearch();renderNav();saveAppState();
+  const views={home:renderHome,series:renderSeriesHome,episodes:renderEpisodes,phrases:()=>renderPhrasePage(false),bookmarks:renderBookmarks,phraseDetail:renderPhraseDetail,dialogues:renderDialogueList,dialogueDetail:renderDialogueDetail,quiz:renderQuizHome,quizPlay:renderQuizPlay,quizResult:renderQuizResult};
+  (views[route.name]||renderHome)();app.focus({preventScroll:true});window.scrollTo({top:0,behavior:"instant"});
 }
 
-function showLoadError(error) {
-  console.error(error);
-  const home = document.getElementById("home");
-  if (home) home.innerHTML = '<div class="title">データを読み込めませんでした</div><div class="meta">GitHub Pagesまたはローカルサーバー経由で開いてください。</div>';
+function bookmarks(type){const key=type==="phrase"?LEGACY.phraseBookmarks:LEGACY.dialogueBookmarks;const value=readJSON(key,[]);return Array.isArray(value)?value:[];}
+function bookmarked(type,id){return bookmarks(type).includes(id)}
+function toggleBookmark(type,id,event){event?.stopPropagation();const key=type==="phrase"?LEGACY.phraseBookmarks:LEGACY.dialogueBookmarks;const old=bookmarks(type);writeJSON(key,old.includes(id)?old.filter(x=>x!==id):[...old,id]);render();}
+function bookmarkButton(type,id){const on=bookmarked(type,id);return `<button class="bookmark-button ${on?'on':''}" onclick="toggleBookmark('${type}','${id}',event)" aria-label="${on?'Remove bookmark':'Bookmark'}" aria-pressed="${on}"></button>`;}
+
+function getWeakStats(){const value=readJSON(LEGACY.weak,{});return value&&typeof value==="object"&&!Array.isArray(value)?value:{}}
+function setWeakStats(value){writeJSON(LEGACY.weak,value)}
+function isWeak(id){const item=getWeakStats()[id];return Boolean(item&&!item.graduated)}
+function markMiss(id){const all=getWeakStats(),wasActive=Boolean(all[id]&&!all[id].graduated);all[id]={...(all[id]||{}),miss:(all[id]?.miss||0)+1,streak:0,graduated:false};setWeakStats(all);return !wasActive;}
+function markWeakCorrect(id){const all=getWeakStats();if(!all[id]||all[id].graduated)return false;all[id].streak=(all[id].streak||0)+1;const graduated=all[id].streak>=2;if(graduated)all[id].graduated=true;setWeakStats(all);return graduated;}
+function weakCount(){return Object.values(getWeakStats()).filter(x=>x&&!x.graduated).length}
+
+function recordStudy(kind,id){
+  const activity=readJSON(STORE.activity,{dates:{},target:TODAY_TARGET});activity.dates=activity.dates||{};const today=localDate();const items=new Set(activity.dates[today]?.items||[]);items.add(`${kind}:${id}`);activity.dates[today]={items:[...items]};activity.target=activity.target||TODAY_TARGET;writeJSON(STORE.activity,activity);
+}
+function activityStats(){
+  const activity=readJSON(STORE.activity,{dates:{},target:TODAY_TARGET}),today=localDate(),todayCount=activity.dates?.[today]?.items?.length||0;let streak=0,cursor=new Date();
+  if(!activity.dates?.[today]?.items?.length)cursor.setDate(cursor.getDate()-1);
+  while(activity.dates?.[localDate(cursor)]?.items?.length){streak++;cursor.setDate(cursor.getDate()-1)}
+  return{today:todayCount,target:activity.target||TODAY_TARGET,streak};
+}
+function setContinue(value){writeJSON(STORE.continue,{series:"friends",timestamp:Date.now(),...value})}
+function getContinue(){const value=readJSON(STORE.continue,null);if(!value)return null;if(value.kind==="phrase"&&!PHRASES.some(x=>x.id===value.id))return null;if(value.kind==="dialogue"&&!DIALOGUES.some(x=>x.id===value.id))return null;return value;}
+function continueLearning(){const value=getContinue();if(!value)return navigate("series");if(value.kind==="phrase")navigate("phraseDetail",{id:value.id,from:"continue"});else navigate("dialogueDetail",{id:value.id,from:"continue"});}
+
+function pageHeader(eyebrow,title,subtitle=""){return `<header class="page-header"><div class="eyebrow">${esc(eyebrow)}</div><h1 class="page-title">${esc(title)}</h1>${subtitle?`<p class="page-subtitle">${esc(subtitle)}</p>`:""}</header>`}
+function chips(values,selected,handler,prefix=""){return `<div class="chips">${values.map(value=>{const active=String(value)===String(selected),label=value==="ALL"?"ALL":prefix==="E"?`E${String(value).padStart(2,"0")}`:`${prefix}${value}`;return `<button class="chip ${active?'selected':''}" aria-pressed="${active}" onclick="${handler}('${value}')">${esc(label)}</button>`}).join("")}</div>`}
+function quizStatsMarkup(){const h=readJSON(STORE.history,[]),last=h.at(-1),best=h.length?[...h].sort((a,b)=>(b.score/b.total)-(a.score/a.total)||b.score-a.score)[0]:null,today=[...h].reverse().find(x=>x.completedDate===localDate()||(!x.completedDate&&localDate(new Date(x.completedAt))===localDate()));return `<div class="stats-row"><div class="stat-box"><span>Last score</span><strong>${last?`${last.score}/${last.total}`:'—'}</strong></div><div class="stat-box"><span>Best score</span><strong>${best?`${best.score}/${best.total}`:'—'}</strong></div><div class="stat-box"><span>Today</span><strong>${today?`${today.score}/${today.total}`:'0/10'}</strong></div></div>`}
+
+function renderHome(){
+  const a=activityStats(),cont=getContinue(),p=cont?.kind==="phrase"?PHRASES.find(x=>x.id===cont.id):null,d=cont?.kind==="dialogue"?DIALOGUES.find(x=>x.id===cont.id):null;
+  const continueTitle=p?`${p.id} ${p.phrase}`:d?d.title:"Friends · Choose where to start";const continueMeta=p?`Friends · ${p.episode} · Phrases`:d?`Friends · ${d.season} · Dialogues`:"Your learning position will appear here.";
+  app.innerHTML=`<div class="dashboard">
+    <section>${pageHeader("","Sitcom English in Action","海外ドラマで楽しく英語を学ぼう")}</section><div class="desktop-only"></div>
+    <section class="card"><div class="section-head"><h2 class="section-title">Today</h2></div><div class="today-grid"><div class="today-stat"><span class="today-icon">🔥</span><span class="today-label">Streak</span><strong class="today-value">${a.streak} days</strong></div><div class="today-stat"><span class="today-icon">🎯</span><span class="today-label">Today</span><strong class="today-value">${a.today} / ${a.target}</strong></div><div class="today-stat"><span class="today-icon">↻</span><span class="today-label">Review</span><strong class="today-value">${weakCount()} phrases</strong></div></div></section>
+    <section class="card continue-card"><div><div class="continue-kicker">Continue Learning</div><h2 class="continue-title">${esc(continueTitle)}</h2><div class="continue-meta">${esc(continueMeta)}${cont?`<br>Last studied: ${localDate(new Date(cont.timestamp))===localDate()?'Today':localDate(new Date(cont.timestamp))}`:""}</div></div><button class="primary-button" onclick="continueLearning()">Continue →</button></section>
+    <section class="card"><div class="section-head"><h2 class="section-title">Series</h2></div><div class="series-grid">${SERIES.map(s=>`<button class="series-card ${s.available?'':'disabled'}" ${s.available?'onclick="navigate(\'series\')"':'disabled'}><span class="series-name">${esc(s.name)}</span><span class="series-state">${s.available?'S1–S8 available':'Coming Soon'}</span></button>`).join("")}</div></section>
+    <section class="card compact-card"><div><h2 class="section-title">Daily Quiz</h2><p class="page-subtitle">10 questions. See what sticks.</p><div class="desktop-only section">${quizStatsMarkup()}</div></div><button class="primary-button" onclick="navigate('quiz')">Start →</button></section>
+  </div>`;
 }
 
-let currentDialogue=null,previousScreen="roleHome",userRole="A",index=0,answerShown=false,currentPhraseList=[],currentDialogueList=[],phraseReturnTarget=null,currentPhraseSeason="all",currentRoleSeason="all",currentPhraseFilter="all",currentRoleFilter="all",quizItems=[],quizIndex=0,quizCorrect=0,quizMode="random",quizAnswered=false,currentBookmarkTab="phrase";
-const $=id=>document.getElementById(id);
-function showOnly(id){["home","phraseSeason","phraseHome","phraseDetail","roleSeason","roleHome","roleMenu","memorize","drill","search","bookmarks","quizHome","quizPlay","quizResult"].forEach(x=>$(x).classList.add("hidden"));$(id).classList.remove("hidden");window.scrollTo(0,0);}
-function goHome(){cancelSpeech();showOnly("home")}
-function cancelSpeech(){if("speechSynthesis" in window) speechSynthesis.cancel();}
-function seasonCode(season){const n=Number(String(season).match(/\d+/)?.[0]);return n?`S${String(n).padStart(2,"0")}`:"";}
-function normalize(s){return String(s||"").toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9ぁ-んァ-ン一-龥ー]+/g," ").replace(/\s+/g," ").trim();}
-function fuzzyMatch(text,q){const t=normalize(text),qq=normalize(q);if(!qq)return true;if(t.includes(qq))return true;const ws=qq.split(" ").filter(Boolean);if(ws.length<=1)return false;let pos=0;for(const w of ws){const f=t.indexOf(w,pos);if(f===-1)return false;pos=f+w.length}return true;}
-function highlight(text,q){let out=String(text||"");normalize(q).split(" ").filter(Boolean).forEach(w=>{if(/[ぁ-んァ-ン一-龥ー]/.test(w))return;const re=new RegExp("("+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig");out=out.replace(re,"<mark>$1</mark>")});return out;}
+function renderSeriesHome(){
+  const bCount=bookmarks("phrase").length+bookmarks("dialogue").length;
+  app.innerHTML=`${pageHeader("Series","Friends",`${PHRASES.length} phrases · ${DIALOGUES.length} dialogues`)}<section class="section"><div class="section-head"><h2 class="section-title">Study by Mode</h2></div><div class="list-rows">
+    <button class="list-row" onclick="navigate('phrases')"><strong>Phrases</strong><span class="row-end"><span class="row-meta">${PHRASES.length} phrases</span>›</span></button>
+    <button class="list-row" onclick="navigate('dialogues')"><strong>Dialogues</strong><span class="row-end"><span class="row-meta">${DIALOGUES.length} dialogues</span>›</span></button>
+    <button class="list-row" onclick="navigate('quiz')"><strong>Quiz</strong><span class="row-end"><span class="row-meta">Daily Quiz</span>›</span></button>
+    <button class="list-row" onclick="navigate('bookmarks')"><strong>Bookmarks</strong><span class="row-end"><span class="row-meta">${bCount} items</span>›</span></button></div></section>
+    <section class="section"><div class="section-head"><h2 class="section-title">Browse by Season</h2></div>${chips(["ALL",...SEASONS],"ALL","browseSeason",'S')}</section>
+    <section class="card section"><div class="section-head"><h2 class="section-title">How to use</h2></div><div class="how-list"><div class="how-item"><span class="how-icon">⌕</span><div><strong>Find what you need</strong><span>Filter by Phrases or choose a Season.</span></div></div><div class="how-item"><span class="how-icon">→</span><div><strong>Study by Episode</strong><span>Pick an episode and start learning.</span></div></div></div></section>`;
+}
+function browseSeason(value){if(value==="ALL")navigate("phrases");else navigate("episodes",{season:Number(value)})}
+function episodeValues(season){return [...new Set(PHRASES.filter(p=>seasonNum(p.episode)===Number(season)).map(p=>episodeNumber(p.episode)))].sort((a,b)=>a-b)}
+function renderEpisodes(){const season=route.params.season,eps=episodeValues(season);app.innerHTML=`${pageHeader("Friends",`Season ${season}`,"Choose an episode to preview its phrases.")}<div class="list-rows">${eps.map(ep=>{const count=PHRASES.filter(p=>seasonNum(p.episode)===season&&episodeNumber(p.episode)===ep).length;return `<button class="list-row" onclick="openEpisode(${season},${ep})"><strong>Episode ${String(ep).padStart(2,'0')}</strong><span class="row-end"><span class="row-meta">${count} phrases</span>›</span></button>`}).join("")}</div>`}
+function openEpisode(season,episode){filters.phrase={...filters.phrase,season:String(season),episode:String(episode)};navigate("phrases")}
 
-let cachedVoices = [];
-function loadVoices(){
-  if(!("speechSynthesis" in window)) return [];
-  cachedVoices = speechSynthesis.getVoices() || [];
-  return cachedVoices;
-}
-if("speechSynthesis" in window){
-  loadVoices();
-  speechSynthesis.onvoiceschanged = loadVoices;
-}
-function pickEnglishVoice(){
-  const voices = cachedVoices.length ? cachedVoices : loadVoices();
-  return voices.find(v => /en-US/i.test(v.lang)) ||
-         voices.find(v => /^en/i.test(v.lang)) ||
-         voices[0] || null;
-}
-function speakLine(text){
-  if(!("speechSynthesis" in window)){
-    alert("このブラウザでは音声再生に対応していません。");
-    return;
-  }
-  const clean = String(text || "").replace(/[~〜]/g, "").trim();
-  if(!clean) return;
+function setPhraseFilter(key,value){filters.phrase[key]=value;if(key==="season")filters.phrase.episode="ALL";saveAppState();route.name==="bookmarks"?renderBookmarks():renderPhrasePage(false)}
+function phraseFilterPanel(bookmarkedOnly=false){const f=filters.phrase,eps=f.season==="ALL"?[]:episodeValues(f.season),types=[...new Set(PHRASES.map(p=>p.type))].sort(),usages=[...new Set(PHRASES.map(p=>p.usage))].sort();return `<aside class="filter-panel card"><div class="filter-group"><div class="filter-label">Season</div>${chips(["ALL",...SEASONS],f.season,"setPhraseFilter.bind(null,'season')",'S').replaceAll("setPhraseFilter.bind(null,'season')('","setPhraseFilter('season','")}</div>${f.season!=="ALL"?`<div class="filter-group"><div class="filter-label">Episode</div>${chips(["ALL",...eps],f.episode,"setPhraseFilter.bind(null,'episode')",'E').replaceAll("setPhraseFilter.bind(null,'episode')('","setPhraseFilter('episode','")}</div>`:""}<div class="filter-group"><div class="filter-label">Priority</div>${chips(["all","3"],f.priority,"setPhraseFilter.bind(null,'priority')").replaceAll("setPhraseFilter.bind(null,'priority')('","setPhraseFilter('priority','").replace(">all<",">All<").replace(">3<",">★★★<")}</div><div class="filter-group"><label class="filter-label" for="typeFilter">Type</label><select id="typeFilter" class="select" onchange="setPhraseFilter('type',this.value)"><option value="all">All types</option>${types.map(x=>`<option ${f.type===x?'selected':''}>${esc(x)}</option>`).join("")}</select></div><div class="filter-group"><label class="filter-label" for="usageFilter">Usage</label><select id="usageFilter" class="select" onchange="setPhraseFilter('usage',this.value)"><option value="all">All usage</option>${usages.map(x=>`<option ${f.usage===x?'selected':''}>${esc(x)}</option>`).join("")}</select></div>${!bookmarkedOnly?`<button class="secondary-button ${f.bookmarked?'selected-filter':''}" aria-pressed="${f.bookmarked}" onclick="setPhraseFilter('bookmarked',${!f.bookmarked})">🔖 Bookmarked</button>`:""}</aside>`}
+function filteredPhrases(bookmarkedOnly=false){const f=filters.phrase;return PHRASES.filter(p=>(!(bookmarkedOnly||f.bookmarked)||bookmarked("phrase",p.id))&&(f.season==="ALL"||seasonNum(p.episode)===Number(f.season))&&(f.episode==="ALL"||episodeNumber(p.episode)===Number(f.episode))&&(f.priority==="all"||Number(p.priority)===3)&&(f.type==="all"||p.type===f.type)&&(f.usage==="all"||p.usage===f.usage));}
+function phraseCard(p){return `<article class="phrase-card" onclick="openPhrase('${p.id}')">${bookmarkButton("phrase",p.id)}<div class="phrase-name">${esc(p.phrase)}</div><div class="meaning">${esc(p.meaning)}</div><div class="meta-line"><span class="tag priority">${esc(p.priorityText)}</span><span class="tag">${esc(p.type)}</span><span class="tag">${esc(p.usage)}</span><span class="tag">${esc(p.episode)}</span></div></article>`}
+function renderPhrasePage(bookmarkedOnly=false){const list=filteredPhrases(bookmarkedOnly);lastListContext={type:bookmarkedOnly?"bookmarks":"phrases",ids:list.map(x=>x.id)};app.innerHTML=`${pageHeader("Friends",bookmarkedOnly?"Bookmarks":"Phrases",bookmarkedOnly?`${list.length} items`:`${PHRASES.length} phrases`)}<div class="filter-layout">${phraseFilterPanel(bookmarkedOnly)}<section><div class="result-count">${list.length} results</div><div class="content-list phrase-grid">${list.map(phraseCard).join("")||'<div class="empty">No matching phrases.</div>'}</div></section></div>`}
+function openPhrase(id){setContinue({kind:"phrase",id});recordStudy("phrase",id);navigate("phraseDetail",{id})}
+function renderPhraseDetail(){const p=PHRASES.find(x=>x.id===route.params.id);if(!p)return navigate("phrases");app.innerHTML=`<article class="card detail-card">${bookmarkButton("phrase",p.id)}<div class="eyebrow">${esc(p.episode)}</div><h1 class="detail-title">${esc(p.phrase)}</h1><div class="meaning">${esc(p.meaning)}</div><div class="meta-line"><span class="tag priority">${esc(p.priorityText)}</span><span class="tag">${esc(p.type)}</span><span class="tag">${esc(p.usage)}</span><span class="tag">${esc(p.episode)}</span></div><p class="detail-copy muted">${esc(p.scene)}</p><div class="example">${esc(p.example1)}</div><div class="example">${esc(p.example2)}</div></article>`}
 
-  try{
-    speechSynthesis.cancel();
-    // Android Chrome / WebView 対策：少し待ってから発話
-    setTimeout(() => {
-      const u = new SpeechSynthesisUtterance(clean);
-      u.lang = "en-US";
-      u.rate = 0.9;
-      u.pitch = 1.0;
-      u.volume = 1.0;
-      const voice = pickEnglishVoice();
-      if(voice) u.voice = voice;
-      speechSynthesis.speak(u);
-    }, 80);
-  }catch(e){
-    console.log(e);
-    alert("音声再生に失敗しました。Chromeで開くと動く可能性があります。");
-  }
-}
-function testVoice(){
-  speakLine("Can I run something by you?");
-}
+function dialogueEpisodes(d){const linked=new Set(d.phraseLinks||[]);return [...new Set(PHRASES.filter(p=>linked.has(p.id)).map(p=>p.episode))].sort()}
+function dialogueCategory(d){const match=String(d.title||"").match(/^([^①②③④⑤⑥⑦⑧⑨⑩（(]+)/);return match?.[1]?.trim()||""}
+function dialogueText(d){return [d.title,...d.lines.flatMap(x=>[x[1],x[2]])].join(" ")}
+function setDialogueFilter(key,value){filters.dialogue[key]=value;if(key==="season")filters.dialogue.episode="ALL";saveAppState();route.name==="bookmarks"?renderBookmarks():renderDialogueList(false)}
+function dialogueFilterPanel(bookmarkedOnly=false){const f=filters.dialogue,eps=f.season==="ALL"?[]:episodeValues(f.season),categories=[...new Set(DIALOGUES.map(dialogueCategory).filter(Boolean))].sort();return `<aside class="filter-panel card"><div class="filter-group"><div class="filter-label">Season</div>${chips(["ALL",...SEASONS],f.season,"setDialogueFilter.bind(null,'season')",'S').replaceAll("setDialogueFilter.bind(null,'season')('","setDialogueFilter('season','")}</div>${f.season!=="ALL"?`<div class="filter-group"><div class="filter-label">Episode</div>${chips(["ALL",...eps],f.episode,"setDialogueFilter.bind(null,'episode')",'E').replaceAll("setDialogueFilter.bind(null,'episode')('","setDialogueFilter('episode','")}</div>`:""}<div class="filter-group"><label class="filter-label" for="categoryFilter">Category</label><select id="categoryFilter" class="select" onchange="setDialogueFilter('category',this.value)"><option value="all">All categories</option>${categories.map(x=>`<option ${f.category===x?'selected':''}>${esc(x)}</option>`).join("")}</select></div>${!bookmarkedOnly?`<button class="secondary-button ${f.bookmarked?'selected-filter':''}" aria-pressed="${f.bookmarked}" onclick="setDialogueFilter('bookmarked',${!f.bookmarked})">🔖 Bookmarked</button>`:""}</aside>`}
+function filteredDialogues(bookmarkedOnly=false){const f=filters.dialogue;return DIALOGUES.filter(d=>(!(bookmarkedOnly||f.bookmarked)||bookmarked("dialogue",d.id))&&(f.season==="ALL"||seasonNum(d.season)===Number(f.season))&&(f.episode==="ALL"||dialogueEpisodes(d).some(ep=>episodeNumber(ep)===Number(f.episode)))&&(f.category==="all"||dialogueCategory(d)===f.category));}
+function dialogueCard(d){const eps=dialogueEpisodes(d),category=dialogueCategory(d),linked=d.phraseLinks?.length||0;return `<article class="dialogue-card" onclick="openDialogue('${d.id}')"><div class="dialogue-thumb" aria-hidden="true"></div><div>${bookmarkButton("dialogue",d.id)}<div class="dialogue-title">${esc(d.title)}</div><div class="page-subtitle">${d.lines.length} lines · ${linked} phrases</div><div class="meta-line">${category?`<span class="tag">${esc(category)}</span>`:""}<span class="tag">${esc(eps.join(" · ")||d.season)}</span></div></div></article>`}
+function renderDialogueList(bookmarkedOnly=false){const list=filteredDialogues(bookmarkedOnly);lastListContext={type:"dialogues",ids:list.map(x=>x.id)};app.innerHTML=`${pageHeader("Friends",bookmarkedOnly?"Bookmarked Dialogues":"Dialogues",bookmarkedOnly?`${list.length} dialogues`:`${DIALOGUES.length} dialogues`)}<div class="filter-layout">${dialogueFilterPanel(bookmarkedOnly)}<section><div class="result-count">${list.length} results</div><div class="content-list">${list.map(dialogueCard).join("")||'<div class="empty">No matching dialogues.</div>'}</div></section></div>`}
+function openDialogue(id){setContinue({kind:"dialogue",id});recordStudy("dialogue",id);const ids=lastListContext?.ids?.includes(id)?lastListContext.ids:filteredDialogues().map(x=>x.id);navigate("dialogueDetail",{id,ids,practice:"normal",revealed:[]})}
+function setPractice(mode){route.params.practice=mode;route.params.revealed=[];renderDialogueDetail()}
+function revealLine(index){route.params.revealed=route.params.revealed||[];if(!route.params.revealed.includes(index))route.params.revealed.push(index);renderDialogueDetail()}
+function dialogueMove(delta){const ids=route.params.ids||DIALOGUES.map(x=>x.id),pos=ids.indexOf(route.params.id),id=ids[pos+delta];if(id){route.params={...route.params,id,practice:"normal",revealed:[]};setContinue({kind:"dialogue",id});recordStudy("dialogue",id);render()}}
+function highlightDialogueLine(text,linked){let output=esc(text);linked.sort((a,b)=>b.phrase.length-a.phrase.length).forEach(p=>{const raw=String(p.phrase).replace(/\([^)]*\)|someone|somebody|something|~/gi," ").trim();if(raw.length<4)return;const safe=raw.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");output=output.replace(new RegExp(`(${safe})`,`ig`),'<span class="highlight-phrase">$1</span>')});return output}
+function renderDialogueDetail(){const d=DIALOGUES.find(x=>x.id===route.params.id);if(!d)return navigate("dialogues");const ids=route.params.ids||DIALOGUES.map(x=>x.id),pos=ids.indexOf(d.id),mode=route.params.practice||"normal",revealed=route.params.revealed||[],linked=(d.phraseLinks||[]).map(id=>PHRASES.find(p=>p.id===id)).filter(Boolean),eps=dialogueEpisodes(d);const conversation=d.lines.map((line,i)=>{const hide=mode===`hide${line[0]}`&&!revealed.includes(i);return `<div class="bubble-row ${line[0].toLowerCase()}"><div class="bubble"><div class="speaker-label">${line[0]}</div>${hide?`<div class="hidden-line" role="button" tabindex="0" onclick="revealLine(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();revealLine(${i})}">Tap to reveal</div>`:`<div>${highlightDialogueLine(line[1],linked)}</div><div class="translation">${esc(line[2])}</div>`}</div></div>`}).join("");app.innerHTML=`<div class="dialogue-pager"><button class="text-button" ${pos<=0?'disabled':''} onclick="dialogueMove(-1)">← Previous</button><span></span><button class="text-button" ${pos<0||pos>=ids.length-1?'disabled':''} onclick="dialogueMove(1)">Next →</button></div><header class="page-header"><div class="eyebrow">Friends · ${esc(eps.join(' · ')||d.season)}</div><h1 class="page-title">${esc(d.title)}</h1>${bookmarkButton("dialogue",d.id)}</header><div class="dialogue-layout"><section><div class="segmented"><button class="seg-button ${mode==='normal'?'selected':''}" aria-pressed="${mode==='normal'}" onclick="setPractice('normal')">Normal</button><button class="seg-button ${mode==='hideA'?'selected':''}" aria-pressed="${mode==='hideA'}" onclick="setPractice('hideA')">Hide A</button><button class="seg-button ${mode==='hideB'?'selected':''}" aria-pressed="${mode==='hideB'}" onclick="setPractice('hideB')">Hide B</button></div><div class="conversation">${conversation}</div></section><aside class="dialogue-side card"><h2 class="section-title">このダイアログの学習フレーズ</h2><div class="learning-list">${linked.map((p,i)=>`<div class="learning-item" role="button" tabindex="0" onclick="openPhrase('${p.id}')" onkeydown="if(event.key==='Enter'){openPhrase('${p.id}')}" ><strong>${i+1}. ${esc(p.phrase)}</strong><span>${esc(p.meaning)}</span></div>`).join("")||'<div class="empty">Linked phrases are not registered.</div>'}</div></aside></div>`}
 
-function toggleEl(id){const el=$(id);if(el)el.style.display=el.style.display==="none"?"block":"none";}
-function toggleRoleHint(){
-  const hint = $("hint");
-  const box = $("hintBox");
-  if(!hint || !box) return;
-  hint.classList.toggle("hidden");
-  const label = box.querySelector(".hintHidden");
-  if(label) label.textContent = hint.classList.contains("hidden") ? "ヒントを見る" : "ヒントを隠す";
-}
-function resetRoleHint(){
-  const hint = $("hint");
-  const box = $("hintBox");
-  if(hint) hint.classList.add("hidden");
-  const label = box ? box.querySelector(".hintHidden") : null;
-  if(label) label.textContent = "ヒントを見る";
-}
+function renderBookmarks(){const tab=filters.bookmarksTab;app.innerHTML=`${pageHeader("Friends","Bookmarks",`${bookmarks("phrase").length+bookmarks("dialogue").length} items`)}<div class="segmented section"><button class="seg-button ${tab==='phrase'?'selected':''}" aria-pressed="${tab==='phrase'}" onclick="filters.bookmarksTab='phrase';render()">Phrases</button><button class="seg-button ${tab==='dialogue'?'selected':''}" aria-pressed="${tab==='dialogue'}" onclick="filters.bookmarksTab='dialogue';render()">Dialogues</button></div><div id="bookmarkContent"></div>`;if(tab==="phrase")document.getElementById("bookmarkContent").innerHTML=(()=>{const list=filteredPhrases(true);lastListContext={type:"bookmarks",ids:list.map(x=>x.id)};return `<div class="filter-layout">${phraseFilterPanel(true)}<section><div class="result-count">${list.length} results</div><div class="content-list phrase-grid">${list.map(phraseCard).join("")||'<div class="empty">No bookmarked phrases.</div>'}</div></section></div>`})();else document.getElementById("bookmarkContent").innerHTML=(()=>{const list=filteredDialogues(true);lastListContext={type:"dialogues",ids:list.map(x=>x.id)};return `<div class="filter-layout">${dialogueFilterPanel(true)}<section><div class="result-count">${list.length} results</div><div class="content-list">${list.map(dialogueCard).join("")||'<div class="empty">No bookmarked dialogues.</div>'}</div></section></div>`})()}
 
-function toggleLocalSearch(kind){
-  const box = kind==="phrase" ? $("phraseLocalSearch") : $("roleLocalSearch");
-  const input = kind==="phrase" ? $("phraseFilter") : $("roleFilter");
-  if(!box || !input) return;
-  const willOpen = box.classList.contains("hidden");
-  box.classList.toggle("hidden");
-  if(willOpen){
-    setTimeout(()=>input.focus(),50);
-  }else{
-    input.value="";
-    if(kind==="phrase") renderPhraseList(currentPhraseList,"");
-    if(kind==="role") renderDialogueList(currentDialogueList,"");
-  }
-}
-function resetLocalSearch(kind){
-  const box = kind==="phrase" ? $("phraseLocalSearch") : $("roleLocalSearch");
-  const input = kind==="phrase" ? $("phraseFilter") : $("roleFilter");
-  if(box) box.classList.add("hidden");
-  if(input) input.value="";
-}
+function setQuizOption(key,value){filters[key]=value;saveAppState();renderQuizHome()}
+function quizPool(season=filters.quizSeason,scope=filters.quizScope){return PHRASES.filter(p=>(season==="ALL"||seasonNum(p.episode)===Number(season))&&(scope!=="star3"||Number(p.priority)===3)&&(scope!=="bookmarked"||bookmarked("phrase",p.id))&&(scope!=="weak"||isWeak(p.id)))}
+function renderQuizHome(){const session=readJSON(STORE.quiz,null),pool=quizPool();app.innerHTML=`${pageHeader("Friends · Quiz","Daily Quiz","10 questions per session")}<div class="filter-layout"><section class="card filter-panel"><div class="filter-group"><div class="filter-label">Season</div>${chips(["ALL",...SEASONS],filters.quizSeason,"setQuizOption.bind(null,'quizSeason')",'S').replaceAll("setQuizOption.bind(null,'quizSeason')('","setQuizOption('quizSeason','")}</div><div class="filter-group"><div class="filter-label">Quiz Scope</div><div class="chips"><button class="chip ${filters.quizScope==='random'?'selected':''}" onclick="setQuizOption('quizScope','random')">Random 10</button><button class="chip ${filters.quizScope==='star3'?'selected':''}" onclick="setQuizOption('quizScope','star3')">★★★ only</button><button class="chip ${filters.quizScope==='bookmarked'?'selected':''}" onclick="setQuizOption('quizScope','bookmarked')">▢ Bookmarked only</button><button class="chip ${filters.quizScope==='weak'?'selected':''}" onclick="setQuizOption('quizScope','weak')">Weak only</button></div></div><div class="page-subtitle">${pool.length} phrases available</div></section><section class="card"><h2 class="section-title">Your Quiz</h2>${quizStatsMarkup()}${session?`<div class="section"><strong>Quiz in progress</strong><p class="page-subtitle">${session.responses.length} / ${session.questions.length} completed</p></div><div class="button-row"><button class="primary-button" onclick="navigate('quizPlay')">Resume Quiz</button><button class="secondary-button" onclick="confirmStartOver()">Start Over</button></div>`:`<button class="primary-button section" ${pool.length?'onclick="startQuiz()"':'disabled'}>Start Daily Quiz</button>`}</section></div>`}
+function shuffle(values){const a=[...values];for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function createQuestions(pool){const selected=shuffle(pool).slice(0,Math.min(10,pool.length)),pattern=["mc","fill","tf","mc","fill","tf","mc","fill","tf","mc"];return selected.map((p,i)=>{const type=pattern[i],others=shuffle(PHRASES.filter(x=>x.id!==p.id));if(type==="mc")return{id:p.id,type,choices:shuffle([p.id,...others.slice(0,3).map(x=>x.id)])};if(type==="tf"){const truth=Math.random()<.5;return{id:p.id,type,presentedMeaning:truth?p.meaning:others[0].meaning,trueAnswer:truth};}return{id:p.id,type};})}
+function startQuiz(){const pool=quizPool();if(!pool.length)return;const session={version:2,series:"friends",season:filters.quizSeason,scope:filters.quizScope,questions:createQuestions(pool),index:0,responses:[],score:0,added:0,graduated:0,mistakes:[],startedAt:new Date().toISOString()};writeJSON(STORE.quiz,session);navigate("quizPlay")}
+function confirmStartOver(){showConfirm("Start the quiz over? Your current quiz progress will be replaced.",()=>{localStorage.removeItem(STORE.quiz);startQuiz()})}
+function renderQuizPlay(){const s=readJSON(STORE.quiz,null);if(!s)return navigate("quiz");const q=s.questions[s.index],p=PHRASES.find(x=>x.id===q.id),response=s.responses.find(x=>x.index===s.index);const progress=Math.round((s.responses.length/s.questions.length)*100);let question="",answers="";if(q.type==="mc"){question=`Which phrase matches this meaning?<br><span class="muted">${esc(p.meaning)}</span>`;answers=q.choices.map(id=>{const choice=PHRASES.find(x=>x.id===id),cls=response?(id===p.id?'correct':response.answer===id?'incorrect':''):'';return `<button class="answer-button ${cls}" ${response?'disabled':''} onclick="answerQuiz('${id}')">${esc(choice.phrase)}</button>`}).join("")}else if(q.type==="fill"){question=`Fill in the English phrase.<br><span class="muted">${esc(p.meaning)}</span>`;answers=response?`<input class="blank-input" value="${esc(response.answer)}" disabled><div class="example">Correct: ${esc(p.phrase)}</div>`:`<input id="fillAnswer" class="blank-input" autocomplete="off" placeholder="Type the phrase"><button class="primary-button" onclick="answerQuiz(document.getElementById('fillAnswer').value)">Check Answer</button>`}else{question=`True or False?<br><span class="phrase-name">${esc(p.phrase)}</span><br><span class="muted">${esc(q.presentedMeaning)}</span>`;answers=[true,false].map(value=>`<button class="answer-button ${response?(value===q.trueAnswer?'correct':response.answer===value?'incorrect':''):''}" ${response?'disabled':''} onclick="answerQuiz(${value})">${value?'True':'False'}</button>`).join("")}
+  app.innerHTML=`${pageHeader("Friends · Daily Quiz",`Question ${s.index+1} / ${s.questions.length}`)}<div class="quiz-progress"><span style="width:${progress}%"></span></div><section class="card section"><div class="quiz-question">${question}</div><div class="answer-list">${answers}</div>${response?quizFeedback(p,response,s):""}</section>`;if(q.type==="fill"&&!response)setTimeout(()=>document.getElementById("fillAnswer")?.focus(),0)}
+function answerQuiz(answer){const s=readJSON(STORE.quiz,null);if(!s||s.responses.some(x=>x.index===s.index))return;const q=s.questions[s.index],p=PHRASES.find(x=>x.id===q.id);let correct=false;if(q.type==="mc")correct=answer===p.id;else if(q.type==="fill")correct=normalize(answer)===normalize(p.phrase);else correct=answer===q.trueAnswer;let added=false,graduated=false;if(correct){graduated=markWeakCorrect(p.id)}else{added=markMiss(p.id);s.mistakes.push(p.id)}if(correct)s.score++;if(added)s.added++;if(graduated)s.graduated++;s.responses.push({index:s.index,answer,correct,added,graduated});writeJSON(STORE.quiz,s);recordStudy("quiz",p.id);renderQuizPlay()}
+function quizFeedback(p,response,s){return `<div class="feedback ${response.correct?'good':'bad'}"><strong>${response.correct?'Correct':'Incorrect'}</strong><div>${esc(p.phrase)} — ${esc(p.meaning)}</div>${p.example1?`<div class="search-snippet">${esc(p.example1)}</div>`:""}</div><button class="primary-button" onclick="nextQuiz()">${s.index+1>=s.questions.length?'See Results':'Next Question'}</button>`}
+function nextQuiz(){const s=readJSON(STORE.quiz,null);if(!s)return;if(s.index+1>=s.questions.length)return completeQuiz(s);s.index++;writeJSON(STORE.quiz,s);renderQuizPlay()}
+function completeQuiz(s){const result={score:s.score,total:s.questions.length,mistakes:[...new Set(s.mistakes)],added:s.added,graduated:s.graduated,completedAt:new Date().toISOString(),completedDate:localDate()};const history=readJSON(STORE.history,[]);history.push(result);writeJSON(STORE.history,history.slice(-100));localStorage.removeItem(STORE.quiz);route={name:"quizResult",params:{result}};render()}
+function renderQuizResult(){const r=route.params.result||readJSON(STORE.history,[]).at(-1);if(!r)return navigate("quiz");const mistakes=r.mistakes.map(id=>PHRASES.find(x=>x.id===id)).filter(Boolean);app.innerHTML=`${pageHeader("Friends · Daily Quiz","Result")}<section class="card"><div class="result-score">${r.score} / ${r.total}</div><div class="stats-row"><div class="stat-box"><span>Added to Weak</span><strong>${r.added}</strong></div><div class="stat-box"><span>Graduated</span><strong>${r.graduated}</strong></div><div class="stat-box"><span>Mistakes</span><strong>${mistakes.length}</strong></div></div>${mistakes.length?`<h2 class="section-title section">今回間違えたphrase</h2><div class="mistake-list">${mistakes.map(p=>`<div class="learning-item"><strong>${esc(p.phrase)}</strong><span>${esc(p.meaning)}</span></div>`).join("")}</div>`:""}<div class="button-row section"><button class="secondary-button" ${mistakes.length?'onclick="reviewMistakes()"':'disabled'}>Review mistakes</button><button class="primary-button" onclick="navTo('quiz')">Done</button></div></section>`}
+function reviewMistakes(){const r=route.params.result;if(!r?.mistakes?.length)return;const pool=r.mistakes.map(id=>PHRASES.find(p=>p.id===id)).filter(Boolean);const s={version:2,series:"friends",season:"ALL",scope:"mistakes",questions:createQuestions(pool),index:0,responses:[],score:0,added:0,graduated:0,mistakes:[],startedAt:new Date().toISOString()};writeJSON(STORE.quiz,s);navigate("quizPlay")}
 
-function escapeAttr(s){
-  return String(s||"")
-    .replace(/&/g,"&amp;")
-    .replace(/"/g,"&quot;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;");
-}
-function bindSpeakerButtons(root=document){
-  root.querySelectorAll(".speaker").forEach(btn=>{
-    if(btn.dataset.bound==="1") return;
-    btn.dataset.bound="1";
-    btn.addEventListener("click", e=>{
-      e.preventDefault();
-      e.stopPropagation();
-      speakLine(btn.getAttribute("data-speak") || "");
-    });
-  });
-}
+function searchText(q){const n=normalize(q);return{phrases:PHRASES.filter(p=>normalize([p.phrase,p.meaning,p.example1,p.example2].join(" ")).includes(n)).slice(0,40),dialogues:DIALOGUES.filter(d=>normalize(dialogueText(d)).includes(n)).slice(0,30)}}
+function openSearch(){if(document.getElementById("searchOverlay"))return;const overlay=document.createElement("div");overlay.id="searchOverlay";overlay.className="search-overlay";overlay.innerHTML=`<div class="search-shell"><div class="search-head"><button class="icon-button" onclick="closeSearch()">←</button><input id="universalSearch" class="search-input" placeholder="Search phrases, meanings, examples, dialogues" aria-label="Universal Search"></div><div id="searchResults" class="search-results"><div class="empty">Search within Friends.</div></div></div>`;document.body.appendChild(overlay);const input=document.getElementById("universalSearch");input.addEventListener("input",()=>renderSearch(input.value));input.focus()}
+function closeSearch(){document.getElementById("searchOverlay")?.remove()}
+function renderSearch(query){const root=document.getElementById("searchResults");if(!root)return;if(!query.trim()){root.innerHTML='<div class="empty">Search within Friends.</div>';return}const result=searchText(query);root.innerHTML=`<section class="search-section"><h2 class="section-title">Phrases · ${result.phrases.length}</h2>${result.phrases.map(p=>`<div class="search-hit" onclick="closeSearch();openPhrase('${p.id}')"><strong>${esc(p.phrase)}</strong><div class="search-snippet">${esc(p.meaning)} · ${esc(p.episode)}</div></div>`).join("")||'<div class="muted">No phrase matches.</div>'}</section><section class="search-section"><h2 class="section-title">Dialogues · ${result.dialogues.length}</h2>${result.dialogues.map(d=>`<div class="search-hit" onclick="closeSearch();openDialogue('${d.id}')"><strong>${esc(d.title)}</strong><div class="search-snippet">${esc(d.lines.find(x=>normalize(x[1]+' '+x[2]).includes(normalize(query)))?.slice(1).join(' — ')||d.season)}</div></div>`).join("")||'<div class="muted">No dialogue matches.</div>'}</section>`}
+function showConfirm(message,action){const root=document.getElementById("modalRoot");root.innerHTML=`<div class="modal-backdrop"><div class="modal" role="dialog" aria-modal="true"><h2>Confirm</h2><p class="muted">${esc(message)}</p><div class="button-row"><button class="secondary-button" id="cancelConfirm">Cancel</button><button class="primary-button" id="acceptConfirm">Start Over</button></div></div></div>`;document.getElementById("cancelConfirm").onclick=()=>root.innerHTML="";document.getElementById("acceptConfirm").onclick=()=>{root.innerHTML="";action()}}
 
-
-function seasonLabel(season){return season==="all"?"All":season.replace("Season ","S");}
-function renderSeasonTabs(active,handler){
-  return `<div class="tabs">`+["all",...AVAILABLE_SEASONS].map(s=>`<button class="tab ${s===active?'active':''}" onclick="${handler}('${s}')">${seasonLabel(s)}</button>`).join("")+`</div>`;
-}
-function renderModeTabs(mode,season){
-  return `<div class="modeTabs"><button class="modeTab ${mode==='phrase'?'active':''}" onclick="showPhraseHome('${season}')">📘 フレーズ</button><button class="modeTab ${mode==='role'?'active':''}" onclick="showRoleHome('${season}')">🎭 ロールプレイ</button></div>`;
-}
-function getStore(key){try{return JSON.parse(localStorage.getItem(key)||"[]")}catch(e){return []}}
-function setStore(key,val){localStorage.setItem(key,JSON.stringify(val))}
-function isBookmarked(type,id){return getStore("friendsBookmarks_"+type).includes(id)}
-function toggleBookmark(type,id,ev){
-  if(ev){ev.preventDefault();ev.stopPropagation();}
-  const key="friendsBookmarks_"+type;
-  const arr=getStore(key);
-  const next=arr.includes(id)?arr.filter(x=>x!==id):arr.concat(id);
-  setStore(key,next);
-  refreshCurrentScreen();
-}
-function starButton(type,id){
-  return `<button class="starBtn ${isBookmarked(type,id)?'on':''}" onclick="toggleBookmark('${type}','${id}',event)">${isBookmarked(type,id)?'★':'☆'}</button>`;
-}
-function refreshCurrentScreen(){
-  if(!$("phraseHome").classList.contains("hidden")) renderPhraseList(currentPhraseList,$("phraseFilter").value);
-  if(!$("roleHome").classList.contains("hidden")){$("roleFilterBar").innerHTML=renderRoleFilters();renderDialogueList(currentDialogueList,$("roleFilter").value);}
-  if(!$("phraseDetail").classList.contains("hidden")){
-    const m=$("phraseDetailBody").querySelector("[data-phrase-id]");
-    if(m) showPhraseDetail(m.getAttribute("data-phrase-id"));
-  }
-  if(!$("roleMenu").classList.contains("hidden") && currentDialogue) showRoleMenu();
-  if(!$("memorize").classList.contains("hidden") && currentDialogue) showMemorize();
-  if(!$("bookmarks").classList.contains("hidden")) showBookmarks();
-}
-function setPhraseFilter(kind){
-  currentPhraseFilter=kind;
-  $("phraseFilterBar").innerHTML=renderPhraseFilters();
-  renderPhraseList(currentPhraseList,$("phraseFilter").value);
-}
-function phrasePassFilter(p){
-  if(currentPhraseFilter==="star3") return Number(p.priority)===3;
-  if(currentPhraseFilter==="idiom") return p.type==="idiom";
-  if(currentPhraseFilter==="word") return p.type==="word";
-  if(currentPhraseFilter==="bookmarked") return isBookmarked("phrase",p.id);
-  return true;
-}
-function renderPhraseFilters(){
-  const filters=[["all","ALL"],["star3","★★★"],["idiom","idiom"],["word","word"],["bookmarked","⭐保存"]];
-  return `<div class="guide">★＝実用重要度。★★★は特に会話で優先して覚えたい表現です。</div><div class="filterRow">`+
-    filters.map(f=>`<button class="filterBtn ${currentPhraseFilter===f[0]?'active':''}" onclick="setPhraseFilter('${f[0]}')">${f[1]}</button>`).join("")+
-  `</div>`;
-}
-
-function dialogueCategory(d){
-  const t=String(d.title||"");
-  if(t.includes("恋愛")) return "romance";
-  if(t.includes("ケンカ") || t.includes("言い合い") || t.includes("皮肉") || t.includes("衝突") || t.includes("裏切り")) return "fight";
-  if(t.includes("仕事") || t.includes("相談") || t.includes("会話操作") || t.includes("判断") || t.includes("行動")) return "work";
-  if(t.includes("日常") || t.includes("雑談") || t.includes("ノリ") || t.includes("軽い")) return "daily";
-  if(t.includes("メンタル") || t.includes("励まし") || t.includes("優しめ") || t.includes("人生") || t.includes("前向き")) return "mental";
-  return "other";
-}
-function setRoleFilter(kind){
-  currentRoleFilter=kind;
-  $("roleFilterBar").innerHTML=renderRoleFilters();
-  renderDialogueList(currentDialogueList,$("roleFilter").value);
-}
-function dialoguePassFilter(d){
-  if(currentRoleFilter==="bookmarked") return isBookmarked("dialogue",d.id);
-  if(currentRoleFilter==="all") return true;
-  return dialogueCategory(d)===currentRoleFilter;
-}
-function renderRoleFilters(){
-  const filters=[["all","ALL"],["romance","恋愛"],["fight","ケンカ"],["work","仕事"],["daily","日常"],["mental","メンタル"],["bookmarked","⭐保存"]];
-  return `<div class="filterRow">`+
-    filters.map(f=>`<button class="filterBtn ${currentRoleFilter===f[0]?'active':''}" onclick="setRoleFilter('${f[0]}')">${f[1]}</button>`).join("")+
-  `</div>`;
-}
-
-function phraseText(p){return [p.phrase,p.meaning,p.scene,p.example1,p.example2,p.type,p.episode].join(" ")}
-function dialogueText(d){return [d.season,d.title,...d.lines.flatMap(l=>[l[1],l[2]])].join(" ")}
-function showPhraseSeason(){showOnly("phraseSeason")}
-function showPhraseHome(season="all"){
-  currentPhraseSeason=season;
-  currentPhraseFilter="all";
-  currentPhraseList=season==="all"?PHRASES:PHRASES.filter(p=>(p.episode||"").startsWith(seasonCode(season)));
-  $("phraseSeasonTitle").innerHTML=renderSeasonTabs(season,"showPhraseHome")+renderModeTabs("phrase",season);
-  resetLocalSearch("phrase");
-  $("phraseFilterBar").innerHTML=renderPhraseFilters();
-  renderPhraseList(currentPhraseList,"");
-  showOnly("phraseHome");
-}
-function renderPhraseList(list,q=""){
-  $("phraseList").innerHTML="";
-  const filtered=list.filter(p=>phrasePassFilter(p)).filter(p=>fuzzyMatch(phraseText(p),q));
-  filtered.forEach(p=>{
-    const d=document.createElement("div");
-    d.className="item";
-    d.innerHTML=`<div class="itemHead"><div><div class="phrase">${highlight(p.phrase,q)}</div><div class="meaning">${highlight(p.meaning,q)}</div><div class="scene">${p.scene}</div></div>${starButton("phrase",p.id)}</div><div><span class="tag">${p.type}</span><span class="tag">${p.priorityText}</span><span class="tag">${p.episode}</span></div>`;
-    d.onclick=()=>{phraseReturnTarget=null;showPhraseDetail(p.id)};
-    $("phraseList").appendChild(d)
-  });
-  if(!filtered.length)$("phraseList").innerHTML="<div class='empty'>該当なし</div>";
-}
-function showPhraseDetail(id){
-  const p=PHRASES.find(x=>x.id===id);
-  const related=findRelatedDialogsForPhrase(p);
-  $("phraseDetailBody").innerHTML=`<div data-phrase-id="${p.id}"></div><div class="top"><button class="small" onclick="backFromPhraseDetail()">← 戻る</button><div class="topActions"><button class="small" onclick="showSearch()">🔍 検索</button><button class="small" onclick="goHome()">🏠 ホーム</button></div></div><div class="itemHead"><div><div class="phrase">${p.phrase}</div><div class="meaning">${p.meaning}</div><div class="scene">${p.scene}</div></div>${starButton("phrase",p.id)}</div><div style="margin:10px 0"><span class="tag">${p.type}</span><span class="tag">${p.priorityText}</span><span class="tag">${p.episode}</span></div><div class="guide">★＝実用重要度。例文をタップすると日本語表示。🔈で音声再生。</div>${exampleBox(p.example1,"", "ex1")}${exampleBox(p.example2,"", "ex2")}<div class="title" style="margin-top:18px">🎭 この表現を使うダイアログ</div>${related.slice(0,8).map(d=>`<button class="btn white" onclick="openDialogueFromPhrase('${d.id}')">${d.season} / ${d.title}</button>`).join("")||"<div class='meta'>関連ダイアログなし</div>"}`;
-  showOnly("phraseDetail");
-}
-function exampleBox(en,jp,id){return `<div class="box"><div style="display:flex;gap:10px;justify-content:space-between;align-items:flex-start"><div onclick="toggleEl('${id}')" style="flex:1;cursor:pointer"><b>${id==="ex1"?"例文1":"例文2"}</b><br>${en}<div id="${id}" class="jp" style="display:none">${jp||"日本語訳は未登録"}</div></div><button class="speaker" data-speak="${escapeAttr(en)}">🔈</button></div></div>`}
-function backFromPhraseDetail(){
-  if(phraseReturnTarget&&phraseReturnTarget.type==="memorize"){
-    const d=DIALOGUES.find(x=>x.id===phraseReturnTarget.dialogueId);
-    if(d){currentDialogue=d;showMemorize();return}
-  }
-  if(phraseReturnTarget&&phraseReturnTarget.type==="search"){showOnly("search");return}
-  if(phraseReturnTarget&&phraseReturnTarget.type==="bookmarks"){showBookmarks();return}
-  if(phraseReturnTarget&&phraseReturnTarget.type==="graduated"){showQuizHome();showGraduated();return}
-  showOnly("phraseHome");
-}
-function openDialogueFromPhrase(id){currentDialogue=DIALOGUES.find(d=>d.id===id);previousScreen="phraseDetail";showRoleMenu();}
-
-function showRoleSeason(){showOnly("roleSeason")}
-function showRoleHome(season="all"){
-  currentRoleSeason=season;
-  currentDialogueList=season==="all"?DIALOGUES:DIALOGUES.filter(d=>d.season===season);
-  currentRoleFilter="all";
-  $("roleSeasonTitle").innerHTML=renderSeasonTabs(season,"showRoleHome")+renderModeTabs("role",season);
-  resetLocalSearch("role");
-  $("roleFilterBar").innerHTML=renderRoleFilters();
-  renderDialogueList(currentDialogueList,"");
-  showOnly("roleHome");
-}
-function renderDialogueList(list,q=""){
-  $("dialogueList").innerHTML="";
-  const filtered=list.filter(d=>dialoguePassFilter(d)).filter(d=>fuzzyMatch(dialogueText(d),q));
-  filtered.forEach(d=>{
-    const div=document.createElement("div");
-    div.className="item";
-    div.innerHTML=`<div class="itemHead"><div><div class="meta">${d.season} / ${d.lines.length} turns</div><div class="title">${highlight(d.title,q)}</div></div>${starButton("dialogue",d.id)}</div>`;
-    div.onclick=()=>{currentDialogue=d;previousScreen="roleHome";showRoleMenu()};
-    $("dialogueList").appendChild(div)
-  });
-  if(!filtered.length)$("dialogueList").innerHTML="<div class='empty'>該当なし</div>";
-}
-function showRoleMenu(){
-  $("chosenTitle").innerHTML=`<div class="itemHead"><span>${currentDialogue.title}</span>${starButton("dialogue",currentDialogue.id)}</div>`;
-  $("chosenMeta").textContent=`${currentDialogue.season} / ${currentDialogue.lines.length} turns`;
-  showOnly("roleMenu");
-}
-function backToRoleSource(){if(previousScreen==="phraseDetail")showOnly("phraseDetail");else if(previousScreen==="search")showOnly("search");else if(previousScreen==="bookmarks")showBookmarks();else showOnly("roleHome");}
-
-const PLACEHOLDER_WORDS=new Set(["someone","somebody","something","somewhere","one","ones","someones","somebodys","somethings"]);
-const GENERIC_WORDS=new Set(["what","whats","how","why","when","where","who","which","with","your","you","me","my","him","her","his","it","that","this","the","a","an","to","of","for","at","is","are","be","been","being","do","does","did","have","has","had","can","could","would","should","will","just","really","very","so","not","no"]);
-function cleanPhraseVariant(s){
-  return normalize(String(s||"")
-    .replace(/\([^)]*\)/g," ")
-    .replace(/[~〜]/g," ")
-    .replace(/someone|somebody|something|somewhere/gi," ")
-  ).trim();
-}
-function phraseVariants(p){
-  const raw = String(p.phrase||"");
-  let parts = raw.split("/").map(x=>x.trim()).filter(Boolean);
-  if(!parts.length) parts=[raw];
-  return parts.map(cleanPhraseVariant).filter(v=>v && v.length>=4);
-}
-function orderedTokensMatch(text,tokens){
-  let pos=0;
-  for(const t of tokens){
-    const found=text.indexOf(t,pos);
-    if(found===-1) return false;
-    pos=found+t.length;
-  }
-  return true;
-}
-function phraseMatchesDialogue(p,d){
-  const text = normalize(d.lines.map(l=>l[1]).join(" "));
-  const variants = phraseVariants(p);
-
-  for(const v of variants){
-    if(v.length>=4 && text.includes(v)) return true;
-
-    const tokens = v.split(" ").filter(w=>w.length>1 && !PLACEHOLDER_WORDS.has(w) && !GENERIC_WORDS.has(w));
-    if(tokens.length>=2 && orderedTokensMatch(text,tokens)) return true;
-
-    // 1語だけのフレーズは誤爆しやすいので、基本は完全一致に近い形だけ許可
-    if(tokens.length===1){
-      const re = new RegExp("(^| )"+tokens[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"( |$)");
-      if(v===tokens[0] && re.test(text)) return true;
-    }
-  }
-  return false;
-}
-function findRelatedDialogsForPhrase(p){
-  return DIALOGUES.filter(d=>{
-    if(d.phraseLinks && d.phraseLinks.length) return d.phraseLinks.includes(p.id);
-    return phraseMatchesDialogue(p,d);
-  });
-}
-function getLinkedPhrases(d){
-  if(d.phraseLinks && d.phraseLinks.length){
-    const set = new Set(d.phraseLinks);
-    return PHRASES.filter(p=>set.has(p.id));
-  }
-  return PHRASES
-    .filter(p=>phraseMatchesDialogue(p,d))
-    .sort((a,b)=>String(b.phrase).length-String(a.phrase).length)
-    .slice(0,12);
-}
-
-function showMemorize(){let h=`<div class="itemHead"><div class="title">${currentDialogue.title}</div>${starButton("dialogue",currentDialogue.id)}</div><div class="meta">${currentDialogue.season}</div><div class="hintText">英文をタップすると日本語表示。🔈で音声再生。</div>`;currentDialogue.lines.forEach((l,i)=>{h+=`<div class="box" style="background:#eff6ff"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px"><div onclick="toggleEl('jp-${i}')" style="flex:1;cursor:pointer"><div class="en">${l[0]}: ${l[1]}</div><div id="jp-${i}" class="jp" style="display:none">${l[2]}</div></div><button class="speaker" data-speak="${escapeAttr(l[1])}">🔈</button></div></div>`});const linked=getLinkedPhrases(currentDialogue);if(linked.length){h+=`<div class="title" style="margin-top:18px">📘 このダイアログで使うフレーズ</div>`;linked.forEach(p=>h+=`<button class="btn white" onclick="phraseReturnTarget={type:'memorize',dialogueId:'${currentDialogue.id}'};showPhraseDetail('${p.id}')">${p.phrase}</button>`);}$("memorizeBody").innerHTML=h;bindSpeakerButtons($("memorizeBody"));showOnly("memorize");}
-
-function startRole(role){userRole=role;index=0;answerShown=false;$("total").textContent=currentDialogue.lines.length;showOnly("drill");renderLine();}
-function renderLine(){const l=currentDialogue.lines[index],isUser=l[0]===userRole;answerShown=false;$("progress").textContent=index+1;$("roleBadge").textContent=`${l[0]} のセリフ`;$("drillTitle").textContent=`${currentDialogue.season} / ${currentDialogue.title}`;$("hint").textContent=l[2];resetRoleHint();$("line").textContent=l[1];$("answer").textContent=l[1];$("lineBlock").classList.toggle("hidden",isUser);$("answerBlock").classList.add("hidden");$("showBtn").classList.toggle("hidden",!isUser);$("nextBtn").classList.toggle("hidden",isUser);if(!isUser) setTimeout(()=>speakLine(l[1]),250);}
-function showAnswer(){answerShown=true;$("answerBlock").classList.remove("hidden");$("showBtn").classList.add("hidden");$("nextBtn").classList.remove("hidden");}
-function nextLine(){if(currentDialogue.lines[index][0]===userRole&&!answerShown)return;index++;if(index>=currentDialogue.lines.length){showRoleMenu();return}renderLine();}
-
-
-
-
-let pendingConfirmAction=null;
-function openConfirm(message,action){
-  pendingConfirmAction=action;
-  $("confirmText").textContent=message;
-  $("confirmOverlay").classList.remove("hidden");
-}
-function closeConfirm(){
-  pendingConfirmAction=null;
-  $("confirmOverlay").classList.add("hidden");
-}
-function runConfirm(){
-  const action=pendingConfirmAction;
-  closeConfirm();
-  if(typeof action==="function") action();
-}
-
-function getWeakStats(){
-  try{return JSON.parse(localStorage.getItem("friendsWeakStats")||"{}")}catch(e){return {}}
-}
-function setWeakStats(obj){
-  localStorage.setItem("friendsWeakStats",JSON.stringify(obj));
-}
-function isWeakPhrase(id){
-  const s=getWeakStats();
-  return !!(s[id] && !s[id].graduated);
-}
-function isGraduatedPhrase(id){
-  const s=getWeakStats();
-  return !!(s[id] && s[id].graduated);
-}
-function weakCount(){
-  const s=getWeakStats();
-  return Object.keys(s).filter(id=>s[id] && !s[id].graduated).length;
-}
-function graduatedCount(){
-  const s=getWeakStats();
-  return Object.keys(s).filter(id=>s[id] && s[id].graduated).length;
-}
-function markMiss(id){
-  const s=getWeakStats();
-  if(!s[id]) s[id]={miss:0,streak:0,graduated:false};
-  s[id].miss=(s[id].miss||0)+1;
-  s[id].streak=0;
-  s[id].graduated=false;
-  setWeakStats(s);
-}
-function markWeakCorrect(id){
-  const s=getWeakStats();
-  if(!s[id]) s[id]={miss:0,streak:0,graduated:false};
-  s[id].streak=(s[id].streak||0)+1;
-  let graduated=false;
-  if(s[id].streak>=2){
-    s[id].graduated=true;
-    graduated=true;
-  }
-  setWeakStats(s);
-  return graduated;
-}
-function shuffle(arr){
-  const a=[...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
-  }
-  return a;
-}
-function quizPool(mode){
-  if(mode==="star3") return PHRASES.filter(p=>Number(p.priority)===3);
-  if(mode==="bookmarked") return PHRASES.filter(p=>isBookmarked("phrase",p.id));
-  if(mode==="weak") return PHRASES.filter(p=>isWeakPhrase(p.id));
-  return PHRASES;
-}
-function makeQuizItem(answer,pool){
-  const choices=shuffle(pool.filter(p=>p.id!==answer.id)).slice(0,3).concat(answer);
-  return {answer,choices:shuffle(choices)};
-}
-function showQuizHome(){
-  const w=weakCount(), g=graduatedCount();
-  $("quizSummary").innerHTML=`<div class="quizStats"><div class="quizStat"><small>苦手</small><b>${w}</b></div><div class="quizStat"><small>卒業</small><b>${g}</b></div><div class="quizStat"><small>出題</small><b>4択</b></div></div>`;
-  showOnly("quizHome");
-}
-function startQuiz(mode){
-  quizMode=mode;
-  const pool=quizPool(mode);
-  const minNeeded = (mode==="weak" || mode==="bookmarked") ? 1 : 4;
-  if(pool.length<minNeeded || PHRASES.length<4){
-    if(mode==="weak"){
-      showQuizHome();
-      $("quizSummary").innerHTML+=`<div class="empty" style="margin-top:12px">まだ苦手フレーズはありません。<br>通常クイズで間違えると、ここで復習できます。</div>`;
-    }else if(mode==="bookmarked"){
-      showQuizHome();
-      $("quizSummary").innerHTML+=`<div class="empty" style="margin-top:12px">保存フレーズはまだありません。<br>フレーズに⭐を付けると、ここで復習できます。</div>`;
-    }else{
-      showQuizHome();
-      $("quizSummary").innerHTML+=`<div class="empty" style="margin-top:12px">この条件では4択を作れるだけのフレーズが足りません。</div>`;
-    }
-    return;
-  }
-  const count=Math.min(10,pool.length);
-  quizItems=shuffle(pool).slice(0,count).map(p=>makeQuizItem(p,PHRASES));
-  quizIndex=0;
-  quizCorrect=0;
-  quizAnswered=false;
-  $("quizTotal").textContent=quizItems.length;
-  $("quizModeLabel").textContent=mode==="random"?"ランダム":mode==="star3"?"★★★":mode==="bookmarked"?"⭐保存":"🔥苦手";
-  showOnly("quizPlay");
-  renderQuiz();
-}
-function quizQuestionText(p){
-  const scene = p.scene ? `\n場面: ${p.scene}` : "";
-  return `${p.meaning}${scene}`;
-}
-function renderQuiz(){
-  quizAnswered=false;
-  const item=quizItems[quizIndex];
-  $("quizProgress").textContent=quizIndex+1;
-  const weak = isWeakPhrase(item.answer.id);
-  $("quizBody").innerHTML=`<div class="quizQuestion">Q. 次の意味・場面に合う英語フレーズは？<br><br>${quizQuestionText(item.answer).replace(/\n/g,"<br>")}${weak?'<div style="margin-top:8px"><span class="tag">🔥苦手</span></div>':''}</div><div id="quizChoices">${item.choices.map(c=>`<button class="quizChoice" onclick="answerQuiz('${c.id}')">${c.phrase}</button>`).join("")}</div><div id="quizFeedback"></div>`;
-}
-function answerQuiz(choiceId){
-  if(quizAnswered) return;
-  quizAnswered=true;
-  const item=quizItems[quizIndex];
-  const ok=choiceId===item.answer.id;
-  if(ok) quizCorrect++;
-  document.querySelectorAll(".quizChoice").forEach(btn=>{
-    const isCorrect = btn.textContent===item.answer.phrase;
-    if(isCorrect) btn.classList.add("correct");
-    if(!isCorrect && btn.textContent===PHRASES.find(p=>p.id===choiceId)?.phrase) btn.classList.add("wrong");
-    btn.disabled=true;
-  });
-  let msg="";
-  let cls=ok?"good":"bad";
-  if(ok){
-    if(quizMode==="weak" || isWeakPhrase(item.answer.id)){
-      const grad=markWeakCorrect(item.answer.id);
-      if(grad){
-        msg=`🎓 卒業！「${item.answer.phrase}」は苦手リストから外れました。`;
-        cls="grad";
-      }else{
-        const s=getWeakStats()[item.answer.id];
-        msg=`正解！苦手卒業まであと ${Math.max(0,2-(s.streak||0))} 回連続正解。`;
-      }
-    }else{
-      msg="正解！";
-    }
-  }else{
-    markMiss(item.answer.id);
-    msg=`不正解。正解は「${item.answer.phrase}」。🔥苦手に追加しました。`;
-  }
-  $("quizFeedback").innerHTML=`<div class="quizFeedback ${cls}">${msg}</div><div class="box"><div class="itemHead"><div><div class="phrase">${item.answer.phrase}</div><div class="meaning">${item.answer.meaning}</div><div class="scene">${item.answer.scene}</div></div><button class="speaker" onclick="speakLine('${item.answer.phrase.replace(/'/g,"\\'")}')">🔈</button></div></div><button class="btn blue" onclick="nextQuiz()">${quizIndex+1>=quizItems.length?'結果を見る':'次へ'}</button>`;
-}
-function nextQuiz(){
-  quizIndex++;
-  if(quizIndex>=quizItems.length){
-    showQuizResult();
-    return;
-  }
-  renderQuiz();
-}
-function showQuizResult(){
-  $("quizResultBody").innerHTML=`<div class="quizStats"><div class="quizStat"><small>正解</small><b>${quizCorrect}</b></div><div class="quizStat"><small>出題</small><b>${quizItems.length}</b></div><div class="quizStat"><small>苦手</small><b>${weakCount()}</b></div></div><button class="btn blue" onclick="startQuiz('${quizMode}')">同じ条件でもう一度</button><button class="btn white" onclick="startQuiz('weak')">🔥苦手だけ復習</button><button class="btn soft" onclick="showQuizHome()">クイズメニューへ</button>`;
-  showOnly("quizResult");
-}
-
-function resetGraduatedPhrase(id){
-  openConfirm("このフレーズを卒業済みから外しますか？",()=>{
-    const s=getWeakStats();
-    if(s[id]) delete s[id];
-    setWeakStats(s);
-    showGraduated();
-  });
-}
-function resetAllGraduated(){
-  openConfirm("卒業済みフレーズをすべてリセットしますか？",()=>{
-    const s=getWeakStats();
-    Object.keys(s).forEach(id=>{
-      if(s[id] && s[id].graduated) delete s[id];
-    });
-    setWeakStats(s);
-    showGraduated();
-  });
-}
-
-function showGraduated(){
-  const s=getWeakStats();
-  const ps=PHRASES.filter(p=>s[p.id]&&s[p.id].graduated);
-  let h=`<div class="title">🎓 卒業済み</div>`;
-  if(ps.length){
-    h+=`<div class="resetRow"><button class="miniDanger" onclick="resetAllGraduated()">卒業済みを全リセット</button></div>`;
-  }
-  h+=ps.map(p=>`<div class="item"><div class="itemHead"><div onclick="phraseReturnTarget={type:'graduated'};showPhraseDetail('${p.id}')" style="flex:1"><div class="phrase">${p.phrase}</div><div class="meaning">${p.meaning}</div><div class="scene">${p.scene}</div></div><button class="miniDanger" onclick="resetGraduatedPhrase('${p.id}')">リセット</button></div></div>`).join("")||"<div class='empty'>まだ卒業済みフレーズはありません</div>";
-  $("quizSummary").innerHTML=h;
-}
-
-
-function setBookmarkTab(tab){
-  currentBookmarkTab=tab;
-  showBookmarks();
-}
-function renderBookmarkTabs(){
-  return `<div class="modeTabs"><button class="modeTab ${currentBookmarkTab==='phrase'?'active':''}" onclick="setBookmarkTab('phrase')">📘 フレーズ</button><button class="modeTab ${currentBookmarkTab==='dialogue'?'active':''}" onclick="setBookmarkTab('dialogue')">🎭 ダイアログ</button></div>`;
-}
-
-function showBookmarks(){
-  const phraseIds=getStore("friendsBookmarks_phrase");
-  const dialogueIds=getStore("friendsBookmarks_dialogue");
-  const ps=PHRASES.filter(p=>phraseIds.includes(p.id));
-  const ds=DIALOGUES.filter(d=>dialogueIds.includes(d.id));
-  let h=renderBookmarkTabs();
-  if(currentBookmarkTab==="phrase"){
-    h+=`<div class="title">📘 保存したフレーズ</div>`;
-    h+=ps.map(p=>`<div class="item" onclick="phraseReturnTarget={type:'bookmarks'};showPhraseDetail('${p.id}')"><div class="itemHead"><div><div class="phrase">${p.phrase}</div><div class="meaning">${p.meaning}</div><div class="scene">${p.scene}</div><div><span class="tag">${p.type}</span><span class="tag">${p.priorityText}</span><span class="tag">${p.episode}</span></div></div>${starButton("phrase",p.id)}</div></div>`).join("") || `<div class="empty">保存したフレーズはまだありません</div>`;
-  }else{
-    h+=`<div class="title">🎭 保存したダイアログ</div>`;
-    h+=ds.map(d=>`<div class="item" onclick="currentDialogue=DIALOGUES.find(x=>x.id==='${d.id}');previousScreen='bookmarks';showRoleMenu()"><div class="itemHead"><div><div class="meta">${d.season} / ${d.lines.length} turns</div><div class="title">${d.title}</div></div>${starButton("dialogue",d.id)}</div></div>`).join("") || `<div class="empty">保存したダイアログはまだありません</div>`;
-  }
-  $("bookmarkBody").innerHTML=h;
-  showOnly("bookmarks");
-}
-
-function showSearch(){$("searchInput").value="";renderSearch("");showOnly("search");}
-function renderSearch(q){const ph=PHRASES.filter(p=>fuzzyMatch(phraseText(p),q)).slice(0,30);const dh=DIALOGUES.map(d=>{const lines=d.lines.map((l,i)=>({i,l})).filter(x=>fuzzyMatch(x.l[1]+" "+x.l[2],q));return {d,lines,titleHit:fuzzyMatch(d.season+" "+d.title,q)}}).filter(x=>!q||x.lines.length||x.titleHit).slice(0,20);$("searchResults").innerHTML=`<div class="title">📘 フレーズ</div>${ph.map(p=>`<div class="item" onclick="phraseReturnTarget={type:'search'};showPhraseDetail('${p.id}')"><div class="phrase">${highlight(p.phrase,q)}</div><div class="meaning">${highlight(p.meaning,q)}</div><div class="scene">${p.scene}</div></div>`).join("")||"<div class='meta'>該当なし</div>"}<div class="title" style="margin-top:18px">🎭 ダイアログ</div>${dh.map(x=>`<div class="item"><div class="meta">${x.d.season} / ${x.d.lines.length} turns</div><div class="title">${highlight(x.d.title,q)}</div>${x.lines.slice(0,3).map(h=>`<div class="box"><div class="meta">ヒット行 ${h.i+1}</div><div class="en">${h.l[0]}: ${highlight(h.l[1],q)}</div><div class="jp">${highlight(h.l[2],q)}</div></div>`).join("")}<button class="btn blue" onclick="currentDialogue=DIALOGUES.find(d=>d.id==='${x.d.id}');previousScreen='search';showRoleMenu()">▶ このダイアログを開く</button></div>`).join("")||"<div class='meta'>該当なし</div>"}`;}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    await loadData();
-    updateDataSummary();
-    bindSpeakerButtons();
-  } catch (error) {
-    showLoadError(error);
-  }
-});
+backButton.addEventListener("click",goBack);searchButton.addEventListener("click",openSearch);
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeSearch()});
+document.addEventListener("DOMContentLoaded",async()=>{try{await loadData();render()}catch(error){console.error(error);app.innerHTML='<section class="card"><h1>Data could not be loaded.</h1><p class="muted">Open the app through GitHub Pages or a local web server.</p></section>'}});

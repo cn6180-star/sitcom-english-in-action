@@ -1,27 +1,23 @@
-# Friends English Trainer
+# Sitcom English in Action v2.0
 
-GitHub Pagesでそのまま公開できる静的サイトです。
+GitHub Pagesで動作する、海外ドラマ英語の静的学習アプリです。
 
-## 公開方法
+## 収録データ
 
-リポジトリ直下にこのフォルダの内容を置き、GitHubの **Settings → Pages** で公開元ブランチを選択します。
+- Friends Season 1–8
+- 947 phrases
+- 149 dialogues
 
-`file://` で `index.html` を直接開くとブラウザの制限でJSONを取得できません。ローカル確認時は、このフォルダで次のようにサーバーを起動してください。
+## 起動方法
 
-```bash
-python3 -m http.server 8000
-```
+`index.html`をGitHub Pages、またはローカルHTTPサーバーから開いてください。
 
-その後、`http://localhost:8000/` を開きます。
+## v1.1からの互換性
 
-## Season 5以降の追加
-
-1. `data/season5.json` を既存JSONと同じ構造で作成します。
-2. `js/app.js` 冒頭の `DATA_FILES` に `"data/season5.json"` を追加します。
-3. フレーズID・ダイアログIDは既存IDと重複しない値を使います。
-
-件数、シーズン範囲、シーズンタブは読み込んだデータから自動生成されます。既存のlocalStorageキーは以下のままです。
+既存のフレーズ／ダイアログIDと以下の保存キーを維持しています。
 
 - `friendsBookmarks_phrase`
 - `friendsBookmarks_dialogue`
 - `friendsWeakStats`
+
+同じ公開URLへv2.0を配置すると、既存のBookmarksとWeak履歴を引き継ぎます。
