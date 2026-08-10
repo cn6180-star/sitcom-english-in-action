@@ -131,3 +131,24 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .about-series strong{font-size:16px}.about-series span{color:var(--muted);font-size:13px}
 @media (max-width:759px){.home-view .dashboard>.brand-visual{display:block;width:100%;max-width:100%;margin:0 auto 2px;border-radius:14px}.home-view .brand-visual>img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1600/640;object-fit:contain}.series-overlay{padding:9px}}
 @media (min-width:760px){.home-menu-button{opacity:0;pointer-events:none}.brand-visual{border-radius:20px}.series-overlay{padding:13px}.series-state{font-size:11px}}
+
+/* v2.0.7: restored detail navigation and interactive progress. */
+.today-stat{appearance:none;width:100%;color:inherit;background:transparent;border:0;border-right:1px solid var(--border);border-radius:10px;cursor:pointer;font:inherit}
+.today-stat:hover,.today-stat:focus-visible{background:rgba(139,92,246,.1)}
+.today-stat:focus-visible,.phrase-card:focus-visible,.dialogue-card:focus-visible{outline:2px solid var(--purple-2);outline-offset:2px}
+.detail-section{margin-top:22px}
+.detail-section>.section-title{margin-bottom:10px}
+.example-row{margin-top:9px}
+.example-row .example{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:0}
+.example-row .example span{min-width:0;line-height:1.55}
+.speaker-button{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);font-size:18px}
+.speaker-button:hover,.speaker-button:focus-visible{border-color:#6d4dae;background:var(--purple-soft)}
+.related-dialogues{display:grid;gap:7px}
+.related-dialogue{width:100%;min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;text-align:left;color:var(--text);background:#0c1020;border:1px solid var(--border);border-radius:13px}
+.related-dialogue span:first-child{color:#ddd6fe;font-weight:800}
+.related-dialogue span:last-child{color:var(--muted);font-size:20px}
+.compact-empty{padding:14px}
+.streak-modal{text-align:center}
+.streak-modal .modal-heading{text-align:left}
+.streak-emoji{font-size:38px;line-height:1;margin:8px 0}
+.streak-days{display:block;font-size:24px;color:#ddd6fe}
