@@ -5,6 +5,7 @@
   --sidebar:224px;--topbar:64px;--bottom:72px;--radius:20px;--shadow:0 18px 48px rgba(0,0,0,.28)
 }
 *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(circle at 75% -15%,#25184a 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100vh}.app-column{min-width:0}.main{width:min(1120px,100%);margin:0 auto;padding:12px 16px calc(var(--bottom) + 24px)}
 .topbar{height:var(--topbar);position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(7,9,18,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(38,44,67,.65)}
 .icon-button,.nav-button,.chip,.secondary-button,.primary-button,.bookmark-button,.list-row,.series-card,.text-button,.answer-button,.seg-button{border:0;cursor:pointer}
@@ -89,3 +90,39 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .episode-row .row-meta{text-align:right;font-variant-numeric:tabular-nums}
 .episode-chevron{width:12px;text-align:right;color:var(--muted);font-size:18px;line-height:1}
 @media (min-width:760px){.detail-page{padding-top:0}.episode-row{min-height:54px;padding:13px 16px}}
+
+/* v2.0 shared UI refinement 4: branded home, menu/settings and weak browsing. */
+.main.home-view:focus{outline:none}
+.brand-visual{grid-column:1/-1;width:100%;max-width:1000px;margin:0 auto 2px;border-radius:18px;overflow:hidden;background:#080b19}
+.brand-visual img{display:block;width:100%;height:auto;aspect-ratio:1600/640;object-fit:contain}
+.series-section{min-width:0}
+.series-card{position:relative;aspect-ratio:4/3;min-height:0;padding:0;overflow:hidden;background-position:center;background-repeat:no-repeat;background-size:cover;isolation:isolate}
+.series-card::after{content:"";position:absolute;inset:35% 0 0;z-index:-1;background:linear-gradient(to bottom,transparent,rgba(5,7,16,.94))}
+.series-card.series-friends{background-image:url("../assets/series-friends.webp")}
+.series-card.series-tbbt{background-image:url("../assets/series-tbbt.webp")}
+.series-card.disabled{opacity:.72;background-color:var(--surface)}
+.series-overlay{display:flex;flex-direction:column;width:100%;padding:11px;text-shadow:0 1px 5px rgba(0,0,0,.9)}
+.series-name{font-size:clamp(14px,4.4vw,20px)}
+.series-state{color:#e2e8f0;font-size:10px;margin-top:4px}
+.today-icon.review-icon{color:#a78bfa}
+.home-menu-button .line-icon{width:22px;height:22px}
+.weak-filter{width:100%;margin:0 0 9px;min-height:40px;padding:7px 11px}
+.dialogue-card{display:block;grid-template-columns:none;gap:0}
+.dialogue-card-body{width:100%}
+.modal-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.modal-heading h2{margin:0}
+.modal-close{width:38px;height:38px;font-size:22px}
+.home-menu{padding:15px}
+.menu-row{width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--border);text-align:left;cursor:pointer}
+.menu-row:last-child{border-bottom:0}
+.menu-row span{color:var(--muted);font-size:20px}
+.target-options{display:flex;gap:6px;overflow-x:auto;padding:2px 0 10px}
+.custom-target{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;margin-top:8px}
+.custom-target label{grid-column:1/-1;color:var(--muted);font-size:12px}
+.custom-target .primary-button{min-width:82px}
+.setting-error{margin:9px 0 0;color:#fecaca;font-size:12px}
+.about-brand{font-size:20px;font-weight:900;color:#ddd6fe}
+.about-series{display:grid;gap:4px;padding:12px 0;border-top:1px solid var(--border)}
+.about-series strong{font-size:16px}.about-series span{color:var(--muted);font-size:13px}
+@media (max-width:759px){.home-menu-backdrop{align-items:end;padding:12px}.home-menu{width:100%;max-width:420px}.brand-visual{border-radius:14px}.series-overlay{padding:9px}}
+@media (min-width:760px){.home-menu-button{opacity:0;pointer-events:none}.brand-visual{border-radius:20px}.series-overlay{padding:13px}.series-state{font-size:11px}}
