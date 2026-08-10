@@ -22,7 +22,7 @@ GitHub Pagesで動作する、海外ドラマ英語の静的学習アプリで�
 
 同じ公開URLへv3.0を配置すると、既存のBookmarksとWeak履歴を引き継ぎます。
 
-## v3.0 Phase 1–3
+## v3.0 Phase 1–4
 
 Phrase Detailから「覚えた」状態を切り替えられます。学習状態はPhrase ID単位で、以下の新しいキーへseries別に保存されます。
 
@@ -33,3 +33,5 @@ PhrasesとQuizでは「未習得」を含む5種類の学習フィルターを�
 Progressページでは、Friends全体とSeason別のLearned進捗を表示します。集計値は読み込み済みPhrase dataと上記Learned stateから毎回計算され、Progress専用の保存データは作成しません。
 
 Progressページの「学習進捗をリセット」は、確認後にFriendsのLearned stateだけを全解除します。Bookmark、Weak、Quiz履歴などの保存データは変更しません。
+
+HomeのTodayカードにはStreak、Target、Friends全体のLearned進捗を表示します。Progressの数値はProgressページと同じ集計を再利用し、Homeから専用ページへ移動できます。
