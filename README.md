@@ -31,3 +31,5 @@ Phrase Detailから「覚えた」状態を切り替えられます。学習状�
 PhrasesとQuizでは「未習得」を含む5種類の学習フィルターを利用できます。Quizの問題は開始時に最大10問へ確定され、既存のResume仕様を維持します。
 
 Progressページでは、Friends全体とSeason別のLearned進捗を表示します。集計値は読み込み済みPhrase dataと上記Learned stateから毎回計算され、Progress専用の保存データは作成しません。
+
+Progressページの「学習進捗をリセット」は、確認後にFriendsのLearned stateだけを全解除します。Bookmark、Weak、Quiz履歴などの保存データは変更しません。
