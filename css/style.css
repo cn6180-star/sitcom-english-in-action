@@ -124,5 +124,5 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .about-brand{font-size:20px;font-weight:900;color:#ddd6fe}
 .about-series{display:grid;gap:4px;padding:12px 0;border-top:1px solid var(--border)}
 .about-series strong{font-size:16px}.about-series span{color:var(--muted);font-size:13px}
-@media (max-width:759px){.home-menu-backdrop{align-items:end;padding:12px}.home-menu{width:100%;max-width:420px}.brand-visual{border-radius:14px}.series-overlay{padding:9px}}
+@media (max-width:759px){.home-menu-backdrop{align-items:end;padding:12px}.home-menu{width:100%;max-width:420px}.home-view .dashboard>.brand-visual{display:block;width:100%;max-width:100%;margin:0 auto 2px;border-radius:14px}.home-view .brand-visual>img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1600/640;object-fit:contain}.series-overlay{padding:9px}}
 @media (min-width:760px){.home-menu-button{opacity:0;pointer-events:none}.brand-visual{border-radius:20px}.series-overlay{padding:13px}.series-state{font-size:11px}}
