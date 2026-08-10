@@ -44,3 +44,48 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .dialogue-card{grid-template-columns:54px 1fr;gap:12px}.dialogue-thumb{width:54px;height:54px;border-radius:14px}.detail-card{padding:17px}.example{padding:12px;margin-top:8px}.conversation{gap:8px;margin:15px 0}.bubble{padding:11px 13px}.learning-list{gap:7px}.learning-item{padding:10px}.search-section{margin:15px 0}.search-hit{padding:11px 0}
 @media (min-width:760px){.sidebar{padding:20px 12px}.sidebar-brand{margin-bottom:24px}.sidebar .nav-button{padding:11px 13px;margin:2px 0}.sidebar .nav-icon{width:24px;display:grid;place-items:center}.main{padding-top:20px}.dashboard{gap:12px}.dashboard>.card{min-height:215px}.filter-layout{grid-template-columns:220px minmax(0,1fr)}.dialogue-layout{gap:15px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* v2.0 shared UI refinement 2: denser list filters, dialogue cards and shared chips. */
+.list-page-header{margin-bottom:14px}
+.list-page-title{margin:0;color:var(--text);font-size:clamp(18px,4.8vw,24px);line-height:1.2;letter-spacing:.01em;text-transform:uppercase}
+.list-page-count{margin:4px 0 0;color:var(--muted);font-size:13px}
+.chips{gap:5px;padding:1px 9px 5px 0}
+.chip{min-height:38px;padding:6px 11px;font-size:12.5px;box-shadow:none}
+.chip.selected{box-shadow:0 1px 5px rgba(139,92,246,.2)}
+.phrase-filter-panel{padding:12px}
+.phrase-filter-panel .filter-group{margin-bottom:9px}
+.phrase-filter-panel .filter-label{margin-bottom:4px}
+.phrase-filter-panel .select{min-height:38px;padding:5px 10px}
+.phrase-filter-panel .secondary-button{min-height:40px;padding:7px 11px}
+.dialogue-list{gap:6px}
+.dialogue-card{grid-template-columns:42px minmax(0,1fr);gap:10px;padding:10px 12px;border-radius:14px}
+.dialogue-thumb{width:42px;height:42px;border-radius:11px}
+.dialogue-card-body{min-width:0}
+.dialogue-title{font-size:16px;line-height:1.25;padding-right:40px}
+.dialogue-counts{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.25}
+.dialogue-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px 8px;margin-top:6px}
+.dialogue-meta .tag{padding:3px 6px}
+.episode-text{min-width:0;color:#b8c0d2;font-size:10.5px;line-height:1.35;overflow-wrap:anywhere}
+.dialogue-card .bookmark-button{top:5px;right:6px;width:38px;height:38px}
+@media (min-width:760px){.list-page-header{margin-bottom:16px}.phrase-filter-panel{padding:13px}.dialogue-card{grid-template-columns:44px minmax(0,1fr);padding:11px 13px}.dialogue-thumb{width:44px;height:44px}}
+
+/* v2.0 shared UI refinement 3: detail rhythm, shared search cards and episode rows. */
+.detail-page{padding-top:2px}
+.detail-page .detail-card{margin-top:0}
+.detail-page .detail-title{margin-top:5px;margin-bottom:7px}
+.detail-page .meta-line{margin-top:8px}
+.detail-page .detail-copy{margin:14px 0 10px}
+.dialogue-detail-page .dialogue-pager{margin:0 0 6px}
+.detail-page-header{margin:0 0 13px;padding-right:46px}
+.detail-page-header .page-title{margin-top:5px;margin-bottom:0}
+.detail-page-header .bookmark-button{top:16px}
+.search-results .phrase-card,.search-results .dialogue-card{width:100%}
+.search-results .phrase-grid{grid-template-columns:1fr}
+.search-section>.section-title{margin-bottom:9px}
+.episode-list{border-color:rgba(38,44,67,.82)}
+.episode-row{min-height:52px;padding:12px 14px}
+.episode-row:not(:last-child){border-bottom-color:rgba(38,44,67,.7)}
+.episode-row .row-end{display:grid;grid-template-columns:minmax(72px,auto) 12px;gap:9px;align-items:center}
+.episode-row .row-meta{text-align:right;font-variant-numeric:tabular-nums}
+.episode-chevron{width:12px;text-align:right;color:var(--muted);font-size:18px;line-height:1}
+@media (min-width:760px){.detail-page{padding-top:0}.episode-row{min-height:54px;padding:13px 16px}}
