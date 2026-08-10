@@ -9,7 +9,7 @@ const TODAY_TARGET = 10;
 let PHRASES=[],DIALOGUES=[],SEASONS=[];
 let route={name:"home",params:{}},historyStack=[],lastListContext=null,searchState={query:"",scrollTop:0};
 let filters={phrase:{season:"ALL",episode:"ALL",priority:"all",type:"all",usage:"all",bookmarked:false,weak:false},dialogue:{season:"ALL",episode:"ALL",category:"all",bookmarked:false},bookmarksTab:"phrase",quizSeason:"ALL",quizScope:"random"};
-const app=document.getElementById("app"),backButton=document.getElementById("backButton"),searchButton=document.getElementById("searchButton");
+const app=document.getElementById("app"),backButton=document.getElementById("backButton"),searchButton=document.getElementById("searchButton"),desktopContextBar=document.getElementById("desktopContextBar"),desktopBackButton=document.getElementById("desktopBackButton");
 
 const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const readJSON=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
@@ -40,7 +40,10 @@ function lineIcon(name,className=""){
     dialogues:'<path d="M4 5.5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Z"/><path d="M17 9.5h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2l-3-2h-4a2 2 0 0 1-2-2v-2"/>',
     quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.5 2.5 0 1 1 3.3 2.37c-.72.29-1 .76-1 1.63v.3"/><path d="M12 17.3h.01"/>',
     bookmark:'<path d="M6 3.5h12a1 1 0 0 1 1 1v16l-7-4-7 4v-16a1 1 0 0 1 1-1Z"/>',
-    menu:'<path d="M4 7h16M4 12h16M4 17h16"/>'
+    menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
+    search:'<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/>',
+    settings:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.97 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.52-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 10 3.05V3h4v.05a1.7 1.7 0 0 0 1.03 1.52 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 7l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.92 10H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/>',
+    info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>'
   };
   return `<svg class="line-icon ${className}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name]||""}</svg>`;
 }
@@ -48,9 +51,10 @@ function renderNav(){
   const items=[['home','home','Home'],['phrases','phrases','Phrases'],['dialogues','dialogues','Dialogues'],['quiz','quiz','Quiz'],['bookmarks','bookmark','Bookmarks']];
   const html=items.map(([id,icon,label])=>`<button class="nav-button ${activeNav()===id?'active':''}" onclick="navTo('${id}')" aria-current="${activeNav()===id?'page':'false'}"><span class="nav-icon">${lineIcon(icon)}</span><span>${label}</span></button>`).join("");
   document.getElementById("bottomNav").innerHTML=html;
-  document.getElementById("sidebar").innerHTML=`<div class="sidebar-brand">Sitcom<span>English in Action</span></div>${html}`;
+  document.getElementById("sidebar").innerHTML=`<div class="sidebar-brand">Sitcom<span>English in Action</span></div><div class="sidebar-primary">${html}<button class="nav-button" type="button" onclick="openSearch()"><span class="nav-icon">${lineIcon("search")}</span><span>Search</span></button></div><div class="sidebar-secondary"><button class="nav-button" type="button" onclick="openSettings()"><span class="nav-icon">${lineIcon("settings")}</span><span>Settings</span></button><button class="nav-button" type="button" onclick="openAbout()"><span class="nav-icon">${lineIcon("info")}</span><span>About</span></button></div>`;
   const onHome=route.name==="home"&&!historyStack.length;
   backButton.disabled=false;backButton.classList.toggle("home-menu-button",onHome);backButton.setAttribute("aria-label",onHome?"Menu":"Back");backButton.innerHTML=onHome?lineIcon("menu"):"←";
+  desktopContextBar.hidden=onHome;desktopBackButton.disabled=onHome;
 }
 
 function render(){
@@ -100,14 +104,14 @@ function continueLearning(){const value=getContinue();if(!value)return navigate(
 
 function closeModal(){document.getElementById("modalRoot").innerHTML=""}
 function openHomeMenu(){
-  document.getElementById("modalRoot").innerHTML=`<div class="modal-backdrop home-menu-backdrop"><div class="modal home-menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle"><div class="modal-heading"><h2 id="menuTitle">Menu</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><button class="menu-row" type="button" onclick="openSettings()"><strong>Settings</strong><span>›</span></button><button class="menu-row" type="button" onclick="openAbout()"><strong>About</strong><span>›</span></button></div></div>`;
+  document.getElementById("modalRoot").innerHTML=`<div class="drawer-backdrop" onclick="closeModal()"><aside class="home-drawer" role="dialog" aria-modal="true" aria-labelledby="menuTitle" onclick="event.stopPropagation()"><div class="drawer-heading"><h2 id="menuTitle">Menu</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><nav class="drawer-nav" aria-label="Menu"><button class="drawer-row" type="button" onclick="openSettings()"><span class="drawer-icon">${lineIcon("settings")}</span><span>Settings</span></button><button class="drawer-row" type="button" onclick="openAbout()"><span class="drawer-icon">${lineIcon("info")}</span><span>About</span></button></nav></aside></div>`;
 }
 function targetButton(value,current){return `<button class="chip ${current===value?'selected':''}" type="button" aria-pressed="${current===value}" onclick="setDailyTarget(${value})">${value}</button>`}
 function openSettings(showCustom=false,error=""){
   const current=dailyTarget(),custom=showCustom||![5,10,20].includes(current);
   document.getElementById("modalRoot").innerHTML=`<div class="modal-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-heading"><h2 id="settingsTitle">Settings</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><div class="filter-label">Daily Target</div><div class="target-options">${targetButton(5,current)}${targetButton(10,current)}${targetButton(20,current)}<button class="chip ${custom?'selected':''}" type="button" aria-pressed="${custom}" onclick="openSettings(true)">Custom</button></div>${custom?`<div class="custom-target"><label for="customTarget">Phrases per day</label><input id="customTarget" class="select" type="number" inputmode="numeric" min="1" max="999" step="1" value="${current}"><button class="primary-button" type="button" onclick="saveCustomTarget()">Save</button></div>`:""}${error?`<p class="setting-error" role="alert">${esc(error)}</p>`:""}</div></div>`;
 }
-function setDailyTarget(value){if(!Number.isInteger(value)||value<1||value>999)return;localStorage.setItem(STORE.dailyTarget,String(value));closeModal();renderHome()}
+function setDailyTarget(value){if(!Number.isInteger(value)||value<1||value>999)return;localStorage.setItem(STORE.dailyTarget,String(value));closeModal();if(route.name==="home")renderHome()}
 function saveCustomTarget(){const value=Number(document.getElementById("customTarget")?.value);if(!Number.isInteger(value)||value<1||value>999)return openSettings(true,"Enter a whole number from 1 to 999.");setDailyTarget(value)}
 function openAbout(){
   document.getElementById("modalRoot").innerHTML=`<div class="modal-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle"><div class="modal-heading"><h2 id="aboutTitle">About</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><div class="about-brand">Sitcom English in Action</div><p class="muted">Version 2.0</p><div class="about-series"><strong>Friends</strong><span>S1–S8</span><span>${PHRASES.length} phrases</span><span>${DIALOGUES.length} dialogues</span></div><div class="about-series"><strong>The Big Bang Theory</strong><span>Coming Soon</span></div></div></div>`;
@@ -123,7 +127,7 @@ function renderHome(){
   const continueTitle=p?p.phrase:d?d.title:"Friends · Choose where to start";const continueMeta=p?`Friends · ${p.episode} · Phrases`:d?`Friends · ${d.season} · Dialogues`:"Your learning position will appear here.";
   app.innerHTML=`<div class="dashboard">
     <section class="brand-visual"><h1 class="sr-only">Sitcom English in Action</h1><img src="assets/app-brand.webp" alt="Sitcom English in Action — 海外ドラマで楽しく英語を学ぼう" width="1600" height="640"></section>
-    <section class="card"><div class="section-head"><h2 class="section-title">Today</h2></div><div class="today-grid"><div class="today-stat"><span class="today-icon">🔥</span><span class="today-label">Streak</span><strong class="today-value">${a.streak} days</strong></div><div class="today-stat"><span class="today-icon">🎯</span><span class="today-label">Today</span><strong class="today-value">${a.today} / ${a.target}</strong></div><div class="today-stat"><span class="today-icon review-icon">🔄</span><span class="today-label">Review</span><strong class="today-value">${weakCount()} phrases</strong></div></div></section>
+    <section class="card"><div class="section-head"><h2 class="section-title">Today</h2></div><div class="today-grid"><div class="today-stat"><span class="today-icon">🔥</span><span class="today-label">Streak</span><strong class="today-value">${a.streak} days</strong></div><div class="today-stat"><span class="today-icon">🎯</span><span class="today-label">Today</span><strong class="today-value">${a.today} / ${a.target}</strong></div><div class="today-stat"><span class="today-icon review-icon">📕</span><span class="today-label">Review</span><strong class="today-value">${weakCount()} phrases</strong></div></div></section>
     <section class="card continue-card"><div><div class="continue-kicker">Continue Learning</div><h2 class="continue-title">${esc(continueTitle)}</h2><div class="continue-meta">${esc(continueMeta)}${cont?`<br>Last studied: ${localDate(new Date(cont.timestamp))===localDate()?'Today':localDate(new Date(cont.timestamp))}`:""}</div></div><button class="primary-button" onclick="continueLearning()">Continue →</button></section>
     <section class="card series-section"><div class="section-head"><h2 class="section-title">Series</h2></div><div class="series-grid">${SERIES.map(s=>`<button class="series-card series-${s.id} ${s.available?'':'disabled'}" ${s.available?'onclick="navigate(\'series\')"':'disabled'}><span class="series-overlay"><span class="series-name">${esc(s.name)}</span><span class="series-state">${s.available?'S1–S8 available':'Coming Soon'}</span></span></button>`).join("")}</div></section>
     <section class="card compact-card"><div><h2 class="section-title">Daily Quiz</h2><p class="page-subtitle">10 questions. See what sticks.</p><div class="desktop-only section">${quizStatsMarkup()}</div></div><button class="primary-button" onclick="navigate('quiz')">Start →</button></section>
@@ -197,5 +201,6 @@ function openSearchDialogueResult(id){openSearchResult("dialogue",id)}
 function showConfirm(message,action){const root=document.getElementById("modalRoot");root.innerHTML=`<div class="modal-backdrop"><div class="modal" role="dialog" aria-modal="true"><h2>Confirm</h2><p class="muted">${esc(message)}</p><div class="button-row"><button class="secondary-button" id="cancelConfirm">Cancel</button><button class="primary-button" id="acceptConfirm">Start Over</button></div></div></div>`;document.getElementById("cancelConfirm").onclick=closeModal;document.getElementById("acceptConfirm").onclick=()=>{closeModal();action()}}
 
 backButton.addEventListener("click",()=>route.name==="home"&&!historyStack.length?openHomeMenu():goBack());searchButton.addEventListener("click",openSearch);
+desktopBackButton.addEventListener("click",goBack);
 document.addEventListener("keydown",event=>{if(event.key==="Escape"){closeSearch();closeModal()}});
 document.addEventListener("DOMContentLoaded",async()=>{try{await loadData();render()}catch(error){console.error(error);app.innerHTML='<section class="card"><h1>Data could not be loaded.</h1><p class="muted">Open the app through GitHub Pages or a local web server.</p></section>'}});

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#070912">
   <title>Sitcom English in Action</title>
-  <link rel="stylesheet" href="css/style.css?v=2.0.5">
+  <link rel="stylesheet" href="css/style.css?v=2.0.6">
 </head>
 <body>
   <div class="app-shell">
@@ -15,6 +15,9 @@
         <button id="backButton" class="icon-button back-button" type="button" aria-label="Back">←</button>
         <button id="searchButton" class="icon-button" type="button" aria-label="Universal Search">⌕</button>
       </header>
+      <div id="desktopContextBar" class="desktop-contextbar" hidden>
+        <button id="desktopBackButton" class="text-button desktop-back-button" type="button">← Back</button>
+      </div>
       <main id="app" class="main" tabindex="-1">
         <section class="loading-card">Loading data…</section>
       </main>
@@ -22,6 +25,6 @@
   </div>
   <nav id="bottomNav" class="bottom-nav" aria-label="Global navigation"></nav>
   <div id="modalRoot"></div>
-  <script src="js/app.js?v=2.0.5" defer></script>
+  <script src="js/app.js?v=2.0.6" defer></script>
 </body>
 </html>
