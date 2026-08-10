@@ -23,14 +23,14 @@ const normalize=value=>String(value||"").toLowerCase().replace(/[’]/g,"'").nor
 async function loadData(){
   const datasets=await Promise.all(DATA_FILES.map(async path=>{const response=await fetch(path);if(!response.ok)throw new Error(`${path}: ${response.status}`);return response.json()}));
   PHRASES=datasets.flatMap(x=>x.phrases||[]);DIALOGUES=datasets.flatMap(x=>x.dialogues||[]);SEASONS=datasets.map(x=>Number(x.season)).filter(Number.isFinite).sort((a,b)=>a-b);
-  const saved=readJSON(STORE.state,{});if(saved.currentSeries==="friends") filters={...filters,...saved.filters,phrase:{...filters.phrase,...saved.filters?.phrase},dialogue:{...filters.dialogue,...saved.filters?.dialogue}};
+  const saved=readJSON(STORE.state,{});if(saved.currentSeries==="friends") filters={...filters,...saved.filters,phrase:{...filters.phrase,...saved.filters?.phrase,weak:false},dialogue:{...filters.dialogue,...saved.filters?.dialogue}};
 }
 
-function saveAppState(){writeJSON(STORE.state,{version:2,currentSeries:"friends",filters});}
+function saveAppState(){writeJSON(STORE.state,{version:2,currentSeries:"friends",filters:{...filters,phrase:{...filters.phrase,weak:false}}});}
 function navigate(name,params={},options={}){if(!options.replace)historyStack.push({name:route.name,params:{...route.params},scrollY:window.scrollY});route={name,params};render();}
 function goBack(){const returnToSearch=Boolean(route.params?.fromSearch),previous=historyStack.pop();if(previous){route={name:previous.name,params:previous.params};render();requestAnimationFrame(()=>window.scrollTo({top:previous.scrollY||0,behavior:"instant"}));if(returnToSearch)requestAnimationFrame(()=>openSearch(true))}else navigate("home",{}, {replace:true});}
 function goHome(){historyStack=[];route={name:"home",params:{}};render();}
-function navTo(mode){if(mode==="home")return goHome();const map={phrases:"phrases",dialogues:"dialogues",quiz:"quiz",bookmarks:"bookmarks"};historyStack=[];route={name:map[mode],params:{}};render();}
+function navTo(mode){if(mode==="home")return goHome();if(mode==="phrases")filters.phrase.weak=false;const map={phrases:"phrases",dialogues:"dialogues",quiz:"quiz",bookmarks:"bookmarks"};historyStack=[];route={name:map[mode],params:{}};render();}
 
 function activeNav(){if(["phraseDetail","episodes"].includes(route.name))return"phrases";if(route.name==="dialogueDetail")return"dialogues";if(route.name==="quizPlay"||route.name==="quizResult")return"quiz";return route.name;}
 function lineIcon(name,className=""){
@@ -114,7 +114,7 @@ function openTarget(showCustom=false,error=""){
 function setDailyTarget(value){if(!Number.isInteger(value)||value<1||value>999)return;localStorage.setItem(STORE.dailyTarget,String(value));closeModal();if(route.name==="home")renderHome()}
 function saveCustomTarget(){const value=Number(document.getElementById("customTarget")?.value);if(!Number.isInteger(value)||value<1||value>999)return openTarget(true,"Enter a whole number from 1 to 999.");setDailyTarget(value)}
 function openStreak(){const days=activityStats().streak,message=days===0?"Start your streak today!":days===1?"Nice start!":`${days}-day streak! Keep it going.`;document.getElementById("modalRoot").innerHTML=`<div class="modal-backdrop" onclick="closeModal()"><div class="modal streak-modal" role="dialog" aria-modal="true" aria-labelledby="streakTitle" onclick="event.stopPropagation()"><div class="modal-heading"><h2 id="streakTitle">Streak</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><div class="streak-emoji">🔥</div><strong class="streak-days">${days} ${days===1?'day':'days'}</strong><p class="muted">${esc(message)}</p></div></div>`}
-function openWeakReview(){filters.phrase.weak=true;saveAppState();historyStack=[];route={name:"phrases",params:{}};render()}
+function openWeakReview(){filters.phrase.weak=true;historyStack=[];route={name:"phrases",params:{}};render()}
 function openAbout(){
   document.getElementById("modalRoot").innerHTML=`<div class="modal-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle"><div class="modal-heading"><h2 id="aboutTitle">About</h2><button class="icon-button modal-close" type="button" onclick="closeModal()" aria-label="Close">×</button></div><div class="about-brand">Sitcom English in Action</div><p class="muted">Version 2.0</p><div class="about-series"><strong>Friends</strong><span>S1–S8</span><span>${PHRASES.length} phrases</span><span>${DIALOGUES.length} dialogues</span></div><div class="about-series"><strong>The Big Bang Theory</strong><span>Coming Soon</span></div></div></div>`;
 }
