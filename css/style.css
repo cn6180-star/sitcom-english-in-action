@@ -77,7 +77,7 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .detail-page .detail-title{margin-top:5px;margin-bottom:7px}
 .detail-page .meta-line{margin-top:8px}
 .detail-page .detail-copy{margin:14px 0 10px}
-.dialogue-detail-page .dialogue-pager{margin:0 0 6px}
+.dialogue-detail-page .dialogue-pager,.phrase-detail-page .dialogue-pager{margin:0 0 6px}
 .detail-page-header{margin:0 0 13px;padding-right:46px}
 .detail-page-header .page-title{margin-top:5px;margin-bottom:0}
 .detail-page-header .bookmark-button{top:16px}

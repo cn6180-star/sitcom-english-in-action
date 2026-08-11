@@ -35,3 +35,5 @@ Progressページでは、Friends全体とSeason別のLearned進捗を表示し�
 Progressページの「学習進捗をリセット」は、確認後にFriendsのLearned stateだけを全解除します。Bookmark、Weak、Quiz履歴などの保存データは変更しません。
 
 HomeのTodayカードにはStreak、Target、Friends全体のLearned進捗を表示します。Progressの数値はProgressページと同じ集計を再利用し、Homeから専用ページへ移動できます。
+
+Phrase Detailでは、一覧を開いた時点の表示対象と順番を固定したPrevious / Nextナビゲーションを利用できます。Detail内でLearnedやBookmarkを変更しても移動順は維持され、Backでは元の一覧とフィルター状態へ戻ります。
