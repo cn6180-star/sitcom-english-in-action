@@ -159,9 +159,11 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 .detail-actions .bookmark-button{position:static;flex:0 0 42px}
 .learned-button{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface-2);color:var(--muted);font-size:13px;font-weight:800;cursor:pointer}
 .learned-button .learned-icon{width:18px;height:18px;flex:0 0 auto}
+.learned-button:not(.on){border-color:var(--border);box-shadow:none;background:var(--surface-2);color:var(--muted)}
+.learned-button:not(.on) .learned-icon{stroke:currentColor;fill:none}
 .learned-button.on{color:#ede9fe;background:var(--purple-soft);border-color:#7656b5}
 .learned-button.on .learned-icon{stroke:#c4b5fd;fill:rgba(139,92,246,.18)}
-.learned-button:hover,.learned-button:focus-visible{border-color:#7656b5}
+.learned-button:not(.on):hover{border-color:var(--border);box-shadow:none;background:var(--surface-2);color:var(--muted)}
 .learned-button:focus-visible{outline:2px solid var(--purple-2);outline-offset:2px}
 .learned-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 7px;border:1px solid #604790;border-radius:999px;background:var(--purple-soft);color:#ddd6fe;font-size:10px;font-weight:800;line-height:1}
 .learned-badge .learned-icon{width:13px;height:13px;flex:0 0 auto;stroke:#c4b5fd}
