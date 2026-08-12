@@ -4,9 +4,9 @@ GitHub Pagesで動作する、海外ドラマ英語の静的学習アプリで�
 
 ## 収録データ
 
-- Friends Season 1–8
-- 947 phrases
-- 149 dialogues
+- Friends Season 1–9
+- 1063 phrases
+- 167 dialogues
 
 ## 起動方法
 
