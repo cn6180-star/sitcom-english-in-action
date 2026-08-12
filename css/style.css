@@ -94,7 +94,14 @@ button,input,select{font:inherit}button{color:inherit}.app-shell{min-height:100v
 
 /* v2.0 shared UI refinement 4: branded home, menu/settings and weak browsing. */
 .main.home-view:focus{outline:none}
-@media (min-width:760px) and (max-width:1099px){.main[tabindex="-1"]:focus{outline:none}}
+/* The route renderer focuses this non-interactive landmark for screen-reader
+   navigation. Safari can paint that programmatic focus as a blue ring around
+   the whole content area (most visibly as horizontal lines on iPad). Keep the
+   focus target, but reserve visible focus indicators for actual controls. */
+.main[tabindex="-1"]:focus,.main[tabindex="-1"]:focus-visible{
+  outline:none;
+  box-shadow:none;
+}
 .brand-visual{grid-column:1/-1;width:100%;max-width:1000px;margin:0 auto 2px;border-radius:18px;overflow:hidden;background:#080b19}
 .brand-visual img{display:block;width:100%;height:auto;aspect-ratio:1600/640;object-fit:contain}
 .series-section{min-width:0}
